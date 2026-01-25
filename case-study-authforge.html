@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.boxicons.com">
+    <link rel="preconnect" href="https://unpkg.com">
+    <!-- CACHE BUSTING: Updated to v=1.6 -->
+    <link rel="stylesheet" href="CSS/style.css?v=1.6">
+    <!-- Social Sharing / Open Graph Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://cliffdetech.dev/case-study-authforge.html">
+    <meta property="og:title" content="AuthForge Case Study | Clifford Opoku-Sarkodie - Backend Engineer">
+    <meta property="og:description"
+        content="Deep dive into AuthForge: A centralized authentication microservice with JWT, RBAC, and enterprise-grade security.">
+    <meta property="og:image" content="https://cliffdetech.dev/assets/me.webp">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AuthForge Case Study | Clifford Opoku-Sarkodie - Backend Engineer">
+    <meta name="twitter:description"
+        content="Deep dive into AuthForge: A centralized authentication microservice with JWT, RBAC, and enterprise-grade security.">
+    <meta name="twitter:image" content="https://cliffdetech.dev/assets/me.webp">
+    <link href='https://cdn.boxicons.com/3.0.4/fonts/brands/boxicons-brands.min.css' rel='stylesheet'>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet' media="print"
+        onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+    </noscript>
+    <link rel="icon" type="image/png" href="assets/icons/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
+    <link rel="shortcut icon" href="assets/icons/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png" />
+    <link rel="manifest" href="assets/icons/site.webmanifest" />
+    <meta name="theme-color" content="#00d4ff">
+    <title>AuthForge Case Study | Clifford Opoku-Sarkodie - Backend Engineer</title>
+    <meta name="google-site-verification" content="UxjWMFhIU8iz2KEHdoypfxotkE1lo-xSWkkKhqYYpBE" />
+    <meta name="description"
+        content="Technical case study of AuthForge by Clifford Opoku-Sarkodie. Explore the JWT authentication flow, RBAC implementation, and security patterns behind this enterprise-grade auth microservice." />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Space+Grotesk:wght@600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <!-- Mermaid.js for diagrams -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <script>
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'dark',
+            themeVariables: {
+                primaryColor: '#00d4ff',
+                primaryTextColor: '#e2e8f0',
+                primaryBorderColor: '#334155',
+                lineColor: '#64748b',
+                secondaryColor: '#a855f7',
+                tertiaryColor: '#1e293b'
+            }
+        });
+    </script>
+</head>
+
+<body>
+
+    <canvas id="bg-canvas" aria-hidden="true"></canvas>
+    <div class="bg-overlay-gradient" aria-hidden="true"></div>
+
+    <nav class="nav">
+        <a class="brand" href="index.html" aria-label="Home">
+            <img src="assets/logo.webp" alt="Cliff-De-Tech Logo" width="32" height="32" />
+            <span>Cliff-De-Tech</span>
+        </a>
+        <ul>
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="about.html" class="nav-link">About Me</a></li>
+            <li><a href="skills.html" class="nav-link">Skills</a></li>
+            <li><a href="portfolio.html" class="nav-link">Projects</a></li>
+            <li><a href="playground.html" class="nav-link">Playground</a></li>
+            <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+            <i class='bx bxs-moon'></i>
+        </button>
+        <button class="menu-btn" aria-label="Open menu">&#9776;</button>
+    </nav>
+
+    <!-- Case Study Hero -->
+    <section class="case-study-hero">
+        <div class="case-hero-content reveal">
+            <span class="case-badge"><i class='bx bx-lock-alt'></i> Security</span>
+            <h1>AuthForge</h1>
+            <p class="case-tagline">Enterprise-Grade Authentication Microservice</p>
+            <div class="case-meta">
+                <span><i class='bx bx-calendar'></i> 2024</span>
+                <span><i class='bx bx-code-alt'></i> TypeScript, Node.js, JWT</span>
+                <span><i class='bx bx-check-circle'></i> Production Ready</span>
+            </div>
+            <div class="case-actions">
+                <a href="https://github.com/cliff-de-tech/AuthForge" target="_blank" class="button">
+                    <i class='bx bxl-github'></i> View on GitHub
+                </a>
+                <a href="portfolio.html" class="button secondary">
+                    <i class='bx bx-arrow-back'></i> Back to Projects
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Overview Section -->
+    <section class="case-section reveal">
+        <div class="case-container">
+            <h2><i class='bx bx-info-circle'></i> Project Overview</h2>
+
+            <div class="overview-grid">
+                <div class="overview-card">
+                    <h3>The Problem</h3>
+                    <p>Every new microservice was reinventing authentication—scattered JWT logic, inconsistent password
+                        policies, and zero visibility into access patterns across the platform.</p>
+                </div>
+                <div class="overview-card">
+                    <h3>The Solution</h3>
+                    <p>A centralized authentication microservice with enterprise-grade security: JWT with refresh token
+                        rotation, fine-grained RBAC, and comprehensive audit logging.</p>
+                </div>
+                <div class="overview-card">
+                    <h3>Key Metrics</h3>
+                    <ul>
+                        <li>🔐 Zero authentication vulnerabilities in security audit</li>
+                        <li>⚡ Sub-10ms token validation latency</li>
+                        <li>📊 100% API call traceability via audit logs</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- System Architecture -->
+    <section class="case-section reveal">
+        <div class="case-container">
+            <h2><i class='bx bx-sitemap'></i> System Architecture</h2>
+            <p class="section-intro">High-level overview of the authentication flow and security layers.</p>
+
+            <div class="diagram-container">
+                <div class="mermaid">
+                    flowchart TB
+                    subgraph Client["Client Applications"]
+                    WEB[Web App]
+                    MOBILE[Mobile App]
+                    API_CLIENT[API Client]
+                    end
+
+                    subgraph Gateway["API Gateway"]
+                    AUTH_MW[Auth Middleware]
+                    RATE[Rate Limiter]
+                    end
+
+                    subgraph AuthForge["AuthForge Service"]
+                    LOGIN[Login Handler]
+                    REGISTER[Registration]
+                    TOKEN[Token Service]
+                    RBAC[RBAC Engine]
+                    AUDIT[Audit Logger]
+                    end
+
+                    subgraph Security["Security Layer"]
+                    HASH[Password Hasher]
+                    JWT_SIGN[JWT Signer]
+                    REFRESH[Refresh Token Manager]
+                    end
+
+                    subgraph Data["Data Layer"]
+                    POSTGRES[(PostgreSQL)]
+                    REDIS[(Redis Cache)]
+                    end
+
+                    WEB --> AUTH_MW
+                    MOBILE --> AUTH_MW
+                    API_CLIENT --> AUTH_MW
+                    AUTH_MW --> RATE
+                    RATE --> LOGIN
+                    RATE --> REGISTER
+
+                    LOGIN --> HASH
+                    LOGIN --> TOKEN
+                    REGISTER --> HASH
+
+                    TOKEN --> JWT_SIGN
+                    TOKEN --> REFRESH
+                    TOKEN --> RBAC
+
+                    LOGIN --> AUDIT
+                    REGISTER --> AUDIT
+                    TOKEN --> AUDIT
+
+                    HASH --> POSTGRES
+                    RBAC --> POSTGRES
+                    AUDIT --> POSTGRES
+                    REFRESH --> REDIS
+                    TOKEN --> REDIS
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Database Schema -->
+    <section class="case-section reveal">
+        <div class="case-container">
+            <h2><i class='bx bx-data'></i> Database Schema</h2>
+            <p class="section-intro">Entity-Relationship diagram showing the RBAC and session management models.</p>
+
+            <div class="diagram-container">
+                <div class="mermaid">
+                    erDiagram
+                    USERS ||--o{ USER_ROLES : has
+                    USERS ||--o{ SESSIONS : owns
+                    USERS ||--o{ AUDIT_LOGS : generates
+                    ROLES ||--o{ USER_ROLES : assigned
+                    ROLES ||--o{ ROLE_PERMISSIONS : grants
+                    PERMISSIONS ||--o{ ROLE_PERMISSIONS : belongs
+
+                    USERS {
+                    uuid id PK
+                    string email UK
+                    string password_hash
+                    string name
+                    boolean is_active
+                    boolean email_verified
+                    timestamp created_at
+                    timestamp last_login
+                    }
+
+                    ROLES {
+                    uuid id PK
+                    string name UK
+                    string description
+                    boolean is_system
+                    timestamp created_at
+                    }
+
+                    PERMISSIONS {
+                    uuid id PK
+                    string resource
+                    string action
+                    string description
+                    }
+
+                    USER_ROLES {
+                    uuid user_id FK
+                    uuid role_id FK
+                    timestamp assigned_at
+                    }
+
+                    ROLE_PERMISSIONS {
+                    uuid role_id FK
+                    uuid permission_id FK
+                    }
+
+                    SESSIONS {
+                    uuid id PK
+                    uuid user_id FK
+                    string refresh_token_hash
+                    string ip_address
+                    string user_agent
+                    timestamp expires_at
+                    timestamp created_at
+                    }
+
+                    AUDIT_LOGS {
+                    uuid id PK
+                    uuid user_id FK
+                    string action
+                    string resource
+                    json metadata
+                    string ip_address
+                    timestamp created_at
+                    }
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Challenges -->
+    <section class="case-section reveal">
+        <div class="case-container">
+            <h2><i class='bx bx-bug'></i> Engineering Challenges</h2>
+
+            <div class="challenges-grid">
+                <div class="challenge-card">
+                    <div class="challenge-header">
+                        <span class="challenge-num">01</span>
+                        <h3>Secure Token Refresh Flow</h3>
+                    </div>
+                    <div class="challenge-body">
+                        <h4>Problem</h4>
+                        <p>Refresh tokens are high-value targets. A stolen token could grant indefinite access if not
+                            properly managed.</p>
+                        <h4>Solution</h4>
+                        <p>Implemented refresh token rotation—each use generates a new token and invalidates the old
+                            one. Tokens are hashed before storage and tied to device fingerprints.</p>
+                        <div class="code-snippet">
+                            <pre><code class="typescript">// Refresh token rotation with reuse detection
+async function rotateRefreshToken(oldToken: string) {
+  const session = await redis.get(`refresh:${hash(oldToken)}`);
+  
+  if (!session) {
+    // Potential token reuse attack - invalidate all user sessions
+    await invalidateAllUserSessions(session.userId);
+    throw new SecurityError('Token reuse detected');
+  }
+  
+  // Generate new token pair
+  const newRefresh = generateSecureToken();
+  await redis.del(`refresh:${hash(oldToken)}`);
+  await redis.setex(`refresh:${hash(newRefresh)}`, REFRESH_TTL, session);
+  
+  return { accessToken: signJWT(session), refreshToken: newRefresh };
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="challenge-card">
+                    <div class="challenge-header">
+                        <span class="challenge-num">02</span>
+                        <h3>Fine-Grained RBAC at Scale</h3>
+                    </div>
+                    <div class="challenge-body">
+                        <h4>Problem</h4>
+                        <p>Permission checks on every request added latency. Complex role hierarchies made the logic
+                            hard to maintain.</p>
+                        <h4>Solution</h4>
+                        <p>Pre-computed permission sets cached in Redis with TTL. Role changes trigger cache
+                            invalidation. Permission checks become O(1) hash lookups.</p>
+                        <div class="code-snippet">
+                            <pre><code class="typescript">// Cached permission check with lazy loading
+async function hasPermission(userId: string, resource: string, action: string) {
+  const cacheKey = `perms:${userId}`;
+  let permissions = await redis.smembers(cacheKey);
+  
+  if (!permissions.length) {
+    // Cache miss - compute and cache permissions
+    permissions = await computeEffectivePermissions(userId);
+    await redis.sadd(cacheKey, ...permissions);
+    await redis.expire(cacheKey, PERMISSION_CACHE_TTL);
+  }
+  
+  return permissions.includes(`${resource}:${action}`);
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="challenge-card">
+                    <div class="challenge-header">
+                        <span class="challenge-num">03</span>
+                        <h3>Password Policy Enforcement</h3>
+                    </div>
+                    <div class="challenge-body">
+                        <h4>Problem</h4>
+                        <p>Users chose weak passwords. Password history wasn't tracked, allowing reuse of compromised
+                            credentials.</p>
+                        <h4>Solution</h4>
+                        <p>Implemented zxcvbn strength scoring, breach database checks via k-anonymity (HaveIBeenPwned
+                            API), and password history with configurable depth.</p>
+                        <div class="code-snippet">
+                            <pre><code class="typescript">// Multi-layer password validation
+async function validatePassword(password: string, userId?: string) {
+  // Strength check
+  const strength = zxcvbn(password);
+  if (strength.score < MIN_STRENGTH) {
+    throw new ValidationError(strength.feedback.warning);
+  }
+  
+  // Breach check via k-anonymity
+  const isBreached = await checkHIBP(password);
+  if (isBreached) {
+    throw new ValidationError('Password found in data breach');
+  }
+  
+  // History check (if updating)
+  if (userId) {
+    const history = await getPasswordHistory(userId, HISTORY_DEPTH);
+    for (const oldHash of history) {
+      if (await bcrypt.compare(password, oldHash)) {
+        throw new ValidationError('Cannot reuse recent passwords');
+      }
+    }
+  }
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lessons Learned -->
+    <section class="case-section reveal">
+        <div class="case-container">
+            <h2><i class='bx bx-bulb'></i> Key Takeaways</h2>
+
+            <div class="takeaways-list">
+                <div class="takeaway-item">
+                    <span class="takeaway-icon">🔑</span>
+                    <div>
+                        <h4>Defense in Depth</h4>
+                        <p>Never rely on a single security layer. Combine JWT validation, rate limiting, device
+                            fingerprinting, and anomaly detection.</p>
+                    </div>
+                </div>
+                <div class="takeaway-item">
+                    <span class="takeaway-icon">📝</span>
+                    <div>
+                        <h4>Audit Everything</h4>
+                        <p>Every authentication event is logged with context. Invaluable for incident response and
+                            compliance requirements.</p>
+                    </div>
+                </div>
+                <div class="takeaway-item">
+                    <span class="takeaway-icon">🚀</span>
+                    <div>
+                        <h4>Cache Strategically</h4>
+                        <p>Permission lookups happen on every request. Pre-computing and caching reduced auth overhead
+                            from 50ms to under 5ms.</p>
+                    </div>
+                </div>
+                <div class="takeaway-item">
+                    <span class="takeaway-icon">🔄</span>
+                    <div>
+                        <h4>Token Rotation is Essential</h4>
+                        <p>Refresh token rotation with reuse detection catches replay attacks and limits the damage
+                            window of stolen tokens.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="case-cta reveal">
+        <div class="case-container">
+            <h2>Interested in the Technical Details?</h2>
+            <p>Check out the full source code or reach out to discuss the architecture.</p>
+            <div class="cta-buttons">
+                <a href="https://github.com/cliff-de-tech/AuthForge" target="_blank" class="button">
+                    <i class='bx bxl-github'></i> View Source Code
+                </a>
+                <a href="contact.html" class="button secondary">
+                    <i class='bx bx-envelope'></i> Get in Touch
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <img src="assets/logo.webp" alt="Cliff-De-Tech Logo" class="footer-logo" width="40" height="40">
+                <p>Bridging complex backend logic and intuitive frontend design to create secure, high-performance
+                    digital
+                    systems.</p>
+                <div class="footer-socials">
+                    <a href="https://github.com/cliff-de-tech" target="_blank" rel="noopener" aria-label="GitHub"><i
+                            class='bx bxl-github'></i></a>
+                    <a href="https://www.linkedin.com/in/clifford-opoku-sarkodie-377505369/" target="_blank"
+                        rel="noopener" aria-label="LinkedIn"><i class='bx bxl-linkedin'></i></a>
+                    <a href="https://www.instagram.com/cliffdetech/" target="_blank" rel="noopener"
+                        aria-label="Instagram"><i class='bx bxl-instagram'></i></a>
+                    <a href="https://x.com/cliffdetech" target="_blank" rel="noopener" aria-label="X"><i
+                            class='bxl  bx-twitter-x'></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="about.html">About Me</a></li>
+                    <li><a href="portfolio.html">Projects</a></li>
+                    <li><a href="skills.html">Skills</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Backend Services</h4>
+                <ul>
+                    <li>API Development</li>
+                    <li>Database Design</li>
+                    <li>Authentication Systems</li>
+                    <li>DevSecOps</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Clifford Opoku-Sarkodie. Crafted with backend precision, delivered with frontend finesse.</p>
+        </div>
+    </footer>
+
+    <script src="JS/main.js?v=1.1"></script>
+    <script src="JS/enhancements.js?v=1.0"></script>
+    <script src="JS/chatbot.js?v=1.0"></script>
+</body>
+
+</html>

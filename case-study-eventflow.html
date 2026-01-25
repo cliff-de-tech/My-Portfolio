@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.boxicons.com">
+    <link rel="preconnect" href="https://unpkg.com">
+    <!-- CACHE BUSTING: Updated to v=1.6 -->
+    <link rel="stylesheet" href="CSS/style.css?v=1.6">
+    <!-- Social Sharing / Open Graph Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://cliffdetech.dev/case-study-eventflow.html">
+    <meta property="og:title" content="EventFlow Case Study | Clifford Opoku-Sarkodie - Backend Engineer">
+    <meta property="og:description"
+        content="Deep dive into EventFlow: An event-driven pipeline with Redis Streams, circuit breakers, and real-time observability.">
+    <meta property="og:image" content="https://cliffdetech.dev/assets/me.webp">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="EventFlow Case Study | Clifford Opoku-Sarkodie - Backend Engineer">
+    <meta name="twitter:description"
+        content="Deep dive into EventFlow: An event-driven pipeline with Redis Streams, circuit breakers, and real-time observability.">
+    <meta name="twitter:image" content="https://cliffdetech.dev/assets/me.webp">
+    <link href='https://cdn.boxicons.com/3.0.4/fonts/brands/boxicons-brands.min.css' rel='stylesheet'>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet' media="print"
+        onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+    </noscript>
+    <link rel="icon" type="image/png" href="assets/icons/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
+    <link rel="shortcut icon" href="assets/icons/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png" />
+    <link rel="manifest" href="assets/icons/site.webmanifest" />
+    <meta name="theme-color" content="#00d4ff">
+    <title>EventFlow Case Study | Clifford Opoku-Sarkodie - Backend Engineer</title>
+    <meta name="google-site-verification" content="UxjWMFhIU8iz2KEHdoypfxotkE1lo-xSWkkKhqYYpBE" />
+    <meta name="description"
+        content="Technical case study of EventFlow by Clifford Opoku-Sarkodie. Explore the event-driven architecture, Redis Streams implementation, and observability stack." />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Space+Grotesk:wght@600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <!-- Mermaid.js for diagrams -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <script>
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'dark',
+            themeVariables: {
+                primaryColor: '#00d4ff',
+                primaryTextColor: '#e2e8f0',
+                primaryBorderColor: '#334155',
+                lineColor: '#64748b',
+                secondaryColor: '#a855f7',
+                tertiaryColor: '#1e293b'
+            }
+        });
+    </script>
+</head>
+
+<body>
+
+    <canvas id="bg-canvas" aria-hidden="true"></canvas>
+    <div class="bg-overlay-gradient" aria-hidden="true"></div>
+
+    <nav class="nav">
+        <a class="brand" href="index.html" aria-label="Home">
+            <img src="assets/logo.webp" alt="Cliff-De-Tech Logo" width="32" height="32" />
+            <span>Cliff-De-Tech</span>
+        </a>
+        <ul>
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="about.html" class="nav-link">About Me</a></li>
+            <li><a href="skills.html" class="nav-link">Skills</a></li>
+            <li><a href="portfolio.html" class="nav-link">Projects</a></li>
+            <li><a href="playground.html" class="nav-link">Playground</a></li>
+            <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+            <i class='bx bxs-moon'></i>
+        </button>
+        <button class="menu-btn" aria-label="Open menu">&#9776;</button>
+    </nav>
+
+    <!-- Case Study Hero -->
+    <section class="case-study-hero">
+        <div class="case-hero-content reveal">
+            <span class="case-badge"><i class='bx bx-broadcast'></i> DevSecOps</span>
+            <h1>EventFlow</h1>
+            <p class="case-tagline">Event-Driven Pipeline with Real-Time Observability</p>
+            <div class="case-meta">
+                <span><i class='bx bx-calendar'></i> 2024</span>
+                <span><i class='bx bx-code-alt'></i> Python, FastAPI, Redis Streams</span>
+                <span><i class='bx bx-check-circle'></i> Production Ready</span>
+            </div>
+            <div class="case-actions">
+                <a href="https://github.com/cliff-de-tech/EventFlow" target="_blank" class="button">
+                    <i class='bx bxl-github'></i> View on GitHub
+                </a>
+                <a href="portfolio.html" class="button secondary">
+                    <i class='bx bx-arrow-back'></i> Back to Projects
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Overview Section -->
+    <section class="case-section reveal">
+        <div class="case-container">
+            <h2><i class='bx bx-info-circle'></i> Project Overview</h2>
+
+            <div class="overview-grid">
+                <div class="overview-card">
+                    <h3>The Problem</h3>
+                    <p>Critical system events were vanishing into the void—no reliable delivery, no retry on failure,
+                        and
+                        zero observability into what was happening under the hood.</p>
+                </div>
+                <div class="overview-card">
+                    <h3>The Solution</h3>
+                    <p>An event-driven pipeline with Redis Streams for at-least-once delivery, circuit breakers for
+                        resilience, dead-letter queues for failed events, and Prometheus/Grafana for real-time
+                        observability.</p>
+                </div>
+                <div class="overview-card">
+                    <h3>Key Metrics</h3>
+                    <ul>
+                        <li>🚀 99.99% event delivery rate</li>
+                        <li>⚡ Sub-100ms end-to-end latency (p95)</li>
+                        <li>📊 Real-time dashboards for all event flows</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- System Architecture -->
+    <section class="case-section reveal">
+        <div class="case-container">
+            <h2><i class='bx bx-sitemap'></i> System Architecture</h2>
+            <p class="section-intro">High-level overview of the event pipeline and observability stack.</p>
+
+            <div class="diagram-container">
+                <div class="mermaid">
+                    flowchart TB
+                    subgraph Producers["Event Producers"]
+                    API[API Services]
+                    WORKER[Background Workers]
+                    WEBHOOK[Webhook Handlers]
+                    end
+
+                    subgraph EventBus["Event Bus - Redis Streams"]
+                    STREAM[Event Stream]
+                    CONSUMER_GROUP[Consumer Groups]
+                    end
+
+                    subgraph Consumers["Event Consumers"]
+                    HANDLER1[Email Handler]
+                    HANDLER2[Notification Handler]
+                    HANDLER3[Analytics Handler]
+                    HANDLER4[Webhook Dispatcher]
+                    end
+
+                    subgraph Resilience["Resilience Layer"]
+                    CIRCUIT[Circuit Breaker]
+                    RETRY[Retry Manager]
+                    DLQ[Dead Letter Queue]
+                    end
+
+                    subgraph Observability["Observability Stack"]
+                    PROMETHEUS[Prometheus]
+                    GRAFANA[Grafana Dashboards]
+                    ALERTS[Alert Manager]
+                    end
+
+                    API --> STREAM
+                    WORKER --> STREAM
+                    WEBHOOK --> STREAM
+
+                    STREAM --> CONSUMER_GROUP
+                    CONSUMER_GROUP --> HANDLER1
+                    CONSUMER_GROUP --> HANDLER2
+                    CONSUMER_GROUP --> HANDLER3
+                    CONSUMER_GROUP --> HANDLER4
+
+                    HANDLER1 --> CIRCUIT
+                    HANDLER2 --> CIRCUIT
+                    HANDLER3 --> CIRCUIT
+                    HANDLER4 --> CIRCUIT
+
+                    CIRCUIT --> RETRY
+                    RETRY --> DLQ
+
+                    STREAM --> PROMETHEUS
+                    CIRCUIT --> PROMETHEUS
+                    DLQ --> PROMETHEUS
+                    PROMETHEUS --> GRAFANA
+                    PROMETHEUS --> ALERTS
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Database Schema -->
+    <section class="case-section reveal">
+        <div class="case-container">
+            <h2><i class='bx bx-data'></i> Data Model</h2>
+            <p class="section-intro">Event storage and subscription management structure.</p>
+
+            <div class="diagram-container">
+                <div class="mermaid">
+                    erDiagram
+                    EVENTS ||--o{ EVENT_DELIVERIES : has
+                    SUBSCRIPTIONS ||--o{ EVENT_DELIVERIES : triggers
+                    EVENTS ||--o| DEAD_LETTER_QUEUE : fails_to
+
+                    EVENTS {
+                    uuid id PK
+                    string event_type
+                    string source
+                    json payload
+                    string correlation_id
+                    timestamp created_at
+                    timestamp processed_at
+                    }
+
+                    SUBSCRIPTIONS {
+                    uuid id PK
+                    string event_type
+                    string handler_name
+                    string endpoint_url
+                    json config
+                    boolean is_active
+                    timestamp created_at
+                    }
+
+                    EVENT_DELIVERIES {
+                    uuid id PK
+                    uuid event_id FK
+                    uuid subscription_id FK
+                    enum status "pending|processing|delivered|failed"
+                    integer attempt_count
+                    json last_error
+                    timestamp next_retry_at
+                    timestamp delivered_at
+                    }
+
+                    DEAD_LETTER_QUEUE {
+                    uuid id PK
+                    uuid event_id FK
+                    string handler_name
+                    json error_details
+                    integer total_attempts
+                    timestamp failed_at
+                    timestamp reprocessed_at
+                    }
+
+                    CIRCUIT_STATES {
+                    string handler_name PK
+                    enum state "closed|open|half_open"
+                    integer failure_count
+                    timestamp last_failure
+                    timestamp opened_at
+                    }
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Challenges -->
+    <section class="case-section reveal">
+        <div class="case-container">
+            <h2><i class='bx bx-bug'></i> Engineering Challenges</h2>
+
+            <div class="challenges-grid">
+                <div class="challenge-card">
+                    <div class="challenge-header">
+                        <span class="challenge-num">01</span>
+                        <h3>At-Least-Once Delivery</h3>
+                    </div>
+                    <div class="challenge-body">
+                        <h4>Problem</h4>
+                        <p>Fire-and-forget event publishing meant events were lost during crashes, deployments, or
+                            network partitions.</p>
+                        <h4>Solution</h4>
+                        <p>Used Redis Streams with consumer groups. Events are acknowledged only after successful
+                            processing. Pending entries are claimed by other consumers if the original times out.</p>
+                        <div class="code-snippet">
+                            <pre><code class="python"># Consumer group with acknowledgment
+async def consume_events(group: str, consumer: str):
+    while True:
+        # Read pending events first (crash recovery)
+        pending = await redis.xautoclaim(
+            STREAM_KEY, group, consumer,
+            min_idle_time=CLAIM_TIMEOUT_MS,
+            count=10
+        )
+        
+        for event_id, event_data in pending:
+            await process_with_ack(group, event_id, event_data)
+        
+        # Then read new events
+        events = await redis.xreadgroup(
+            groupname=group,
+            consumername=consumer,
+            streams={STREAM_KEY: '>'},
+            count=10,
+            block=5000
+        )
+        
+        for event_id, event_data in events:
+            await process_with_ack(group, event_id, event_data)
+
+async def process_with_ack(group: str, event_id: str, data: dict):
+    try:
+        await handle_event(data)
+        await redis.xack(STREAM_KEY, group, event_id)
+    except Exception as e:
+        # Will be reclaimed by another consumer after timeout
+        logger.error(f"Event {event_id} failed: {e}")</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="challenge-card">
+                    <div class="challenge-header">
+                        <span class="challenge-num">02</span>
+                        <h3>Circuit Breaker Pattern</h3>
+                    </div>
+                    <div class="challenge-body">
+                        <h4>Problem</h4>
+                        <p>When downstream services failed, the event queue backed up. Continuous retries overwhelmed
+                            recovering services.</p>
+                        <h4>Solution</h4>
+                        <p>Implemented circuit breakers per handler. After N failures, the circuit opens and events are
+                            short-circuited to the DLQ. Half-open state tests recovery before full resumption.</p>
+                        <div class="code-snippet">
+                            <pre><code class="python"># Circuit breaker implementation
+class CircuitBreaker:
+    def __init__(self, handler: str, threshold: int = 5, timeout: int = 60):
+        self.handler = handler
+        self.threshold = threshold
+        self.timeout = timeout
+    
+    async def call(self, func, *args, **kwargs):
+        state = await self.get_state()
+        
+        if state == CircuitState.OPEN:
+            if await self.should_attempt_reset():
+                await self.set_state(CircuitState.HALF_OPEN)
+            else:
+                raise CircuitOpenError(f"{self.handler} circuit is open")
+        
+        try:
+            result = await func(*args, **kwargs)
+            await self.record_success()
+            return result
+        except Exception as e:
+            await self.record_failure()
+            
+            if await self.get_failure_count() >= self.threshold:
+                await self.set_state(CircuitState.OPEN)
+                metrics.circuit_opened.labels(handler=self.handler).inc()
+            
+            raise
+
+    async def record_success(self):
+        await redis.hset(f"circuit:{self.handler}", "failures", 0)
+        await self.set_state(CircuitState.CLOSED)</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="challenge-card">
+                    <div class="challenge-header">
+                        <span class="challenge-num">03</span>
+                        <h3>Real-Time Observability</h3>
+                    </div>
+                    <div class="challenge-body">
+                        <h4>Problem</h4>
+                        <p>Debugging event flow issues required digging through logs. No visibility into queue depth,
+                            processing latency, or failure rates.</p>
+                        <h4>Solution</h4>
+                        <p>Instrumented everything with Prometheus metrics. Grafana dashboards show real-time event
+                            throughput, consumer lag, circuit states, and DLQ depth. Alerts fire on anomalies.</p>
+                        <div class="code-snippet">
+                            <pre><code class="python"># Prometheus metrics instrumentation
+from prometheus_client import Counter, Histogram, Gauge
+
+events_published = Counter(
+    'eventflow_events_published_total',
+    'Total events published',
+    ['event_type', 'source']
+)
+
+events_processed = Counter(
+    'eventflow_events_processed_total',
+    'Total events processed',
+    ['event_type', 'handler', 'status']
+)
+
+processing_latency = Histogram(
+    'eventflow_processing_seconds',
+    'Event processing latency',
+    ['event_type', 'handler'],
+    buckets=[.01, .025, .05, .1, .25, .5, 1, 2.5, 5, 10]
+)
+
+consumer_lag = Gauge(
+    'eventflow_consumer_lag',
+    'Number of pending events per consumer group',
+    ['consumer_group']
+)
+
+dlq_depth = Gauge(
+    'eventflow_dlq_depth',
+    'Number of events in dead letter queue',
+    ['handler']
+)
+
+# Usage in handler
+async def handle_event(event: dict, handler: str):
+    with processing_latency.labels(
+        event_type=event['type'],
+        handler=handler
+    ).time():
+        result = await process(event)
+        events_processed.labels(
+            event_type=event['type'],
+            handler=handler,
+            status='success'
+        ).inc()</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lessons Learned -->
+    <section class="case-section reveal">
+        <div class="case-container">
+            <h2><i class='bx bx-bulb'></i> Key Takeaways</h2>
+
+            <div class="takeaways-list">
+                <div class="takeaway-item">
+                    <span class="takeaway-icon">🔄</span>
+                    <div>
+                        <h4>Idempotency is Essential</h4>
+                        <p>At-least-once delivery means duplicates happen. Every handler must be idempotent—processing
+                            the same event twice should have no additional effect.</p>
+                    </div>
+                </div>
+                <div class="takeaway-item">
+                    <span class="takeaway-icon">🛡️</span>
+                    <div>
+                        <h4>Fail Fast, Recover Gracefully</h4>
+                        <p>Circuit breakers prevent cascade failures. When services fail, stop hammering them and give
+                            them time to recover.</p>
+                    </div>
+                </div>
+                <div class="takeaway-item">
+                    <span class="takeaway-icon">📊</span>
+                    <div>
+                        <h4>Observability is Not Optional</h4>
+                        <p>You can't fix what you can't see. Metrics, tracing, and alerting must be built in from day
+                            one—not bolted on later.</p>
+                    </div>
+                </div>
+                <div class="takeaway-item">
+                    <span class="takeaway-icon">📬</span>
+                    <div>
+                        <h4>Dead Letter Queues Save Lives</h4>
+                        <p>Failed events shouldn't disappear. DLQs preserve them for investigation, manual intervention,
+                            and eventual reprocessing.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="case-cta reveal">
+        <div class="case-container">
+            <h2>Interested in the Technical Details?</h2>
+            <p>Check out the full source code or reach out to discuss the architecture.</p>
+            <div class="cta-buttons">
+                <a href="https://github.com/cliff-de-tech/EventFlow" target="_blank" class="button">
+                    <i class='bx bxl-github'></i> View Source Code
+                </a>
+                <a href="contact.html" class="button secondary">
+                    <i class='bx bx-envelope'></i> Get in Touch
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <img src="assets/logo.webp" alt="Cliff-De-Tech Logo" class="footer-logo" width="40" height="40">
+                <p>Bridging complex backend logic and intuitive frontend design to create secure, high-performance
+                    digital
+                    systems.</p>
+                <div class="footer-socials">
+                    <a href="https://github.com/cliff-de-tech" target="_blank" rel="noopener" aria-label="GitHub"><i
+                            class='bx bxl-github'></i></a>
+                    <a href="https://www.linkedin.com/in/clifford-opoku-sarkodie-377505369/" target="_blank"
+                        rel="noopener" aria-label="LinkedIn"><i class='bx bxl-linkedin'></i></a>
+                    <a href="https://www.instagram.com/cliffdetech/" target="_blank" rel="noopener"
+                        aria-label="Instagram"><i class='bx bxl-instagram'></i></a>
+                    <a href="https://x.com/cliffdetech" target="_blank" rel="noopener" aria-label="X"><i
+                            class='bxl  bx-twitter-x'></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="about.html">About Me</a></li>
+                    <li><a href="portfolio.html">Projects</a></li>
+                    <li><a href="skills.html">Skills</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Backend Services</h4>
+                <ul>
+                    <li>API Development</li>
+                    <li>Database Design</li>
+                    <li>Authentication Systems</li>
+                    <li>DevSecOps</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Clifford Opoku-Sarkodie. Crafted with backend precision, delivered with frontend finesse.</p>
+        </div>
+    </footer>
+
+    <script src="JS/main.js?v=1.1"></script>
+    <script src="JS/enhancements.js?v=1.0"></script>
+    <script src="JS/chatbot.js?v=1.0"></script>
+</body>
+
+</html>

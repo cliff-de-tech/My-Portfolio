@@ -125,6 +125,24 @@ body.light-theme #bg-canvas {
   animation: drift 28s linear infinite alternate;
 }
 
+/* PERFORMANCE: Disable expensive effects on mobile */
+@media (max-width: 768px) {
+  .bg-overlay-gradient {
+    filter: none;
+    animation: none;
+    background:
+      radial-gradient(60vw 60vw at 10% 20%, rgba(155, 123, 255, .12), transparent 50%),
+      radial-gradient(50vw 50vw at 80% 30%, rgba(123, 220, 255, .08), transparent 50%);
+  }
+}
+
+/* PERFORMANCE: Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .bg-overlay-gradient {
+    animation: none;
+  }
+}
+
 body.light-theme .bg-overlay-gradient {
   background:
     radial-gradient(40vmax 40vmax at 10% 20%, rgba(88, 59, 255, .18), transparent 60%),

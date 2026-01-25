@@ -4,13 +4,16 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- PERFORMANCE: Preload critical resources -->
+  <link rel="preload" as="image" href="assets/me.webp" fetchpriority="high">
   <!-- Preconnect for performance -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdn.boxicons.com">
   <link rel="preconnect" href="https://unpkg.com">
-  <!-- CACHE BUSTING: Updated to v=1.4 -->
-  <link rel="stylesheet" href="CSS/style.css?v=1.4">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <!-- CACHE BUSTING: Updated to v=1.7 -->
+  <link rel="stylesheet" href="CSS/style.css?v=1.7">
   <!-- Social Sharing / Open Graph Tags -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://cliffdetech.dev/">
@@ -24,11 +27,15 @@
   <meta name="twitter:description"
     content="Portfolio of Clifford Opoku-Sarkodie, specializing in Secure Backend Systems, Fintech APIs, DevSecOps, and Cloud Architecture.">
   <meta name="twitter:image" content="https://cliffdetech.dev/assets/me.webp">
-  <link href='https://cdn.boxicons.com/3.0.4/fonts/brands/boxicons-brands.min.css' rel='stylesheet'>
+  <!-- PERFORMANCE: Defer icon fonts loading -->
+  <link rel="preload" as="style" href="https://cdn.boxicons.com/3.0.4/fonts/brands/boxicons-brands.min.css">
+  <link href='https://cdn.boxicons.com/3.0.4/fonts/brands/boxicons-brands.min.css' rel='stylesheet' media="print"
+    onload="this.media='all'">
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet' media="print"
     onload="this.media='all'">
   <noscript>
     <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+    <link rel="stylesheet" href="https://cdn.boxicons.com/3.0.4/fonts/brands/boxicons-brands.min.css">
   </noscript>
   <link rel="icon" type="image/png" href="assets/icons/favicon-96x96.png" sizes="96x96" />
   <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
@@ -41,6 +48,7 @@
   <meta name="google-site-verification" content="UxjWMFhIU8iz2KEHdoypfxotkE1lo-xSWkkKhqYYpBE" />
   <meta name="description"
     content="Portfolio of Clifford Opoku-Sarkodie, specializing in Secure Backend Systems, Fintech APIs, DevSecOps, and Cloud Architecture." />
+  <!-- PERFORMANCE: Fonts with display=swap for faster text rendering -->
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Space+Grotesk:wght@600;700&display=swap"
     rel="stylesheet">
@@ -147,8 +155,9 @@
         <div class="hero-shape-2"></div>
         <div class="hero-dots-grid"></div>
 
-        <!-- Main Image -->
-        <img src="assets/me.webp" alt="Clifford Opoku-Sarkodie" class="hero-image" width="400" height="500" />
+        <!-- Main Image - fetchpriority for LCP optimization -->
+        <img src="assets/me.webp" alt="Clifford Opoku-Sarkodie" class="hero-image" width="400" height="500"
+          fetchpriority="high" decoding="async" />
       </div>
     </div>
 
@@ -382,7 +391,7 @@
   <!-- VIDEO SECTION -->
   <section class="video-card reveal video-section-wrapper">
     <div class="frame video-frame">
-      <video controls poster="assets/wtch this video.webp" class="video-element">
+      <video controls poster="assets/wtch this video.webp" class="video-element" preload="none" loading="lazy">
         <source src="assets/Advert video.webm" type="video/webm">
         Your browser does not support the video tag.
       </video>
@@ -392,7 +401,7 @@
   <footer>
     <div class="footer-grid">
       <div class="footer-col">
-        <img src="assets/logo.webp" alt="Cliff-De-Tech Logo" class="footer-logo" width="40" height="40">
+        <img src="assets/logo.webp" alt="Cliff-De-Tech Logo" class="footer-logo" width="40" height="40" loading="lazy">
         <p>Bridging complex backend logic and intuitive frontend design to create secure, high-performance digital
           systems.</p>
         <div class="footer-socials">
@@ -437,7 +446,7 @@
       <p>&copy; <span id="year"></span> Cliff-De-Tech. All Rights Reserved.</p>
     </div>
   </footer>
-  <script src="JS/main.js?v=1.1"></script>
+  <script src="JS/main.js?v=1.2"></script>
   <script src="JS/enhancements.js?v=1.0"></script>
   <script src="JS/chatbot.js?v=1.0"></script>
   <script>
