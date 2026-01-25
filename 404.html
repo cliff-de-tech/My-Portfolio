@@ -307,7 +307,10 @@
         <span class="info-line">
           <i class='bx bx-time'></i> Timestamp:
           <span id="timestamp"></span>
+          copilot/sub-pr-1-again
           <script>document.getElementById('timestamp').textContent = new Date().toISOString()</script>
+
+          feature/domain-migration
         </span>
 
         <div class="suggestion">
@@ -339,6 +342,11 @@
       </a>
     </div>
   </div>
+
+  <script>
+    // Set timestamp safely without using document.write
+    document.getElementById('timestamp').textContent = new Date().toISOString();
+  </script>
 </body>
 
 </html>

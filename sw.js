@@ -11,7 +11,6 @@ const urlsToCache = [
   '/404.html',
   '/manifest.json',
   '/CSS/style.css?v=1.6',
-  '/CSS/web-category.css?v=1.1',
   '/JS/main.js?v=1.1',
   '/JS/enhancements.js?v=1.0',
   '/JS/playground.js?v=1.0',
