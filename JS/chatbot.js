@@ -583,9 +583,12 @@
         </div>
         <div class="message-content">${formatMessage(content)}</div>
       `;
-    } else {
-      messageDiv.innerHTML = `<div class="message-content">${content}</div>`;
-    }
+} else {
+  const contentDiv = document.createElement('div');
+  contentDiv.className = 'message-content';
+  contentDiv.textContent = content;
+  messageDiv.appendChild(contentDiv);
+}
 
     messagesContainer.appendChild(messageDiv);
     messagesContainer.scrollTop = messagesContainer.scrollHeight;
