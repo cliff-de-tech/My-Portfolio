@@ -58,5 +58,23 @@
   <lastmod>2025-01-25T07:00:00+00:00</lastmod>
   <priority>0.64</priority>
 </url>
+<url>
+  <loc>https://cliffdetech.dev/case-study-authforge.html</loc>
+  <lastmod>2025-01-25</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://cliffdetech.dev/case-study-ledgerx.html</loc>
+  <lastmod>2025-01-25</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://cliffdetech.dev/case-study-eventflow.html</loc>
+  <lastmod>2025-01-25</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.7</priority>
+</url>
 
 </urlset>

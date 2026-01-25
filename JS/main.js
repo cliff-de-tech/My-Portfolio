@@ -157,15 +157,26 @@ if (yearEl) yearEl.textContent = new Date().getFullYear();
 (function animatedBg() {
   const canvas = document.getElementById('bg-canvas');
   if (!canvas) return;
-  const ctx = canvas.getContext('2d', { alpha: true });
-  let w, h, dpr, particles = [], mouse = { x: null, y: null, active: false }, t = 0, stopped = false;
-  const maxParticles = 140;
-  const connectDist = 120;
 
-  let colorA, colorB, colorC, lineColor;
+  // PERFORMANCE: Skip animation entirely on mobile (< 768px) or low-end devices
+  const isMobile = window.innerWidth < 768 ||
+    ('ontouchstart' in window && window.innerWidth < 1024) ||
+    navigator.hardwareConcurrency <= 2;
 
   const pr = window.matchMedia('(prefers-reduced-motion: reduce)');
-  if (pr.matches) { stopped = true; return; }
+  if (pr.matches || isMobile) {
+    // Just show static gradient background, no animation
+    canvas.style.display = 'none';
+    return;
+  }
+
+  const ctx = canvas.getContext('2d', { alpha: true });
+  let w, h, dpr, particles = [], mouse = { x: null, y: null, active: false }, t = 0, stopped = false;
+  // PERFORMANCE: Reduced particle count for better performance
+  const maxParticles = 80;
+  const connectDist = 100;
+
+  let colorA, colorB, colorC, lineColor;
 
   function updateColors() {
     const isLight = document.body.classList.contains('light-theme');

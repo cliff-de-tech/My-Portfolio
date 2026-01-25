@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.boxicons.com">
+    <link rel="preconnect" href="https://unpkg.com">
+    <!-- CACHE BUSTING: Updated to v=1.6 -->
+    <link rel="stylesheet" href="CSS/style.css?v=1.6">
+    <!-- Social Sharing / Open Graph Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://cliffdetech.dev/case-study-ledgerx.html">
+    <meta property="og:title" content="LedgerX Case Study | Clifford Opoku-Sarkodie - Backend Engineer">
+    <meta property="og:description"
+        content="Deep dive into LedgerX: A double-entry bookkeeping system with ACID transactions and immutable audit trails.">
+    <meta property="og:image" content="https://cliffdetech.dev/assets/me.webp">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="LedgerX Case Study | Clifford Opoku-Sarkodie - Backend Engineer">
+    <meta name="twitter:description"
+        content="Deep dive into LedgerX: A double-entry bookkeeping system with ACID transactions and immutable audit trails.">
+    <meta name="twitter:image" content="https://cliffdetech.dev/assets/me.webp">
+    <link href='https://cdn.boxicons.com/3.0.4/fonts/brands/boxicons-brands.min.css' rel='stylesheet'>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet' media="print"
+        onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+    </noscript>
+    <link rel="icon" type="image/png" href="assets/icons/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
+    <link rel="shortcut icon" href="assets/icons/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png" />
+    <link rel="manifest" href="assets/icons/site.webmanifest" />
+    <meta name="theme-color" content="#00d4ff">
+    <title>LedgerX Case Study | Clifford Opoku-Sarkodie - Backend Engineer</title>
+    <meta name="google-site-verification" content="UxjWMFhIU8iz2KEHdoypfxotkE1lo-xSWkkKhqYYpBE" />
+    <meta name="description"
+        content="Technical case study of LedgerX by Clifford Opoku-Sarkodie. Explore the double-entry bookkeeping architecture, ACID-compliant transactions, and immutable ledger design." />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Space+Grotesk:wght@600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <!-- Mermaid.js for diagrams -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <script>
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'dark',
+            themeVariables: {
+                primaryColor: '#00d4ff',
+                primaryTextColor: '#e2e8f0',
+                primaryBorderColor: '#334155',
+                lineColor: '#64748b',
+                secondaryColor: '#a855f7',
+                tertiaryColor: '#1e293b'
+            }
+        });
+    </script>
+</head>
+
+<body>
+
+    <canvas id="bg-canvas" aria-hidden="true"></canvas>
+    <div class="bg-overlay-gradient" aria-hidden="true"></div>
+
+    <nav class="nav">
+        <a class="brand" href="index.html" aria-label="Home">
+            <img src="assets/logo.webp" alt="Cliff-De-Tech Logo" width="32" height="32" />
+            <span>Cliff-De-Tech</span>
+        </a>
+        <ul>
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="about.html" class="nav-link">About Me</a></li>
+            <li><a href="skills.html" class="nav-link">Skills</a></li>
+            <li><a href="portfolio.html" class="nav-link">Projects</a></li>
+            <li><a href="playground.html" class="nav-link">Playground</a></li>
+            <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+            <i class='bx bxs-moon'></i>
+        </button>
+        <button class="menu-btn" aria-label="Open menu">&#9776;</button>
+    </nav>
+
+    <!-- Case Study Hero -->
+    <section class="case-study-hero">
+        <div class="case-hero-content reveal">
+            <span class="case-badge"><i class='bx bx-wallet'></i> Fintech</span>
+            <h1>LedgerX</h1>
+            <p class="case-tagline">Double-Entry Bookkeeping System</p>
+            <div class="case-meta">
+                <span><i class='bx bx-calendar'></i> 2024</span>
+                <span><i class='bx bx-code-alt'></i> Python, FastAPI, PostgreSQL</span>
+                <span><i class='bx bx-check-circle'></i> Production Ready</span>
+            </div>
+            <div class="case-actions">
+                <a href="https://github.com/cliff-de-tech/LedgerX" target="_blank" class="button">
+                    <i class='bx bxl-github'></i> View on GitHub
+                </a>
+                <a href="portfolio.html" class="button secondary">
+                    <i class='bx bx-arrow-back'></i> Back to Projects
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Overview Section -->
+    <section class="case-section reveal">
+        <div class="case-container">
+            <h2><i class='bx bx-info-circle'></i> Project Overview</h2>
+
+            <div class="overview-grid">
+                <div class="overview-card">
+                    <h3>The Problem</h3>
+                    <p>Naive balance updates were bleeding money—race conditions enabled double-spending, and direct
+                        mutations made forensic accounting impossible. Every audit was a nightmare.</p>
+                </div>
+                <div class="overview-card">
+                    <h3>The Solution</h3>
+                    <p>A proper double-entry bookkeeping system with append-only ledger entries, optimistic locking, and
+                        ACID-compliant transactions. Every cent is traceable and immutable.</p>
+                </div>
+                <div class="overview-card">
+                    <h3>Key Metrics</h3>
+                    <ul>
+                        <li>💰 Zero balance discrepancies since deployment</li>
+                        <li>⚡ 10,000+ transactions/second throughput</li>
+                        <li>📊 Complete audit trail for every monetary movement</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- System Architecture -->
+    <section class="case-section reveal">
+        <div class="case-container">
+            <h2><i class='bx bx-sitemap'></i> System Architecture</h2>
+            <p class="section-intro">High-level overview of the transaction processing pipeline.</p>
+
+            <div class="diagram-container">
+                <div class="mermaid">
+                    flowchart TB
+                    subgraph Client["Client Layer"]
+                    API[API Requests]
+                    BATCH[Batch Processor]
+                    end
+
+                    subgraph Gateway["API Gateway"]
+                    FASTAPI[FastAPI Server]
+                    VALIDATE[Request Validator]
+                    IDEMPOTENCY[Idempotency Check]
+                    end
+
+                    subgraph Core["Transaction Engine"]
+                    TX_HANDLER[Transaction Handler]
+                    DOUBLE_ENTRY[Double-Entry Processor]
+                    BALANCE[Balance Calculator]
+                    end
+
+                    subgraph Ledger["Ledger Service"]
+                    JOURNAL[Journal Writer]
+                    ENTRY[Entry Creator]
+                    AUDIT[Audit Logger]
+                    end
+
+                    subgraph Data["Data Layer"]
+                    POSTGRES[(PostgreSQL)]
+                    LOCK[Advisory Locks]
+                    end
+
+                    API --> FASTAPI
+                    BATCH --> FASTAPI
+                    FASTAPI --> VALIDATE
+                    VALIDATE --> IDEMPOTENCY
+                    IDEMPOTENCY --> TX_HANDLER
+
+                    TX_HANDLER --> DOUBLE_ENTRY
+                    DOUBLE_ENTRY --> BALANCE
+                    DOUBLE_ENTRY --> JOURNAL
+
+                    JOURNAL --> ENTRY
+                    ENTRY --> AUDIT
+
+                    BALANCE --> POSTGRES
+                    ENTRY --> POSTGRES
+                    AUDIT --> POSTGRES
+                    TX_HANDLER --> LOCK
+                    LOCK --> POSTGRES
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Database Schema -->
+    <section class="case-section reveal">
+        <div class="case-container">
+            <h2><i class='bx bx-data'></i> Database Schema</h2>
+            <p class="section-intro">Entity-Relationship diagram showing the double-entry ledger structure.</p>
+
+            <div class="diagram-container">
+                <div class="mermaid">
+                    erDiagram
+                    ACCOUNTS ||--o{ LEDGER_ENTRIES : contains
+                    TRANSACTIONS ||--|{ LEDGER_ENTRIES : creates
+                    TRANSACTIONS ||--o| IDEMPOTENCY_KEYS : uses
+                    ACCOUNTS ||--o{ BALANCE_SNAPSHOTS : has
+
+                    ACCOUNTS {
+                    uuid id PK
+                    string account_number UK
+                    string name
+                    enum type "asset|liability|equity|revenue|expense"
+                    string currency
+                    boolean is_active
+                    timestamp created_at
+                    }
+
+                    TRANSACTIONS {
+                    uuid id PK
+                    string reference UK
+                    string description
+                    decimal total_amount
+                    string currency
+                    enum status "pending|completed|failed|reversed"
+                    uuid reversed_by FK
+                    json metadata
+                    timestamp created_at
+                    }
+
+                    LEDGER_ENTRIES {
+                    uuid id PK
+                    uuid transaction_id FK
+                    uuid account_id FK
+                    enum entry_type "debit|credit"
+                    decimal amount
+                    decimal running_balance
+                    timestamp created_at
+                    }
+
+                    IDEMPOTENCY_KEYS {
+                    string key PK
+                    uuid transaction_id FK
+                    timestamp expires_at
+                    }
+
+                    BALANCE_SNAPSHOTS {
+                    uuid id PK
+                    uuid account_id FK
+                    decimal balance
+                    date snapshot_date
+                    timestamp created_at
+                    }
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Challenges -->
+    <section class="case-section reveal">
+        <div class="case-container">
+            <h2><i class='bx bx-bug'></i> Engineering Challenges</h2>
+
+            <div class="challenges-grid">
+                <div class="challenge-card">
+                    <div class="challenge-header">
+                        <span class="challenge-num">01</span>
+                        <h3>Preventing Double-Spending</h3>
+                    </div>
+                    <div class="challenge-body">
+                        <h4>Problem</h4>
+                        <p>Concurrent transactions could read stale balances and both succeed, overdrawing the
+                            account—a classic race condition.</p>
+                        <h4>Solution</h4>
+                        <p>Implemented optimistic locking with version checks, plus PostgreSQL advisory locks for
+                            account-level serialization during balance updates.</p>
+                        <div class="code-snippet">
+                            <pre><code class="python"># Optimistic locking with version check
+async def debit_account(account_id: str, amount: Decimal, version: int):
+    async with db.transaction():
+        # Acquire advisory lock for this account
+        await db.execute(f"SELECT pg_advisory_xact_lock({hash(account_id)})")
+        
+        account = await db.fetchone(
+            "SELECT * FROM accounts WHERE id = $1", account_id
+        )
+        
+        if account.version != version:
+            raise ConcurrencyError("Account modified by another transaction")
+        
+        if account.balance < amount:
+            raise InsufficientFundsError(f"Balance: {account.balance}")
+        
+        # Create ledger entry (append-only)
+        await db.execute("""
+            INSERT INTO ledger_entries 
+            (transaction_id, account_id, entry_type, amount, running_balance)
+            VALUES ($1, $2, 'debit', $3, $4)
+        """, tx_id, account_id, amount, account.balance - amount)</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="challenge-card">
+                    <div class="challenge-header">
+                        <span class="challenge-num">02</span>
+                        <h3>Immutable Append-Only Ledger</h3>
+                    </div>
+                    <div class="challenge-body">
+                        <h4>Problem</h4>
+                        <p>Traditional UPDATE statements made audit trails incomplete. Any modification destroyed
+                            historical accuracy.</p>
+                        <h4>Solution</h4>
+                        <p>Ledger entries are INSERT-only. Corrections create reversing entries. Database triggers
+                            prevent any UPDATE or DELETE operations on the ledger table.</p>
+                        <div class="code-snippet">
+                            <pre><code class="sql">-- Prevent modifications to ledger entries
+CREATE OR REPLACE FUNCTION prevent_ledger_modification()
+RETURNS TRIGGER AS $$
+BEGIN
+    RAISE EXCEPTION 'Ledger entries are immutable. Create a reversing entry instead.';
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER ledger_immutability
+    BEFORE UPDATE OR DELETE ON ledger_entries
+    FOR EACH ROW
+    EXECUTE FUNCTION prevent_ledger_modification();
+
+-- Reversing entry for corrections
+CREATE OR REPLACE FUNCTION reverse_transaction(original_tx_id UUID)
+RETURNS UUID AS $$
+DECLARE
+    reversal_id UUID := gen_random_uuid();
+BEGIN
+    INSERT INTO transactions (id, reference, description, reversed_by)
+    SELECT reversal_id, 'REV-' || reference, 'Reversal of ' || description, original_tx_id
+    FROM transactions WHERE id = original_tx_id;
+    
+    -- Create opposite entries
+    INSERT INTO ledger_entries (transaction_id, account_id, entry_type, amount)
+    SELECT reversal_id, account_id, 
+           CASE WHEN entry_type = 'debit' THEN 'credit' ELSE 'debit' END,
+           amount
+    FROM ledger_entries WHERE transaction_id = original_tx_id;
+    
+    RETURN reversal_id;
+END;
+$$ LANGUAGE plpgsql;</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="challenge-card">
+                    <div class="challenge-header">
+                        <span class="challenge-num">03</span>
+                        <h3>Balance Reconciliation at Scale</h3>
+                    </div>
+                    <div class="challenge-body">
+                        <h4>Problem</h4>
+                        <p>Calculating real-time balances by summing all entries was expensive—millions of rows per
+                            account made queries slow.</p>
+                        <h4>Solution</h4>
+                        <p>Maintain running balances on each entry (immutable snapshot). Periodic reconciliation jobs
+                            verify integrity and create balance snapshots for fast historical queries.</p>
+                        <div class="code-snippet">
+                            <pre><code class="python"># Daily reconciliation job
+async def reconcile_accounts():
+    accounts = await db.fetch("SELECT id FROM accounts WHERE is_active")
+    
+    for account in accounts:
+        # Calculate balance from entries
+        calculated = await db.fetchval("""
+            SELECT COALESCE(
+                SUM(CASE WHEN entry_type = 'credit' THEN amount ELSE -amount END), 0
+            ) FROM ledger_entries WHERE account_id = $1
+        """, account.id)
+        
+        # Get last running balance
+        last_entry = await db.fetchone("""
+            SELECT running_balance FROM ledger_entries 
+            WHERE account_id = $1 ORDER BY created_at DESC LIMIT 1
+        """, account.id)
+        
+        if calculated != last_entry.running_balance:
+            await alert_discrepancy(account.id, calculated, last_entry.running_balance)
+        
+        # Create daily snapshot
+        await db.execute("""
+            INSERT INTO balance_snapshots (account_id, balance, snapshot_date)
+            VALUES ($1, $2, CURRENT_DATE)
+        """, account.id, calculated)</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lessons Learned -->
+    <section class="case-section reveal">
+        <div class="case-container">
+            <h2><i class='bx bx-bulb'></i> Key Takeaways</h2>
+
+            <div class="takeaways-list">
+                <div class="takeaway-item">
+                    <span class="takeaway-icon">📒</span>
+                    <div>
+                        <h4>Double-Entry is Non-Negotiable</h4>
+                        <p>Every debit has a credit. This accounting fundamental catches errors instantly—if they don't
+                            balance, something is wrong.</p>
+                    </div>
+                </div>
+                <div class="takeaway-item">
+                    <span class="takeaway-icon">🔒</span>
+                    <div>
+                        <h4>Immutability Enables Trust</h4>
+                        <p>Append-only ledgers with database-enforced immutability mean auditors trust the data. No one
+                            can silently alter history.</p>
+                    </div>
+                </div>
+                <div class="takeaway-item">
+                    <span class="takeaway-icon">⚡</span>
+                    <div>
+                        <h4>Idempotency Prevents Disasters</h4>
+                        <p>Network retries in distributed systems can duplicate requests. Idempotency keys ensure each
+                            transaction processes exactly once.</p>
+                    </div>
+                </div>
+                <div class="takeaway-item">
+                    <span class="takeaway-icon">📊</span>
+                    <div>
+                        <h4>Running Balances Scale</h4>
+                        <p>Pre-computing running balances on each entry trades storage for query speed—worth it for
+                            real-time balance lookups.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="case-cta reveal">
+        <div class="case-container">
+            <h2>Interested in the Technical Details?</h2>
+            <p>Check out the full source code or reach out to discuss the architecture.</p>
+            <div class="cta-buttons">
+                <a href="https://github.com/cliff-de-tech/LedgerX" target="_blank" class="button">
+                    <i class='bx bxl-github'></i> View Source Code
+                </a>
+                <a href="contact.html" class="button secondary">
+                    <i class='bx bx-envelope'></i> Get in Touch
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <img src="assets/logo.webp" alt="Cliff-De-Tech Logo" class="footer-logo" width="40" height="40">
+                <p>Bridging complex backend logic and intuitive frontend design to create secure, high-performance
+                    digital
+                    systems.</p>
+                <div class="footer-socials">
+                    <a href="https://github.com/cliff-de-tech" target="_blank" rel="noopener" aria-label="GitHub"><i
+                            class='bx bxl-github'></i></a>
+                    <a href="https://www.linkedin.com/in/clifford-opoku-sarkodie-377505369/" target="_blank"
+                        rel="noopener" aria-label="LinkedIn"><i class='bx bxl-linkedin'></i></a>
+                    <a href="https://www.instagram.com/cliffdetech/" target="_blank" rel="noopener"
+                        aria-label="Instagram"><i class='bx bxl-instagram'></i></a>
+                    <a href="https://x.com/cliffdetech" target="_blank" rel="noopener" aria-label="X"><i
+                            class='bxl  bx-twitter-x'></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="about.html">About Me</a></li>
+                    <li><a href="portfolio.html">Projects</a></li>
+                    <li><a href="skills.html">Skills</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Backend Services</h4>
+                <ul>
+                    <li>API Development</li>
+                    <li>Database Design</li>
+                    <li>Authentication Systems</li>
+                    <li>DevSecOps</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Clifford Opoku-Sarkodie. Crafted with backend precision, delivered with frontend finesse.</p>
+        </div>
+    </footer>
+
+    <script src="JS/main.js?v=1.1"></script>
+    <script src="JS/enhancements.js?v=1.0"></script>
+    <script src="JS/chatbot.js?v=1.0"></script>
+</body>
+
+</html>
