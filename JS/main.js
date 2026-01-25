@@ -569,7 +569,7 @@ window.addEventListener('DOMContentLoaded', function () {
   console.log('%c🐳 Container: Docker ready', styles.info);
   console.log('%c━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━', styles.subtitle);
   console.log('%c⚡ Looking at the code? Nice! I appreciate curious developers.', styles.warning);
-  console.log('%c📧 Let\'s connect: cliff.opoku.dev@gmail.com', styles.link);
+  console.log('%c📧 Let\'s connect: cliffdetech@gmail.com', styles.link);
   console.log('%c🔗 GitHub: github.com/cliff-de-tech', styles.link);
   console.log('%c━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━', styles.subtitle);
   console.log('%c💡 Pro tip: Try the API Playground at /playground.html', styles.info);
