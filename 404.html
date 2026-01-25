@@ -306,7 +306,8 @@
 
         <span class="info-line">
           <i class='bx bx-time'></i> Timestamp:
-          <script>document.write(new Date().toISOString())</script>
+          <span id="timestamp"></span>
+          <script>document.getElementById('timestamp').textContent = new Date().toISOString()</script>
         </span>
 
         <div class="suggestion">

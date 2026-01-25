@@ -16,8 +16,6 @@ const urlsToCache = [
   '/JS/enhancements.js?v=1.0',
   '/JS/playground.js?v=1.0',
   '/JS/chatbot.js?v=1.0',
-  '/JS/web-category.js?v=1.1',
-  '/JS/web-scroll.js?v=1.1',
   '/assets/logo.webp',
   '/assets/me.webp'
 ];

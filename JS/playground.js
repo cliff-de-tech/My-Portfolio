@@ -127,7 +127,6 @@
     const methodSelect = document.getElementById('method-select');
     const endpointSelect = document.getElementById('endpoint-select');
     const requestBodySection = document.getElementById('request-body-section');
-    const requestBody = document.getElementById('request-body');
     const sendBtn = document.getElementById('send-request');
     const responseOutput = document.getElementById('response-output');
     const statusBadge = document.getElementById('status-badge');
