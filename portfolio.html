@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -8,28 +9,46 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdn.boxicons.com">
   <link rel="preconnect" href="https://unpkg.com">
-  <!-- CACHE BUSTING: Updated to v=1.1 -->
-  <link rel="stylesheet" href="CSS/style.css?v=1.3">
-  <link rel="stylesheet" href="CSS/web-category.css?v=1.1">
+  <!-- CACHE BUSTING: Updated to v=1.5 -->
+  <link rel="stylesheet" href="CSS/style.css?v=1.5">
   <!-- Open Graph / Social Sharing -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://cliff-de-tech.github.io/portfolio.html">
-  <meta property="og:title" content="Projects | Cliff-De-Tech">
-  <meta property="og:description" content="Explore my work in Web Development, UI/UX, and Graphic Design.">
-  <meta property="og:image" content="https://cliff-de-tech.github.io/assets/me.webp">
+  <meta property="og:url" content="https://cliffdetech.dev/portfolio.html">
+  <meta property="og:title" content="Projects | Backend Engineer & DevSecOps Portfolio">
+  <meta property="og:description"
+    content="Technical case studies in Backend Architecture, DevSecOps, Fintech APIs, and Cloud Solutions by Clifford Opoku-Sarkodie.">
+  <meta property="og:image" content="https://cliffdetech.dev/assets/me.webp">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Projects | Backend Engineer & DevSecOps Portfolio">
+  <meta name="twitter:description"
+    content="Technical case studies in Backend Architecture, DevSecOps, Fintech APIs, and Cloud Solutions.">
+  <meta name="twitter:image" content="https://cliffdetech.dev/assets/me.webp">
   <link href='https://cdn.boxicons.com/3.0.4/fonts/brands/boxicons-brands.min.css' rel='stylesheet'>
-  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet' media="print" onload="this.media='all'">
-  <noscript><link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"></noscript>
-  <link rel="icon" type="image/png" href="assets/logo.webp">
-  <title>Projects | Clifford Opoku-Sarkodie (Creative Technologist)</title>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet' media="print"
+    onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+  </noscript>
+  <link rel="icon" type="image/png" href="assets/icons/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
+  <link rel="shortcut icon" href="assets/icons/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png" />
+  <link rel="manifest" href="assets/icons/site.webmanifest" />
+  <meta name="theme-color" content="#00d4ff">
+  <title>Projects | Clifford Opoku-Sarkodie - Backend Software Engineer</title>
   <meta name="google-site-verification" content="UxjWMFhIU8iz2KEHdoypfxotkE1lo-xSWkkKhqYYpBE" />
-  <meta name="description" content="Browse web development, UI/UX design, and graphic design projects by Clifford Opoku-Sarkodie. View functional websites, interfaces, and visual designs." />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <meta name="description"
+    content="Technical case studies showcasing Backend Architecture, DevSecOps pipelines, Fintech API development, and Cloud-native solutions by Clifford Opoku-Sarkodie." />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Space+Grotesk:wght@600;700&display=swap"
+    rel="stylesheet">
 </head>
+
 <body>
 
-<canvas id="bg-canvas" aria-hidden="true"></canvas>
-<div class="bg-overlay-gradient" aria-hidden="true"></div>
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+  <div class="bg-overlay-gradient" aria-hidden="true"></div>
 
   <nav class="nav">
     <a class="brand" href="index.html" aria-label="Home">
@@ -41,229 +60,364 @@
       <li><a href="about.html" class="nav-link">About</a></li>
       <li><a href="skills.html" class="nav-link">Skills</a></li>
       <li><a href="portfolio.html" class="nav-link active">My Projects</a></li>
+      <li><a href="playground.html" class="nav-link">Playground</a></li>
       <li><a href="contact.html" class="nav-link">Contact</a></li>
     </ul>
     <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
-        <i class='bx bxs-moon'></i>
+      <i class='bx bxs-moon'></i>
     </button>
     <button class="menu-btn" aria-label="Open menu">&#9776;</button>
   </nav>
 
-  <section id="portfolio">
-    <h2 class="section-title reveal">My Projects</h2>
-    <p class="section-desc reveal">A curated collection of my work. Select a category to explore my projects.</p>
+  <section id="portfolio" class="portfolio-section">
+    <h1 class="section-title reveal">Technical Case Studies</h1>
+    <p class="section-desc reveal">Real-world engineering challenges with documented solutions. Select a domain to
+      explore.</p>
 
-    <div class="portfolio-categories">
-        <div class="portfolio-category-card reveal" data-category="graphic">
-            <div class="category-text">
-                <h3>Graphic Design</h3>
-                <p>A collection of branding, and digital design projects showcasing a strong eye for visual communication.</p>
-            </div>
-            <div class="category-image">
-                <img src="assets/pd.webp" alt="Graphic Design Preview">
-            </div>
-        </div>
-        <div class="portfolio-category-card reveal" data-category="uiux">
-            <div class="category-text">
-                <h3>UI/UX Design</h3>
-                <p>User-centric designs for mobile and web applications, focusing on intuitive interfaces and seamless user experiences.</p>
-            </div>
-            <div class="category-image">
-                <img src="assets/web ui.webp" alt="UI/UX Design Preview">
-            </div>
-        </div>
-        <div class="portfolio-category-card reveal" data-category="web">
-            <div class="category-text">
-                <h3>Web Development</h3>
-                <p>Creative and functional web mockups and user interfaces, bringing digital concepts to life with a clean aesthetic.</p>
-            </div>
-             <div class="category-image">
-                <img src="assets/dashboard.webp" alt="Web Design Preview">
-            </div>
-        </div>
+    <!-- Category Filter Buttons -->
+    <div class="category-filters reveal">
+      <button class="filter-btn active" data-filter="all">All Projects</button>
+      <button class="filter-btn" data-filter="cloud-devops">Cloud & DevSecOps</button>
+      <button class="filter-btn" data-filter="api-backend">API & Backend</button>
+      <button class="filter-btn" data-filter="fintech">Fintech & Distributed</button>
+      <button class="filter-btn" data-filter="automation">Automation & Scripting</button>
+      <button class="filter-btn" data-filter="fullstack">Full-Stack Creative</button>
     </div>
-    
-    <div class="project-grid-wrapper" id="projectGridWrapper" style="display: none;">
-        <button class="button" id="backToCategoriesBtn" style="margin-bottom: 32px;">&larr; Back to Categories</button>
-        <div class="portfolio-grid" id="portfolioGrid">
-            
-            <!-- UI/UX Projects -->
-            <div class="uiux-vertical-layout" data-category="uiux">
-  
-  <img src="assets/UI_UX Design/SellerSignUpPage.webp" 
-       alt="Seller Sign Up Page" 
-       data-type="image" 
-       data-src="assets/UI_UX Design/SellerSignUpPage.webp" 
-       data-title="Seller Onboarding Flow" 
-       data-description="<strong>The Goal:</strong> Reduce drop-off rates during registration.<br><strong>The Solution:</strong> I broke complex data entry into simple, manageable steps (progressive disclosure) to keep users from feeling overwhelmed." 
-       data-priority="1">
 
-  <img src="assets/UI_UX Design/ios mockup.webp" 
-       alt="iOS Mockup" 
-       data-type="image" 
-       data-src="assets/UI_UX Design/ios mockup.webp" 
-       data-title="Mobile App Interface" 
-       data-description="<strong>The Goal:</strong> Native familiarity.<br><strong>The Solution:</strong> Adhered strictly to Apple's Human Interface Guidelines to ensure users instantly knew how to navigate the app without a learning curve." 
-       data-priority="2" loading="lazy">
+    <!-- Projects Grid -->
+    <div class="projects-grid reveal" id="projectsGrid">
 
-  <img src="assets/UI_UX Design/Buyer Dashboard.webp" 
-       alt="Buyer Dashboard" 
-       data-type="image" 
-       data-src="assets/UI_UX Design/Buyer Dashboard.webp" 
-       data-title="E-Commerce Buyer Dashboard" 
-       data-description="<strong>The Goal:</strong> Rapid decision making.<br><strong>The Solution:</strong> Prioritized 'at-a-glance' data visualization over dense tables, allowing buyers to spot trends and act immediately." 
-       data-priority="3" loading="lazy">
+      <!-- PROJECT 1: Post-Bot (Automation & Scripting) -->
+      <article class="project-card" data-category="automation">
+        <header class="project-header">
+          <h2 class="project-title">Post-Bot</h2>
+          <span class="status-badge live">Live System</span>
+        </header>
 
-  <img src="assets/UI_UX Design/Learner Dashboard.webp" 
-       alt="Learner Dashboard" 
-       data-type="image" 
-       data-src="assets/UI_UX Design/Learner Dashboard.webp" 
-       data-title="EdTech Student Dashboard" 
-       data-description="<strong>The Goal:</strong> Student motivation.<br><strong>The Solution:</strong> Designed with the end-user in mind. I placed progress bars and upcoming deadlines front-and-center to gamify the learning experience and keep students on track." 
-       data-priority="4" loading="lazy">
-
-  <img src="assets/UI_UX Design/Seller Dashboard.webp" 
-       alt="Seller Dashboard" 
-       data-type="image" 
-       data-src="assets/UI_UX Design/Seller Dashboard.webp" 
-       data-title="Vendor Analytics Hub" 
-       data-description="<strong>The Goal:</strong> Operational efficiency.<br><strong>The Solution:</strong> A high-contrast dark mode interface that highlights critical sales alerts, reducing eye strain for power users working long hours." 
-       data-priority="5" loading="lazy">
-
-  <img src="assets/UI_UX Design/home page 2.webp" 
-       alt="Home Page Design" 
-       data-type="image" 
-       data-src="assets/UI_UX Design/home page 2.webp" 
-       data-title="Landing Page V2" 
-       data-description="<strong>The Goal:</strong> Conversion.<br><strong>The Solution:</strong> Used strong visual hierarchy and clear Call-to-Action (CTA) placement to guide visitors toward the 'Sign Up' button within 3 seconds." 
-       data-priority="6" loading="lazy">
-
-  <img src="assets/UI_UX Design/Buyer sign up page.webp" alt="Buyer Sign Up Page" data-type="image" data-src="assets/UI_UX Design/Buyer sign up page.webp" data-title="Buyer Registration" data-description="<strong>Focus:</strong> Simplified form design to increase conversion." data-priority="7" class="desktop-only" loading="lazy">
-  
-  <img src="assets/UI_UX Design/Home Page.webp" alt="Home Page" data-type="image" data-src="assets/UI_UX Design/Home Page.webp" data-title="Main Landing Page" data-description="<strong>Focus:</strong> Establishing brand trust through clean aesthetics." data-priority="8" class="desktop-only" loading="lazy">
-  
-  <img src="assets/UI_UX Design/Learner sign up page.webp" alt="Learner Sign Up Page" data-type="image" data-src="assets/UI_UX Design/Learner sign up page.webp" data-title="Student Login" data-description="<strong>Focus:</strong> Accessible and friendly entry point for students." data-priority="9" class="desktop-only" loading="lazy">
-
-</div>
-
-            <!-- Graphic Design Projects -->
-            <div class="graphic-vertical-layout" data-category="graphic">
-              <img src="assets/Graphic Design/Marketing & Advertising Materials/Neon green Modern Creative Agency Instagram Post.webp" alt="Creative Agency Post" data-type="image" data-src="assets/Graphic Design/Marketing & Advertising Materials/Neon green Modern Creative Agency Instagram Post.webp" data-title="Creative Agency Post" data-description="Neon green creative agency design. <br><strong>Tools:</strong> Adobe Photoshop, Illustrator." data-priority="1">
-              <img src="assets/Graphic Design/Brand Identity/cliff-logo-691961532c84e.webp" alt="Cliff Logo Alt" data-type="image" data-src="assets/Graphic Design/Brand Identity/cliff-logo-691961532c84e.webp" data-title="Cliff Logo Alt" data-description="Personal brand logo design." data-priority="2" loading="lazy">
-              <img src="assets/pd.webp" alt="PD Design" data-type="image" data-src="assets/pd.webp" data-title="Product Design" data-description="Product packaging concept design." data-priority="3" loading="lazy">
-              <!-- Additional Graphic Items -->
-              <img src="assets/Graphic Design/Brand Identity/film-co-logo-691961565715f.webp" alt="Film Co Logo" data-type="image" data-src="assets/Graphic Design/Brand Identity/film-co-logo-691961565715f.webp" data-title="Film Co Logo" data-description="Film company brand logo." data-priority="4" loading="lazy">
-              <img src="assets/Graphic Design/Brand Identity/mackwill-logo-2-691962786007f.webp" alt="Mackwill Logo" data-type="image" data-src="assets/Graphic Design/Brand Identity/mackwill-logo-2-691962786007f.webp" data-title="Mackwill Logo" data-description="Gaming & Software brand identity." data-priority="5" loading="lazy">
-              <img src="assets/Graphic Design/Marketing & Advertising Materials/Black and Orange Simple Grow your business Instagram Post.webp" alt="Business Growth Post" data-type="image" data-src="assets/Graphic Design/Marketing & Advertising Materials/Black and Orange Simple Grow your business Instagram Post.webp" data-title="Business Growth Post" data-description="Instagram marketing post." data-priority="7" loading="lazy">
-              <img src="assets/Graphic Design/Marketing & Advertising Materials/Cliff_Burger_1.webp" alt="Cliff Burger Design" data-type="image" data-src="assets/Graphic Design/Marketing & Advertising Materials/Cliff_Burger_1.webp" data-title="Cliff Burger Design" data-description="Restaurant marketing material." data-priority="8" loading="lazy">
-              <img src="assets/Graphic Design/Marketing & Advertising Materials/Modern & Minimal Digital Marketing Agency Instagram Post.webp" alt="Digital Marketing Post" data-type="image" data-src="assets/Graphic Design/Marketing & Advertising Materials/Modern & Minimal Digital Marketing Agency Instagram Post.webp" data-title="Digital Marketing Post" data-description="Modern minimal Instagram post design." data-priority="9" loading="lazy">
-              <img src="assets/Graphic Design/Marketing & Advertising Materials/Purple Gradient 3D Modern Social Media Marketing Agency Instagram Post.webp" alt="Social Media Post" data-type="image" data-src="assets/Graphic Design/Marketing & Advertising Materials/Purple Gradient 3D Modern Social Media Marketing Agency Instagram Post.webp" data-title="Social Media Marketing Post" data-description="3D gradient social media design." data-priority="10" loading="lazy">
-              <!-- Desktop Only Items -->
-              <img src="assets/Graphic Design/Brand Identity/bro-code-logo-69196151cf916.webp" alt="Bro Code Logo Alt" data-type="image" data-src="assets/Graphic Design/Brand Identity/bro-code-logo-69196151cf916.webp" data-title="Bro Code Logo Alt" data-description="Brand identity design." data-priority="11" class="desktop-only" loading="lazy">
-              <img src="assets/Graphic Design/Brand Identity/creative-technology-logo-2-69196155310c7.webp" alt="Creative Technology Logo 2" data-type="image" data-src="assets/Graphic Design/Brand Identity/creative-technology-logo-2-69196155310c7.webp" data-title="Creative Technology Logo 2" data-description="Technology company brand identity." data-priority="12" class="desktop-only" loading="lazy">
-              <img src="assets/Graphic Design/Marketing & Advertising Materials/Vici Bday Flyer.webp" alt="Vici Birthday Flyer" data-type="image" data-src="assets/Graphic Design/Marketing & Advertising Materials/Vici Bday Flyer.webp" data-title="Vici Birthday Flyer" data-description="Birthday celebration flyer." data-priority="13" class="desktop-only" loading="lazy">
-              <img src="assets/Graphic Design/Marketing & Advertising Materials/CDTS.webp" alt="CDTS Marketing Material" data-type="image" data-src="assets/Graphic Design/Marketing & Advertising Materials/CDTS.webp" data-title="CDTS Marketing Material" data-description="Marketing design for CDTS." data-priority="14" class="desktop-only" loading="lazy">
-              <img src="assets/Graphic Design/Marketing & Advertising Materials/zest.webp" alt="Zest Design" data-type="image" data-src="assets/Graphic Design/Marketing & Advertising Materials/zest.webp" data-title="Zest Design" data-description="Zest brand packaging design." data-priority="15" class="desktop-only" loading="lazy">
-              <img src="assets/Graphic Design/Marketing & Advertising Materials/Social Media Post design_1.webp" alt="Social Media Post Design" data-type="image" data-src="assets/Graphic Design/Marketing & Advertising Materials/Social Media Post design_1.webp" data-title="Social Media Post Design" data-description="Engaging social media graphic." data-priority="16" class="desktop-only" loading="lazy">
-              <img src="assets/Graphic Design/Brand Identity/bro-code-logo-2.webp" alt="Bro Code Logo" data-type="image" data-src="assets/Graphic Design/Brand Identity/bro-code-logo-2.webp" data-title="Bro Code Logo" data-description="Brand identity design." data-priority="17" class="desktop-only" loading="lazy">
-              <img src="assets/Graphic Design/Brand Identity/tav.webp" alt="TAV Logo" data-type="image" data-src="assets/Graphic Design/Brand Identity/tav.webp" data-title="TAV Logo" data-description="Corporate brand logo design." data-priority="18" class="desktop-only" loading="lazy">
-              <img src="assets/Graphic Design/Marketing & Advertising Materials/2nd socal media.webp" alt="Second Social Media Design" data-type="image" data-src="assets/Graphic Design/Marketing & Advertising Materials/2nd socal media.webp" data-title="Second Social Media Design" data-description="Vibrant social media graphic." data-priority="19" class="desktop-only" loading="lazy">
+        <div class="engine-room">
+          <div class="challenge">
+            <i class='bx bx-error-circle'></i>
+            <div>
+              <strong>The Challenge:</strong>
+              <p>Developers are killing it on GitHub but invisible on LinkedIn—crafting engaging posts takes hours, and
+                consistency is nearly impossible.</p>
             </div>
-
-            <!-- Web Design Projects -->
-            <div class="web-vertical-layout" data-category="web">
-              <div class="web-item">
-                <div class="img-hover-scroll">
-                  <img src="assets/Web Design/deroyals.webp" alt="Deroyals Website" class="scroll-image" data-src="assets/Web Design/deroyals.webp" data-title="Deroyals Website" data-description="Web Design for Catering Service. <br><strong>Tech Stack:</strong> HTML, CSS, JavaScript." data-priority="1">
-                  <div class="portfolio-overlay">
-                    <h5 class="portfolio-title">Deroyals Website</h5>
-                    <p class="portfolio-category">Web Design</p>
-                    <a href="https://deroyals.netlify.app/" target="_blank" class="btn btn-sm btn-light">View</a>
-                  </div>
-                </div>
-              </div>
-              <div class="web-item">
-                <div class="img-hover-scroll">
-                  <img src="assets/Web Design/novatech.webp" alt="Novatech Website" class="scroll-image" data-src="assets/Web Design/novatech.webp" data-title="Novatech Website" data-description="Tech Solutions Company Website. <br><strong>Tech Stack:</strong> React, Tailwind CSS." data-priority="2" loading="lazy">
-                  <div class="portfolio-overlay">
-                    <h5 class="portfolio-title">Novatech Website</h5>
-                    <p class="portfolio-category">Web Design</p>
-                    <a href="https://novatechsystems.netlify.app/" target="_blank" class="btn btn-sm btn-light">View</a>
-                  </div>
-                </div>
-              </div>
-              <div class="web-item">
-                  <img src="assets/Web Design/nextgen.webp" alt="NextGen Website" class="scroll-image" data-src="assets/Web Design/nextgen.webp" data-title="NextGen Website" data-description="Innovation Hub Platform. <br><strong>Tech Stack:</strong> HTML5, CSS3, JS, Git." data-priority="3" loading="lazy">
-                  <div class="portfolio-overlay">
-                    <h5 class="portfolio-title">NextGen Website</h5>
-                    <p class="portfolio-category">Web Design</p>
-                    <a href="https://nextgenin.netlify.app/" target="_blank" class="btn btn-sm btn-light">View</a>
-                  </div>
-                </div>
-              </div>
+          </div>
+          <div class="solution">
+            <i class='bx bx-check-shield'></i>
+            <div>
+              <strong>The Solution:</strong>
+              <p>Built an AI-powered bot that scans GitHub activity, auto-generates professional posts via Groq LLM, and
+                publishes directly to LinkedIn with scheduling and analytics.</p>
             </div>
+          </div>
         </div>
-    </div>
-</section>
 
-<div class="lightbox" id="lightbox" aria-modal="true" role="dialog" aria-label="Media preview">
-  <div class="lightbox-content">
-    <div class="lightbox-media" id="lightboxMedia"></div>
-    <div id="lightboxDescription" class="lightbox-description" style="color:#fff; padding:10px; font-family: 'Inter', sans-serif;"></div>
-    <div class="ctrls">
-      <button class="icon-btn" id="prevBtn" aria-label="Previous">⟨ Prev</button>
-      <div style="opacity:.8" id="lightboxTitle">Title</div>
-      <button class="icon-btn" id="nextBtn" aria-label="Next">Next ⟩</button>
+        <footer class="project-footer">
+          <div class="tech-tags">
+            <span>Python</span>
+            <span>FastAPI</span>
+            <span>Groq LLM</span>
+            <span>Next.js</span>
+            <span>PostgreSQL</span>
+            <span>Docker</span>
+          </div>
+          <div class="project-links">
+            <a href="case-study.html" class="btn-case-study"><i class='bx bx-book-open'></i> Case Study</a>
+            <a href="https://github.com/cliff-de-tech/Post-Bot" target="_blank" rel="noopener" class="btn-code"><i
+                class='bx bxl-github'></i> View Code</a>
+          </div>
+        </footer>
+      </article>
+
+      <!-- PROJECT 2: AuthForge (API & Backend Architecture) -->
+      <article class="project-card" data-category="api-backend">
+        <header class="project-header">
+          <h2 class="project-title">AuthForge</h2>
+          <span class="status-badge live">Live System</span>
+        </header>
+
+        <div class="engine-room">
+          <div class="challenge">
+            <i class='bx bx-error-circle'></i>
+            <div>
+              <strong>The Challenge:</strong>
+              <p>Every new microservice was reinventing authentication—scattered JWT logic, inconsistent password
+                policies, and zero visibility into access patterns.</p>
+            </div>
+          </div>
+          <div class="solution">
+            <i class='bx bx-check-shield'></i>
+            <div>
+              <strong>The Solution:</strong>
+              <p>Engineered a centralized auth microservice with enterprise-grade security: RBAC, JWT with refresh
+                tokens, and full audit logging—reusable across the entire platform.</p>
+            </div>
+          </div>
+        </div>
+
+        <footer class="project-footer">
+          <div class="tech-tags">
+            <span>TypeScript</span>
+            <span>Node.js</span>
+            <span>JWT</span>
+            <span>PostgreSQL</span>
+            <span>Docker</span>
+            <span>RBAC</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/cliff-de-tech/AuthForge" target="_blank" rel="noopener" class="btn-code"><i
+                class='bx bxl-github'></i> View Code</a>
+          </div>
+        </footer>
+      </article>
+
+      <!-- PROJECT 3: EventFlow (Cloud & DevSecOps) -->
+      <article class="project-card" data-category="cloud-devops">
+        <header class="project-header">
+          <h2 class="project-title">EventFlow</h2>
+          <span class="status-badge live">Live System</span>
+        </header>
+
+        <div class="engine-room">
+          <div class="challenge">
+            <i class='bx bx-error-circle'></i>
+            <div>
+              <strong>The Challenge:</strong>
+              <p>Critical system events were vanishing into the void—no reliable delivery, no retry on failure, and zero
+                observability into what was happening under the hood.</p>
+            </div>
+          </div>
+          <div class="solution">
+            <i class='bx bx-check-shield'></i>
+            <div>
+              <strong>The Solution:</strong>
+              <p>Designed an event-driven pipeline with Redis Streams, circuit breakers, dead-letter queues, and
+                Prometheus/Grafana dashboards for real-time observability.</p>
+            </div>
+          </div>
+        </div>
+
+        <footer class="project-footer">
+          <div class="tech-tags">
+            <span>Python</span>
+            <span>FastAPI</span>
+            <span>Redis Streams</span>
+            <span>Prometheus</span>
+            <span>Grafana</span>
+            <span>Docker</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/cliff-de-tech/EventFlow" target="_blank" rel="noopener" class="btn-code"><i
+                class='bx bxl-github'></i> View Code</a>
+          </div>
+        </footer>
+      </article>
+
+      <!-- PROJECT 4: SupportIQ (API & Backend Architecture) -->
+      <article class="project-card" data-category="api-backend">
+        <header class="project-header">
+          <h2 class="project-title">SupportIQ</h2>
+          <span class="status-badge live">Live System</span>
+        </header>
+
+        <div class="engine-room">
+          <div class="challenge">
+            <i class='bx bx-error-circle'></i>
+            <div>
+              <strong>The Challenge:</strong>
+              <p>Support teams were drowning—tickets manually routed, SLAs missed in silence, and no way to isolate data
+                between tenants without security nightmares.</p>
+            </div>
+          </div>
+          <div class="solution">
+            <i class='bx bx-check-shield'></i>
+            <div>
+              <strong>The Solution:</strong>
+              <p>Built a multi-tenant SaaS with row-level security, AI-powered ticket routing, sentiment analysis, and
+                automated SLA breach detection with escalation workflows.</p>
+            </div>
+          </div>
+        </div>
+
+        <footer class="project-footer">
+          <div class="tech-tags">
+            <span>Python</span>
+            <span>FastAPI</span>
+            <span>PostgreSQL (RLS)</span>
+            <span>Redis</span>
+            <span>Celery</span>
+            <span>OpenAI</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/cliff-de-tech/SupportIQ" target="_blank" rel="noopener" class="btn-code"><i
+                class='bx bxl-github'></i> View Code</a>
+          </div>
+        </footer>
+      </article>
+
+      <!-- PROJECT 5: LedgerX (Fintech & Distributed Systems) -->
+      <article class="project-card" data-category="fintech">
+        <header class="project-header">
+          <h2 class="project-title">LedgerX</h2>
+          <span class="status-badge live">Live System</span>
+        </header>
+
+        <div class="engine-room">
+          <div class="challenge">
+            <i class='bx bx-error-circle'></i>
+            <div>
+              <strong>The Challenge:</strong>
+              <p>Naive balance updates were bleeding money—race conditions enabled double-spending, and direct mutations
+                made forensic accounting impossible.</p>
+            </div>
+          </div>
+          <div class="solution">
+            <i class='bx bx-check-shield'></i>
+            <div>
+              <strong>The Solution:</strong>
+              <p>Implemented double-entry bookkeeping with append-only ledger entries, optimistic locking, and
+                ACID-compliant transactions—every cent is traceable and immutable.</p>
+            </div>
+          </div>
+        </div>
+
+        <footer class="project-footer">
+          <div class="tech-tags">
+            <span>Python</span>
+            <span>FastAPI</span>
+            <span>PostgreSQL</span>
+            <span>Double-Entry</span>
+            <span>ACID</span>
+            <span>Docker</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/cliff-de-tech/LedgerX" target="_blank" rel="noopener" class="btn-code"><i
+                class='bx bxl-github'></i> View Code</a>
+          </div>
+        </footer>
+      </article>
+
+      <!-- PROJECT 6: Gatekeeper (API & Backend Architecture) -->
+      <article class="project-card" data-category="api-backend">
+        <header class="project-header">
+          <h2 class="project-title">Gatekeeper</h2>
+          <span class="status-badge live">Live System</span>
+        </header>
+
+        <div class="engine-room">
+          <div class="challenge">
+            <i class='bx bx-error-circle'></i>
+            <div>
+              <strong>The Challenge:</strong>
+              <p>APIs were getting hammered by bots and bad actors—no rate limiting, no abuse detection, and a single
+                flood could take down the entire service.</p>
+            </div>
+          </div>
+          <div class="solution">
+            <i class='bx bx-check-shield'></i>
+            <div>
+              <strong>The Solution:</strong>
+              <p>Built middleware with fixed-window and sliding-window rate limiting via Redis, per-user/IP policies,
+                and automatic abuse pattern detection with graceful throttling.</p>
+            </div>
+          </div>
+        </div>
+
+        <footer class="project-footer">
+          <div class="tech-tags">
+            <span>TypeScript</span>
+            <span>Express.js</span>
+            <span>Redis</span>
+            <span>Middleware</span>
+            <span>Docker</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/cliff-de-tech/Gatekeeper" target="_blank" rel="noopener" class="btn-code"><i
+                class='bx bxl-github'></i> View Code</a>
+          </div>
+        </footer>
+      </article>
+
     </div>
-    <button class="icon-btn" id="closeLb" aria-label="Close">✕ Close</button>
-  </div>
-</div>
-<footer>
-  <div class="footer-grid">
-    <div class="footer-col">
-      <h3>Cliff-De-Tech</h3>
-      <p>Bridging design and code to create functional, high-performance digital experiences.</p>
-      <div class="footer-socials">
-        <a href="https://github.com/cliff-de-tech" target="_blank" rel="noopener" aria-label="GitHub"><i class='bx bxl-github'></i></a>
-        <a href="https://www.linkedin.com/in/clifford-opoku-sarkodie-377505369/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class='bx bxl-linkedin'></i></a>
-        <a href="https://www.instagram.com/cliffdetech/" target="_blank" rel="noopener" aria-label="Instagram"><i class='bx bxl-instagram'></i></a>
-        <a href="https://x.com/cliffdetech" target="_blank" rel="noopener" aria-label="X"><i class='bxl  bx-twitter-x'></i></a>
+  </section>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <img src="assets/logo.webp" alt="Cliff-De-Tech Logo" class="footer-logo" width="40" height="40">
+        <p>Bridging complex backend logic and intuitive frontend design to create secure, high-performance digital
+          systems.</p>
+        <div class="footer-socials">
+          <a href="https://github.com/cliff-de-tech" target="_blank" rel="noopener" aria-label="GitHub"><i
+              class='bx bxl-github'></i></a>
+          <a href="https://www.linkedin.com/in/clifford-opoku-sarkodie-377505369/" target="_blank" rel="noopener"
+            aria-label="LinkedIn"><i class='bx bxl-linkedin'></i></a>
+          <a href="https://www.instagram.com/cliffdetech/" target="_blank" rel="noopener" aria-label="Instagram"><i
+              class='bx bxl-instagram'></i></a>
+          <a href="https://x.com/cliffdetech" target="_blank" rel="noopener" aria-label="X"><i
+              class='bxl  bx-twitter-x'></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="about.html">About Me</a></li>
+          <li><a href="portfolio.html">Projects</a></li>
+          <li><a href="skills.html">Skills</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Expertise</h4>
+        <ul>
+          <li><a href="skills.html#services">Backend Architecture</a></li>
+          <li><a href="skills.html#services">DevSecOps</a></li>
+          <li><a href="skills.html#services">Fintech APIs</a></li>
+          <li><a href="skills.html#services">Cloud Solutions</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Get In Touch</h4>
+        <ul>
+          <li><i class='bx bx-envelope'></i> <a href="mailto:cliffdetech@gmail.com">cliffdetech@gmail.com</a></li>
+          <li><i class='bx bx-phone'></i> <a href="tel:+233547092289">+233 54 709 2289</a></li>
+          <li><i class='bx bx-map'></i> Accra, Ghana</li>
+        </ul>
       </div>
     </div>
-    <div class="footer-col">
-      <h4>Quick Links</h4>
-      <ul>
-        <li><a href="about.html">About Me</a></li>
-        <li><a href="portfolio.html">Projects</a></li>
-        <li><a href="skills.html">Skills</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
+    <div class="footer-bottom">
+      <p>&copy; <span id="year"></span> Cliff-De-Tech. All Rights Reserved.</p>
     </div>
-    <div class="footer-col">
-      <h4>Services</h4>
-      <ul>
-        <li><a href="skills.html#services">Graphic Design</a></li>
-        <li><a href="skills.html#services">UI/UX Design</a></li>
-        <li><a href="skills.html#services">Web Design</a></li>
-        <li><a href="skills.html#services">Brand Identity</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Get In Touch</h4>
-      <ul>
-        <li><i class='bx bx-envelope'></i> <a href="mailto:cliffdetech@gmail.com">cliffdetech@gmail.com</a></li>
-        <li><i class='bx bx-phone'></i> <a href="tel:+233547092289">+233 54 709 2289</a></li>
-        <li><i class='bx bx-map'></i> Accra, Ghana</li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <p>© <span id="year"></span> Cliff-De-Tech. All Rights Reserved.</p>
-  </div>
-</footer>
+  </footer>
 
-<script src="JS/main.js?v=1.1"></script>
-<script src="JS/web-category.js?v=1.1"></script>
-<script src="JS/web-scroll.js?v=1.1"></script>
+  <script src="JS/main.js?v=1.1"></script>
+  <script src="JS/enhancements.js?v=1.0"></script>
+  <script src="JS/chatbot.js?v=1.0"></script>
+  <script>
+    // Category Filter Logic
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Update active button
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filter = btn.dataset.filter;
+
+        projectCards.forEach(card => {
+          if (filter === 'all' || card.dataset.category === filter) {
+            card.style.display = 'flex';
+            card.style.animation = 'fadeInUp 0.4s ease forwards';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
 </body>
+
 </html>

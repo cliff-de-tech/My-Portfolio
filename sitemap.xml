@@ -4,44 +4,59 @@
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
-
 
 <url>
-  <loc>https://cliff-de-tech.github.io/</loc>
-  <lastmod>2025-10-28T13:17:55+00:00</lastmod>
-  <priority>1.00</priority>
+  <loc>https://cliffdetech.dev/</loc>
+  <lastmod>2024-05-20</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>1.0</priority>
 </url>
 <url>
-  <loc>https://cliff-de-tech.github.io/index.html</loc>
-  <lastmod>2025-10-28T13:17:55+00:00</lastmod>
-  <priority>0.80</priority>
+  <loc>https://cliffdetech.dev/index.html</loc>
+  <lastmod>2024-05-20</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>1.0</priority>
 </url>
 <url>
-  <loc>https://cliff-de-tech.github.io/about.html</loc>
-  <lastmod>2025-10-28T13:17:55+00:00</lastmod>
-  <priority>0.80</priority>
+  <loc>https://cliffdetech.dev/about.html</loc>
+  <lastmod>2024-05-20</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
 </url>
 <url>
-  <loc>https://cliff-de-tech.github.io/portfolio.html</loc>
-  <lastmod>2025-10-28T13:17:55+00:00</lastmod>
-  <priority>0.80</priority>
+  <loc>https://cliffdetech.dev/portfolio.html</loc>
+  <lastmod>2024-05-20</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.9</priority>
 </url>
 <url>
-  <loc>https://cliff-de-tech.github.io/skills.html</loc>
-  <lastmod>2025-10-28T13:17:55+00:00</lastmod>
-  <priority>0.80</priority>
+  <loc>https://cliffdetech.dev/skills.html</loc>
+  <lastmod>2024-05-20</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
 </url>
 <url>
-  <loc>https://cliff-de-tech.github.io/contact.html</loc>
-  <lastmod>2025-10-28T13:17:55+00:00</lastmod>
-  <priority>0.80</priority>
+  <loc>https://cliffdetech.dev/contact.html</loc>
+  <lastmod>2024-05-20</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.7</priority>
 </url>
 <url>
-  <loc>https://cliff-de-tech.github.io/assets/Clifford%20Resume.pdf</loc>
-  <lastmod>2025-10-28T13:17:55+00:00</lastmod>
+  <loc>https://cliffdetech.dev/playground.html</loc>
+  <lastmod>2024-05-20</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://cliffdetech.dev/case-study.html</loc>
+  <lastmod>2024-05-20</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+<url>
+  <loc>https://cliffdetech.dev/assets/Clifford%20Resume.pdf</loc>
+  <lastmod>2025-01-25T07:00:00+00:00</lastmod>
   <priority>0.64</priority>
 </url>
-
 
 </urlset>

@@ -1,0 +1,21 @@
+# robots.txt for Cliff-De-Tech Portfolio
+# https://cliffdetech.dev
+
+User-agent: *
+Disallow: /private/
+Disallow: /tmp/
+Disallow: /junk/
+
+# Sitemap location
+Sitemap: https://cliffdetech.dev/sitemap.xml
+
+# Disallow admin/system paths
+Disallow: /assets/Graphic Design/
+Disallow: /assets/Web Design/
+
+# Allow all crawlers to index main pages
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /

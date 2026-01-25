@@ -1,69 +1,343 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <link rel="stylesheet" href="CSS/style.css?v=1.0">
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-  <link rel="icon" type="image/png" href="assets/logo.webp">
-  <title>Page Not Found | Cliff-De-Tech</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 - Page Not Found | Cliff-De-Tech</title>
+  <meta name="description" content="Oops! This page doesn't exist. Let's get you back on track.">
+  <meta name="robots" content="noindex, nofollow">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/icons/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
+  <link rel="shortcut icon" href="assets/icons/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png" />
+  <link rel="manifest" href="assets/icons/site.webmanifest" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap"
+    rel="stylesheet">
+
+  <!-- Boxicons -->
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+
   <style>
-    .error-container {
+    :root {
+      --bg: #0a0a0f;
+      --surface: #12121a;
+      --text: #e4e4e7;
+      --text-muted: #71717a;
+      --accent: #00d4ff;
+      --accent-secondary: #a855f7;
+      --terminal-green: #22c55e;
+      --error-red: #ef4444;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
-      min-height: 80vh;
+      padding: 2rem;
+    }
+
+    /* Background grid effect */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(0, 212, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(rgba(0, 212, 255, 0.03) 1px, transparent 1px);
+      background-size: 50px 50px;
+      pointer-events: none;
+    }
+
+    .container {
+      max-width: 700px;
+      width: 100%;
       text-align: center;
-      padding: 20px;
+      position: relative;
+      z-index: 1;
     }
-    .error-code {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 8rem;
-      font-weight: 800;
-      background: linear-gradient(90deg, #7bdcff 10%, #9b7bff 90%);
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin: 0;
-      line-height: 1;
+
+    /* Terminal Window */
+    .terminal {
+      background: var(--surface);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.1),
+        0 25px 50px -12px rgba(0, 0, 0, 0.5);
+      text-align: left;
     }
-    .error-msg {
-      font-size: 1.5rem;
+
+    .terminal-header {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .terminal-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+
+    .terminal-dot.red {
+      background: #ff5f56;
+    }
+
+    .terminal-dot.yellow {
+      background: #ffbd2e;
+    }
+
+    .terminal-dot.green {
+      background: #27c93f;
+    }
+
+    .terminal-title {
+      flex: 1;
+      text-align: center;
+      font-family: 'Fira Code', monospace;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-right: 52px;
+    }
+
+    .terminal-body {
+      padding: 24px;
+      font-family: 'Fira Code', monospace;
+      font-size: 0.9rem;
+      line-height: 1.8;
+    }
+
+    .prompt {
+      color: var(--terminal-green);
+    }
+
+    .command {
       color: var(--text);
-      margin-bottom: 1rem;
     }
-    .error-desc {
-      color: var(--muted);
-      max-width: 400px;
-      margin-bottom: 2rem;
+
+    .error-line {
+      color: var(--error-red);
+      display: block;
+      margin: 16px 0;
+    }
+
+    .error-code {
+      font-size: 4rem;
+      font-weight: 700;
+      color: var(--accent);
+      display: block;
+      margin: 24px 0;
+      text-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
+      letter-spacing: -2px;
+      animation: glitch 3s infinite;
+    }
+
+    .info-line {
+      color: var(--text-muted);
+      display: block;
+      margin: 8px 0;
+    }
+
+    .suggestion {
+      margin-top: 24px;
+      padding-top: 16px;
+      border-top: 1px dashed rgba(255, 255, 255, 0.1);
+    }
+
+    .suggestion-label {
+      color: var(--accent-secondary);
+    }
+
+    /* Links */
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 32px;
+      justify-content: center;
+    }
+
+    .nav-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      background: rgba(0, 212, 255, 0.1);
+      border: 1px solid rgba(0, 212, 255, 0.3);
+      border-radius: 8px;
+      color: var(--accent);
+      text-decoration: none;
+      font-family: 'Fira Code', monospace;
+      font-size: 0.85rem;
+      transition: all 0.3s ease;
+    }
+
+    .nav-link:hover {
+      background: rgba(0, 212, 255, 0.2);
+      border-color: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(0, 212, 255, 0.2);
+    }
+
+    .nav-link i {
+      font-size: 1.1rem;
+    }
+
+    .home-link {
+      background: var(--accent);
+      color: var(--bg);
+      border-color: var(--accent);
+    }
+
+    .home-link:hover {
+      background: #00b8e6;
+      border-color: #00b8e6;
+    }
+
+    /* Blinking cursor */
+    .cursor {
+      display: inline-block;
+      width: 10px;
+      height: 18px;
+      background: var(--terminal-green);
+      margin-left: 4px;
+      animation: blink 1s step-end infinite;
+      vertical-align: text-bottom;
+    }
+
+    @keyframes blink {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0;
+      }
+    }
+
+    @keyframes glitch {
+
+      0%,
+      95%,
+      100% {
+        text-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
+      }
+
+      96% {
+        text-shadow: -2px 0 #ff00ff, 2px 0 #00ffff;
+      }
+
+      97% {
+        text-shadow: 2px 0 #ff00ff, -2px 0 #00ffff;
+      }
+
+      98% {
+        text-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .terminal-body {
+        padding: 16px;
+        font-size: 0.8rem;
+      }
+
+      .error-code {
+        font-size: 3rem;
+      }
+
+      .nav-links {
+        flex-direction: column;
+      }
+
+      .nav-link {
+        width: 100%;
+        justify-content: center;
+      }
     }
   </style>
 </head>
+
 <body>
+  <div class="container">
+    <div class="terminal">
+      <div class="terminal-header">
+        <span class="terminal-dot red"></span>
+        <span class="terminal-dot yellow"></span>
+        <span class="terminal-dot green"></span>
+        <span class="terminal-title">bash — error.log</span>
+      </div>
+      <div class="terminal-body">
+        <span class="prompt">cliff@portfolio:~$</span> <span class="command">navigate --to requested_page</span>
 
-<canvas id="bg-canvas" aria-hidden="true"></canvas>
-<div class="bg-overlay-gradient" aria-hidden="true"></div>
+        <span class="error-line">
+          <i class='bx bx-x-circle'></i> Error: Route not found in system path
+        </span>
 
-<nav class="nav">
-  <a class="brand" href="index.html" aria-label="Home">
-    <img src="assets/logo.webp" alt="Cliff-De-Tech Logo" width="32" height="32" />
-    <span>Cliff-De-Tech</span>
-  </a>
-  <div class="nav-right">
-    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
-        <i class='bx bxs-moon'></i>
-    </button>
+        <span class="error-code">404</span>
+
+        <span class="info-line">
+          <i class='bx bx-info-circle'></i> The page you're looking for doesn't exist or has been moved.
+        </span>
+
+        <span class="info-line">
+          <i class='bx bx-time'></i> Timestamp:
+          <script>document.write(new Date().toISOString())</script>
+        </span>
+
+        <div class="suggestion">
+          <span class="suggestion-label">## Suggested actions:</span>
+          <span class="info-line">→ Check the URL for typos</span>
+          <span class="info-line">→ Navigate to a valid route below</span>
+        </div>
+
+        <span class="prompt">cliff@portfolio:~$</span> <span class="cursor"></span>
+      </div>
+    </div>
+
+    <div class="nav-links">
+      <a href="index.html" class="nav-link home-link">
+        <i class='bx bx-home'></i>
+        cd ~/home
+      </a>
+      <a href="portfolio.html" class="nav-link">
+        <i class='bx bx-folder'></i>
+        ls projects/
+      </a>
+      <a href="about.html" class="nav-link">
+        <i class='bx bx-user'></i>
+        cat about.md
+      </a>
+      <a href="contact.html" class="nav-link">
+        <i class='bx bx-envelope'></i>
+        ./contact.sh
+      </a>
+    </div>
   </div>
-</nav>
-
-<section class="error-container">
-  <h1 class="error-code">404</h1>
-  <h2 class="error-msg">Page Not Found</h2>
-  <p class="error-desc">The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.</p>
-  <a href="index.html" class="button">Go Back Home</a>
-</section>
-
-<script src="JS/main.js?v=1.0"></script>
 </body>
+
 </html>
