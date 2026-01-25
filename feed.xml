@@ -26,10 +26,10 @@
     
     <item>
       <title>PostgreSQL Performance Tuning</title>
-      <link>https://cliff-de-tech.github.io/index.html#engineering-logs</link>
+      <link>https://cliffdetech.dev/index.html#engineering-logs</link>
       <description>How I improved query performance by 10x using proper indexing, query optimization, and connection pooling strategies for high-traffic applications.</description>
       <pubDate>Fri, 24 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>https://cliff-de-tech.github.io/logs/postgresql-tuning</guid>
+      <guid>https://cliffdetech.dev/logs/postgresql-tuning</guid>
       <category>Database</category>
       <category>PostgreSQL</category>
       <category>Performance</category>
@@ -37,10 +37,10 @@
     
     <item>
       <title>Docker Multi-Stage Builds</title>
-      <link>https://cliff-de-tech.github.io/index.html#engineering-logs</link>
+      <link>https://cliffdetech.dev/index.html#engineering-logs</link>
       <description>Reduced image size by 80% using multi-stage builds. Learn how to create minimal, secure Docker images for production Python applications.</description>
       <pubDate>Thu, 23 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>https://cliff-de-tech.github.io/logs/docker-multistage</guid>
+      <guid>https://cliffdetech.dev/logs/docker-multistage</guid>
       <category>DevOps</category>
       <category>Docker</category>
       <category>Optimization</category>
@@ -48,10 +48,10 @@
     
     <item>
       <title>Event-Driven Architecture with RabbitMQ</title>
-      <link>https://cliff-de-tech.github.io/index.html#engineering-logs</link>
+      <link>https://cliffdetech.dev/index.html#engineering-logs</link>
       <description>Building scalable microservices using message queues. Explore patterns for async processing, dead letter queues, and retry strategies.</description>
       <pubDate>Wed, 22 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>https://cliff-de-tech.github.io/logs/event-driven-rabbitmq</guid>
+      <guid>https://cliffdetech.dev/logs/event-driven-rabbitmq</guid>
       <category>Architecture</category>
       <category>RabbitMQ</category>
       <category>Microservices</category>
