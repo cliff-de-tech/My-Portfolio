@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cliff-De-Tech Engineering Logs</title>
+    <link>https://cliffdetech.dev/</link>
+    <description>Backend engineering insights, tutorials, and technical deep dives by Clifford Opoku-Sarkodie.</description>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 25 Jan 2025 07:00:00 +0000</lastBuildDate>
+    <atom:link href="https://cliffdetech.dev/feed.xml" rel="self" type="application/rss+xml"/>
+    <image>
+      <url>https://cliffdetech.dev/assets/logo.webp</url>
+      <title>Cliff-De-Tech Engineering Logs</title>
+      <link>https://cliffdetech.dev/</link>
+    </image>
+    
+    <item>
+      <title>Securing FastAPI: JWT + OAuth Done Right</title>
+      <link>https://cliffdetech.dev/index.html#engineering-logs</link>
+      <description>Deep dive into implementing production-grade authentication for Python APIs. Covers JWT best practices, token refresh strategies, and OAuth 2.0 integration patterns.</description>
+      <pubDate>Sat, 25 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://cliffdetech.dev/logs/jwt-oauth-fastapi</guid>
+      <category>Security</category>
+      <category>FastAPI</category>
+      <category>Authentication</category>
+    </item>
+    
+    <item>
+      <title>PostgreSQL Performance Tuning</title>
+      <link>https://cliff-de-tech.github.io/index.html#engineering-logs</link>
+      <description>How I improved query performance by 10x using proper indexing, query optimization, and connection pooling strategies for high-traffic applications.</description>
+      <pubDate>Fri, 24 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://cliff-de-tech.github.io/logs/postgresql-tuning</guid>
+      <category>Database</category>
+      <category>PostgreSQL</category>
+      <category>Performance</category>
+    </item>
+    
+    <item>
+      <title>Docker Multi-Stage Builds</title>
+      <link>https://cliff-de-tech.github.io/index.html#engineering-logs</link>
+      <description>Reduced image size by 80% using multi-stage builds. Learn how to create minimal, secure Docker images for production Python applications.</description>
+      <pubDate>Thu, 23 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://cliff-de-tech.github.io/logs/docker-multistage</guid>
+      <category>DevOps</category>
+      <category>Docker</category>
+      <category>Optimization</category>
+    </item>
+    
+    <item>
+      <title>Event-Driven Architecture with RabbitMQ</title>
+      <link>https://cliff-de-tech.github.io/index.html#engineering-logs</link>
+      <description>Building scalable microservices using message queues. Explore patterns for async processing, dead letter queues, and retry strategies.</description>
+      <pubDate>Wed, 22 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://cliff-de-tech.github.io/logs/event-driven-rabbitmq</guid>
+      <category>Architecture</category>
+      <category>RabbitMQ</category>
+      <category>Microservices</category>
+    </item>
+    
+  </channel>
+</rss>

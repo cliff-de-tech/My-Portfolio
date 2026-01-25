@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -8,34 +9,49 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdn.boxicons.com">
   <link rel="preconnect" href="https://unpkg.com">
-  <link rel="stylesheet" href="CSS/style.css?v=1.3">
+  <!-- CACHE BUSTING: Updated to v=1.5 -->
+  <link rel="stylesheet" href="CSS/style.css?v=1.5">
   <!-- Social Sharing / Open Graph Tags -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://cliff-de-tech.github.io/about.html">
-  <meta property="og:title" content="About Me | Clifford Opoku-Sarkodie">
-  <meta property="og:description" content="Creative Technologist with experience from ALX Africa and Ike Media GH. Combining development and design to build scalable digital solutions.">
-  <meta property="og:image" content="https://cliff-de-tech.github.io/assets/me.webp">
+  <meta property="og:url" content="https://cliffdetech.dev/about.html">
+  <meta property="og:title" content="About Me | Clifford Opoku-Sarkodie - Backend Software Engineer">
+  <meta property="og:description"
+    content="Designer turned Backend Engineer. I build APIs that frontend developers love to consume because I speak their language. Specializing in Scalability, Security, and User-Centric Architecture.">
+  <meta property="og:image" content="https://cliffdetech.dev/assets/me.webp">
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="About Me | Clifford Opoku-Sarkodie">
-  <meta name="twitter:description" content="Creative Technologist with experience from ALX Africa and Ike Media GH. Combining development and design to build scalable digital solutions.">
-  <meta name="twitter:image" content="https://cliff-de-tech.github.io/assets/2.webp">
+  <meta name="twitter:title" content="About Me | Clifford Opoku-Sarkodie - Backend Software Engineer">
+  <meta name="twitter:description"
+    content="Designer turned Backend Engineer. I build APIs that frontend developers love to consume because I speak their language.">
+  <meta name="twitter:image" content="https://cliffdetech.dev/assets/2.webp">
   <link href='https://cdn.boxicons.com/3.0.4/fonts/brands/boxicons-brands.min.css' rel='stylesheet'>
-  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet' media="print" onload="this.media='all'">
-  <noscript><link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"></noscript>
-  <link rel="icon" type="image/png" href="assets/logo.webp">
-  <title>About Me | Clifford Opoku-Sarkodie (Creative Technologist)</title>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet' media="print"
+    onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+  </noscript>
+  <link rel="icon" type="image/png" href="assets/icons/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
+  <link rel="shortcut icon" href="assets/icons/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png" />
+  <link rel="manifest" href="assets/icons/site.webmanifest" />
+  <meta name="theme-color" content="#00d4ff">
+  <title>About Me | Clifford Opoku-Sarkodie - Backend Software Engineer</title>
   <meta name="google-site-verification" content="UxjWMFhIU8iz2KEHdoypfxotkE1lo-xSWkkKhqYYpBE" />
-  <meta name="description" content="Creative Technologist with experience from ALX Africa and Ike Media GH. Combining development and design to build scalable digital solutions." />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <meta name="description"
+    content="Designer turned Backend Engineer. I build scalable APIs, secure authentication systems, and user-centric architectures. My design background means I build APIs that frontend developers love." />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Space+Grotesk:wght@600;700&display=swap"
+    rel="stylesheet">
 </head>
+
 <body>
 
-<canvas id="bg-canvas" aria-hidden="true"></canvas>
-<div class="bg-overlay-gradient" aria-hidden="true"></div>
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+  <div class="bg-overlay-gradient" aria-hidden="true"></div>
+
   <nav class="nav">
     <a class="brand" href="index.html" aria-label="Home">
-      
       <img src="assets/logo.webp" alt="Cliff-De-Tech Logo" width="32" height="32" />
       <span>Cliff-De-Tech</span>
     </a>
@@ -44,276 +60,529 @@
       <li><a href="about.html" class="nav-link active">About Me</a></li>
       <li><a href="skills.html" class="nav-link">Skills</a></li>
       <li><a href="portfolio.html" class="nav-link">Projects</a></li>
+      <li><a href="playground.html" class="nav-link">Playground</a></li>
       <li><a href="contact.html" class="nav-link">Contact</a></li>
     </ul>
-      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
-          <i class='bx bxs-moon'></i>
-      </button>
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+      <i class='bx bxs-moon'></i>
+    </button>
     <button class="menu-btn" aria-label="Open menu">&#9776;</button>
   </nav>
-  <section id="about">
-  <h2 class="section-title reveal">About Me</h2>
-  <p class="section-desc reveal">Clifford Opoku-Sarkodie is a:</p>
 
-    <div class="about">
-    <div class="card reveal">
-      <h2>Creative Technologist & Problem-Solver</h2>
-      <p style="color:var(--muted); margin-top:10px">
-        I bridge the gap between visual design and software engineering, transforming creative concepts into functional, high-performance digital experiences. By combining backend logic with frontend aesthetics, I build solutions that are visually engaging, technically robust, and scalable.
-      </p>
-      <ul style="margin-top:14px; color:var(--muted); display:grid; gap:8px">
-        <h2>My Approach:</h2>
-        <li><strong>Technical Precision:</strong> Writing clean, maintainable, and standards-compliant code that scales.</li>
-        <li><strong>Design Integration:</strong> Translating high-fidelity mockups into pixel-perfect, functional interfaces.</li>
-        <li><strong>User-Centric:</strong> Balancing brand aesthetics with intuitive user experiences and performance.</li>
-      </ul>
+  <!-- About Hero Section -->
+  <section id="about" class="about-hero-section">
+    <h1 class="section-title reveal">Designer → Engineer</h1>
+    <p class="section-desc reveal">A creative technologist who bridges the gap between pixel-perfect design and
+      production-grade code.</p>
 
-        <ul style="margin-top:14px; color:var(--muted); display:grid; gap:8px">
-          <h2>What I Offer</h2>
-          <li><strong>Brand Identity & Logo Design</strong> – Crafting distinctive logos and cohesive brand systems that leave lasting impressions.</li>
-          <li><strong>Visual Design & Marketing Assets</strong> – Designing social media graphics, ads, and visuals that capture attention and communicate clearly.</li>
-          <li><strong>UI/UX & Web Design</strong> – Creating intuitive, user-centered digital experiences through clean interfaces and thoughtful design.</li>
-          <li><strong>Print & Editorial Design</strong> – Developing brochures, posters, and layouts with visual balance and storytelling flow.</li>
-          <li><strong>Packaging Design</strong> – Designing packaging that embodies a brand’s essence and stands out on shelves.</li>
-          <li><strong>Creative Direction</strong> – Shaping the overall visual tone of projects to maintain consistency and elevate brand presence.</li>
+    <div class="about-hero-grid">
+      <!-- Bio Card -->
+      <div class="bio-card reveal">
+        <h2>I Don't Just Write Backend Code.</h2>
+        <p class="bio-highlight">
+          I build APIs that <strong>Frontend developers love to consume</strong> — because I speak their language.
+        </p>
+
+        <p class="bio-text">
+          My journey started in visual design: crafting logos, marketing materials, and UI mockups. But I quickly
+          realized that building the user experience everyone sees was only half the story. The real magic happens
+          behind the curtain — in the data models, authentication flows, and distributed systems that power modern
+          applications.
+        </p>
+
+        <h3 class="approach-title">My Approach to Engineering:</h3>
+        <ul class="approach-list">
+          <li><i class='bx bx-expand'></i><strong>Scalability First:</strong> Architecting systems that grow with your
+            users, from 100 to 100,000+.</li>
+          <li><i class='bx bx-shield-quarter'></i><strong>Security by Design:</strong> Zero-trust mindset, input
+            validation, and proper authentication from day one.</li>
+          <li><i class='bx bx-user-check'></i><strong>User-Centric APIs:</strong> Clean endpoints, clear error messages,
+            and documentation devs actually enjoy reading.</li>
         </ul>
-    </div>
 
-    <img class="profile reveal" src="assets/2.webp" alt="A profile photo of Clifford Opoku-Sarkodie" />
-  </div>
-</section>
+        <h3 class="offer-title">What I Bring to the Table:</h3>
+        <ul class="offer-list">
+          <li><i class='bx bx-server'></i><strong>Backend Architecture</strong> — RESTful APIs, microservices,
+            authentication systems, and database design.</li>
+          <li><i class='bx bx-git-branch'></i><strong>DevSecOps</strong> — CI/CD pipelines, infrastructure as code,
+            containerization, and security automation.</li>
+          <li><i class='bx bx-wallet'></i><strong>Fintech Systems</strong> — Ledger design, payment processing, and
+            PCI-compliant transaction handling.</li>
+          <li><i class='bx bx-code-block'></i><strong>Design Intuition</strong> — Years of UI/UX experience means I
+            understand the frontend perspective deeply.</li>
+        </ul>
+      </div>
 
-<section class="about-sections">
-
-  <h2 class="section-title" style="color:#ffffff; margin-top:48px;">Experience</h2>
-  <div class="about-experience-header" style="display:flex;justify-content:space-between;align-items:center;">
-    <div></div>
-    <a href="assets/Clifford Resume.pdf" class="button" download>
-      <i class='bx bx-download'></i> Download Resume
-    </a>
-  </div>
-  <div class="about-cards">
-    <div class="about-card">
-      <div class="about-card-left exp">
-        <span class="about-card-date" style="color:#1e3cff;">Present</span>
-        <div>
-          <strong>Web Developer</strong><br>
-          Cliff-De-Tech<br>
-          Accra, Ghana - Remote
-        </div>
-      </div>
-      <div class="about-card-right">
-        Developed and deployed this portfolio website using HTML5, CSS3, and JavaScript. Implemented responsive design, version control with Git, and optimized performance for cross-browser compatibility.
-      </div>
-       <button class="read-more-btn">Read More</button>
+      <!-- Profile Image -->
+      <img class="profile reveal" src="assets/2.webp" alt="A profile photo of Clifford Opoku-Sarkodie" loading="lazy" />
     </div>
-    <div class="about-card">
-      <div class="about-card-left exp">
-        <span class="about-card-date" style="color:#1e3cff;">2021 - 2024</span>
-        <div>
-          <strong>Junior Graphic Designer</strong><br>
-          Ike Media GH<br>
-          Accra, Ghana
-        </div>
-      </div>
-      <div class="about-card-right">
-        Created over 30+ unique visual assets for social media campaigns, leading to a 15% increase in audience engagement. Developed a new visual style guide for a client project, ensuring brand consistency across all digital platforms. Collaborated with clients to deliver high-quality visual solutions on tight deadlines.
-      </div>
-       <button class="read-more-btn">Read More</button>
-    </div>
-    <div class="about-card">
-      <div class="about-card-left exp">
-        <span class="about-card-date" style="color:#1e3cff;">3 Months</span>
-        <div>
-          <strong>ALX Professional Foundations</strong><br>
-          Learner Success Champion<br>
-          Accra, Ghana
-        </div>
-      </div>
-      <div class="about-card-right">
-        As an ALX Learner Success Champion (LSC), I played a vital role in supporting learners to stay engaged, focused, and committed to their goals. Through proactive guidance and consistent encouragement, I helped foster a motivating environment that empowered others to succeed.
-        <div style="margin-top:20px;">
-          <button class="button view-cert-btn" id="viewRecBtn" type="button">
-            <i class='bx bx-show'></i> View Recommendation
-          </button>
-        </div>
-      </div>
-      <button class="read-more-btn">Read More</button>
-    </div>
-  </div>
-    <br>
-    <br>
-    <br>
-    <br>
-  <h2 class="section-title" style="color:#e1007b;">Education</h2>
-  <div class="about-cards">
-    <div class="about-card">
-      <div class="about-card-left edu">
-        <span class="about-card-date" style="color:#e1007b;">In Progress</span>
-        <div>
-          <strong>ALX AFRICA</strong><br>
-          Accra, Ghana<br>
-          <em>Back-End Development</em>
-        </div>
-      </div>
-      <div class="about-card-right">
-        Currently enrolled in an intensive 4-month Back-End Development program focused on server-side programming, databases, RESTful APIs, and scalable web application architecture. Building practical skills through real-world projects and collaborative learning.
-      </div>
-      <button class="read-more-btn">Read More</button>
-    </div>
-    <div class="about-card">
-      <div class="about-card-left edu">
-        <span class="about-card-date" style="color:#e1007b;">3 Months</span>
-        <div>
-          <strong>ALX AFRICA</strong><br>
-          Accra, Ghana<br>
-          <em>Professional<br> Foundations</em>
-        </div>
-      </div>
-      <div class="about-card-right">
-        Completed a 12-week program focused on career readiness, personal branding, teamwork, and leadership. Developed skills in human-centered design, communication, and problem-solving through hands-on projects.
-        <div style="margin-top:18px;">
-          <button class="button view-cert-btn" id="viewCertBtn" type="button">
-            <i class='bx bx-show'></i> View Certification
-          </button>
-        </div>
-</div>
-      <button class="read-more-btn">Read More</button>
-    </div>
-    <div class="about-card">
-      <div class="about-card-left edu">
-        <span class="about-card-date" style="color:#e1007b;">In Progress</span>
-        <div>
-          <strong>UNIVERSITY OF THE PEOPLE</strong><br>
-          Pasadena, CA (Online)<br>
-          <em>Bachelor's Degree In<br>Computer Science</em>
-        </div>
-      </div>
-      <div class="about-card-right">
-       Pursuing a B.Sc. in Computer Science through an accredited online program. Coursework includes programming, software engineering, databases, operating systems, and computer networks, providing a strong technical foundation for creative technology work.
-      </div>
-      <button class="read-more-btn">Read More</button>
-    </div>
-  </div>
   </section>
 
-<div class="lightbox" id="lightbox" aria-modal="true" role="dialog" aria-label="Media preview">
-  <div class="lightbox-content">
-    <div class="lightbox-media" id="lightboxMedia"></div>
-    <div class="ctrls">
-      <button class="icon-btn" id="prevBtn" aria-label="Previous">⟨ Prev</button>
-      <div style="opacity:.8" id="lightboxTitle">Title</div>
-      <button class="icon-btn" id="nextBtn" aria-label="Next">Next ⟩</button>
+  <!-- Journey Timeline Section -->
+  <section class="journey-section">
+    <h2 class="section-title reveal">My Journey</h2>
+    <p class="section-desc reveal">From pixels to pipelines — a Git-style commit history of my evolution.</p>
+
+    <div class="about-experience-header reveal">
+      <div></div>
+      <a href="assets/Clifford Resume.pdf" class="button" download>
+        <i class='bx bx-download'></i> Download Resume
+      </a>
     </div>
-    <button class="icon-btn" id="closeLb" aria-label="Close">✕ Close</button>
-  </div>
-</div>
-<footer>
-  <div class="footer-grid">
-    <div class="footer-col">
-      <h3>Cliff-De-Tech</h3>
-      <p>Bridging design and code to create functional, high-performance digital experiences.</p>
-      <div class="footer-socials">
-        <a href="https://github.com/cliff-de-tech" target="_blank" rel="noopener" aria-label="GitHub"><i class='bx bxl-github'></i></a>
-        <a href="https://www.linkedin.com/in/clifford-opoku-sarkodie-377505369/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class='bx bxl-linkedin'></i></a>
-        <a href="https://www.instagram.com/cliffdetech/" target="_blank" rel="noopener" aria-label="Instagram"><i class='bx bxl-instagram'></i></a>
-        <a href="https://x.com/cliffdetech" target="_blank" rel="noopener" aria-label="X"><i class='bxl  bx-twitter-x'></i></a>
+
+    <!-- Git-Style Timeline -->
+    <div class="git-timeline reveal">
+
+      <!-- Timeline Node 1: Backend Engineer (Present - Top) -->
+      <div class="timeline-node current">
+        <div class="node-marker">
+          <div class="node-dot"></div>
+          <div class="node-line"></div>
+        </div>
+        <div class="node-content">
+          <div class="node-header">
+            <span class="node-date">2025 — Present</span>
+            <span class="node-badge current">HEAD</span>
+          </div>
+          <h3 class="node-title">Backend Software Engineer</h3>
+          <p class="node-org"><i class='bx bx-buildings'></i> ALX Africa · Intensive Training</p>
+          <p class="node-description">
+            Currently enrolled in an intensive 4-month Backend Development program. Building production-grade APIs,
+            mastering database design, implementing authentication systems, and learning cloud-native architecture
+            patterns.
+          </p>
+          <div class="node-tags">
+            <span>Python</span>
+            <span>FastAPI</span>
+            <span>PostgreSQL</span>
+            <span>Docker</span>
+            <span>Redis</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Timeline Node 2: DevSecOps Focus -->
+      <div class="timeline-node">
+        <div class="node-marker">
+          <div class="node-dot"></div>
+          <div class="node-line"></div>
+        </div>
+        <div class="node-content">
+          <div class="node-header">
+            <span class="node-date">2025</span>
+            <span class="node-badge merge">MERGE</span>
+          </div>
+          <h3 class="node-title">DevSecOps & Cloud Focus</h3>
+          <p class="node-org"><i class='bx bx-code-alt'></i> Self-Directed Learning</p>
+          <p class="node-description">
+            Merged design skills with engineering. Started building CI/CD pipelines, containerizing applications, and
+            implementing infrastructure as code. This is where design thinking meets system thinking.
+          </p>
+          <div class="node-tags">
+            <span>Kubernetes</span>
+            <span>Terraform</span>
+            <span>GitHub Actions</span>
+            <span>AWS</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Timeline Node 3: Web Developer -->
+      <div class="timeline-node">
+        <div class="node-marker">
+          <div class="node-dot"></div>
+          <div class="node-line"></div>
+        </div>
+        <div class="node-content">
+          <div class="node-header">
+            <span class="node-date">2024 — 2025</span>
+            <span class="node-badge feature">FEATURE</span>
+          </div>
+          <h3 class="node-title">Web Developer</h3>
+          <p class="node-org"><i class='bx bx-buildings'></i> Cliff-De-Tech · Founder</p>
+          <p class="node-description">
+            Founded a technical service hub. Built responsive websites, learned Git workflows, and started thinking
+            about code organization, performance, and SEO — the invisible forces behind great user experiences.
+          </p>
+          <div class="node-tags">
+            <span>HTML5</span>
+            <span>CSS3</span>
+            <span>JavaScript</span>
+            <span>Git</span>
+            <span>SEO</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Timeline Node 4: UI/UX Designer -->
+      <div class="timeline-node">
+        <div class="node-marker">
+          <div class="node-dot"></div>
+          <div class="node-line"></div>
+        </div>
+        <div class="node-content">
+          <div class="node-header">
+            <span class="node-date">2023 — 2024</span>
+            <span class="node-badge feature">FEATURE</span>
+          </div>
+          <h3 class="node-title">UI/UX Designer</h3>
+          <p class="node-org"><i class='bx bx-buildings'></i> Cliff-De-Tech · Freelance</p>
+          <p class="node-description">
+            Transitioned from static graphics to interactive experiences. Mastered Figma, learned user research, and
+            discovered the importance of designing with developer handoff in mind.
+          </p>
+          <div class="node-tags">
+            <span>Figma</span>
+            <span>Adobe XD</span>
+            <span>Wireframing</span>
+            <span>Prototyping</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Timeline Node 5: ALX LSC (Branch) -->
+      <div class="timeline-node">
+        <div class="node-marker">
+          <div class="node-dot"></div>
+          <div class="node-line"></div>
+        </div>
+        <div class="node-content">
+          <div class="node-header">
+            <span class="node-date">Sep — Oct 2025</span>
+            <span class="node-badge branch">BRANCH</span>
+          </div>
+          <h3 class="node-title">ALX Learner Success Champion</h3>
+          <p class="node-org"><i class='bx bx-group'></i> ALX Africa · Part-time</p>
+          <p class="node-description">
+            Took a branch to help other learners succeed. Developed leadership, communication, and mentorship skills
+            while supporting a community of aspiring professionals.
+          </p>
+          <div class="node-tags">
+            <span>Leadership</span>
+            <span>Mentorship</span>
+            <span>Communication</span>
+          </div>
+          <div class="node-actions">
+            <button class="button view-cert-btn" id="viewLscAppreciationBtn" type="button">
+              <i class='bx bx-show'></i> View Appreciation
+            </button>
+            <button class="button view-cert-btn" id="viewLscRecommendationBtn" type="button">
+              <i class='bx bx-show'></i> View Recommendation
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Timeline Node 6: Graphic Designer (Origin - Bottom) -->
+      <div class="timeline-node origin">
+        <div class="node-marker">
+          <div class="node-dot"></div>
+        </div>
+        <div class="node-content">
+          <div class="node-header">
+            <span class="node-date">2021 — 2024</span>
+            <span class="node-badge init">INIT</span>
+          </div>
+          <h3 class="node-title">Graphic Designer</h3>
+          <p class="node-org"><i class='bx bx-buildings'></i> IKE MEDIA GH · Junior Designer</p>
+          <p class="node-description">
+            Where it all began. Created 30+ visual assets for social media campaigns. Mastered Adobe Creative Suite,
+            learned brand identity, and developed an eye for composition — skills that still inform my system design
+            today.
+          </p>
+          <div class="node-tags">
+            <span>Photoshop</span>
+            <span>Illustrator</span>
+            <span>Branding</span>
+            <span>Marketing</span>
+          </div>
+          <div class="node-actions">
+            <button class="button view-cert-btn" id="viewIkeMediaBtn" type="button">
+              <i class='bx bx-show'></i> View Work Sample
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Education Section -->
+  <section class="education-section">
+    <h2 class="section-title reveal">Education</h2>
+
+    <div class="education-grid reveal">
+      <!-- ALX Education -->
+      <div class="education-card">
+        <div class="edu-header">
+          <img src="assets/alx-logo-6945b7588cf13.webp" alt="ALX Africa Logo" class="edu-logo" width="48" height="48"
+            loading="lazy">
+          <div class="edu-info">
+            <h3>ALX Africa</h3>
+            <p class="edu-location">Accra, Ghana</p>
+          </div>
+        </div>
+
+        <div class="edu-item">
+          <div class="edu-item-header">
+            <h4>Back-End Development</h4>
+            <span class="edu-status in-progress">In Progress</span>
+          </div>
+          <p>Intensive 4-month program focused on server-side programming, databases, RESTful APIs, and scalable web
+            application architecture.</p>
+        </div>
+
+        <div class="edu-item">
+          <div class="edu-item-header">
+            <h4>Professional Foundations</h4>
+            <span class="edu-status completed">Completed</span>
+          </div>
+          <p>12-week program on career readiness, personal branding, teamwork, and human-centered design.</p>
+          <button class="button view-cert-btn" id="viewCertBtn" type="button">
+            <i class='bx bx-show'></i> View Certificate
+          </button>
+        </div>
+      </div>
+
+      <!-- UoPeople Education -->
+      <div class="education-card">
+        <div class="edu-header">
+          <div class="edu-icon">
+            <i class='bx bxs-graduation'></i>
+          </div>
+          <div class="edu-info">
+            <h3>University of the People</h3>
+            <p class="edu-location">Pasadena, CA (Online)</p>
+          </div>
+        </div>
+
+        <div class="edu-item">
+          <div class="edu-item-header">
+            <h4>B.Sc. Computer Science</h4>
+            <span class="edu-status in-progress">In Progress</span>
+          </div>
+          <p>Accredited online program covering programming, software engineering, databases, operating systems, and
+            computer networks.</p>
+        </div>
       </div>
     </div>
-    <div class="footer-col">
-      <h4>Quick Links</h4>
-      <ul>
-        <li><a href="about.html">About Me</a></li>
-        <li><a href="portfolio.html">Projects</a></li>
-        <li><a href="skills.html">Skills</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
+  </section>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <img src="assets/logo.webp" alt="Cliff-De-Tech Logo" class="footer-logo" width="40" height="40">
+        <p>Bridging complex backend logic and intuitive frontend design to create secure, high-performance digital
+          systems.</p>
+        <div class="footer-socials">
+          <a href="https://github.com/cliff-de-tech" target="_blank" rel="noopener" aria-label="GitHub"><i
+              class='bx bxl-github'></i></a>
+          <a href="https://www.linkedin.com/in/clifford-opoku-sarkodie-377505369/" target="_blank" rel="noopener"
+            aria-label="LinkedIn"><i class='bx bxl-linkedin'></i></a>
+          <a href="https://www.instagram.com/cliffdetech/" target="_blank" rel="noopener" aria-label="Instagram"><i
+              class='bx bxl-instagram'></i></a>
+          <a href="https://x.com/cliffdetech" target="_blank" rel="noopener" aria-label="X"><i
+              class='bxl  bx-twitter-x'></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="about.html">About Me</a></li>
+          <li><a href="portfolio.html">Projects</a></li>
+          <li><a href="skills.html">Skills</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Expertise</h4>
+        <ul>
+          <li><a href="skills.html#services">Backend Architecture</a></li>
+          <li><a href="skills.html#services">DevSecOps</a></li>
+          <li><a href="skills.html#services">Fintech APIs</a></li>
+          <li><a href="skills.html#services">Cloud Solutions</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Get In Touch</h4>
+        <ul>
+          <li><i class='bx bx-envelope'></i> <a href="mailto:cliffdetech@gmail.com">cliffdetech@gmail.com</a></li>
+          <li><i class='bx bx-phone'></i> <a href="tel:+233547092289">+233 54 709 2289</a></li>
+          <li><i class='bx bx-map'></i> Accra, Ghana</li>
+        </ul>
+      </div>
     </div>
-    <div class="footer-col">
-      <h4>Services</h4>
-      <ul>
-        <li><a href="skills.html#services">Graphic Design</a></li>
-        <li><a href="skills.html#services">UI/UX Design</a></li>
-        <li><a href="skills.html#services">Web Design</a></li>
-        <li><a href="skills.html#services">Brand Identity</a></li>
-      </ul>
+    <div class="footer-bottom">
+      <p>&copy; <span id="year"></span> Cliff-De-Tech. All Rights Reserved.</p>
     </div>
-    <div class="footer-col">
-      <h4>Get In Touch</h4>
-      <ul>
-        <li><i class='bx bx-envelope'></i> <a href="mailto:cliffdetech@gmail.com">cliffdetech@gmail.com</a></li>
-        <li><i class='bx bx-phone'></i> <a href="tel:+233547092289">+233 54 709 2289</a></li>
-        <li><i class='bx bx-map'></i> Accra, Ghana</li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <p>© <span id="year"></span> Cliff-De-Tech. All Rights Reserved.</p>
-  </div>
-</footer>
+  </footer>
+
   <script src="JS/main.js?v=1.1"></script>
-<div class="lightbox" id="certLightbox" aria-modal="true" role="dialog" aria-label="Certificate preview" style="display:none;">
-  <div class="lightbox-content">
-    <div class="lightbox-media" id="certLightboxMedia">
-      <img src="assets/89-professional-foundations-certificate-clifford-opoku-sarkodie.webp" alt="ALX Professional Foundations Certificate" style="max-width:100%;border-radius:12px;" />
-    </div>
-    <div class="ctrls">
-      <button class="icon-btn" id="closeCertLb" aria-label="Close">✕ Close</button>
-    </div>
-  </div>
-</div>
+  <script src="JS/enhancements.js?v=1.0"></script>
+  <script src="JS/chatbot.js?v=1.0"></script>
 
-<div class="lightbox" id="recLightbox" aria-modal="true" role="dialog" aria-label="Recommendation Letter preview" style="display:none;">
-  <div class="lightbox-content">
-    <div class="lightbox-media" id="recLightboxMedia">
-      <img src="assets/Clifford Opoku-Sarkodie _Recommendation_Letter_page-0001.webp" alt="Recommendation Letter" style="max-width:100%;border-radius:12px;" />
-    </div>
-    <div class="ctrls">
-      <button class="icon-btn" id="closeRecLb" aria-label="Close">✕ Close</button>
+  <!-- Lightbox Modals -->
+  <div class="lightbox lightbox-hidden" id="certLightbox" aria-modal="true" role="dialog"
+    aria-label="Certificate preview">
+    <div class="lightbox-content">
+      <div class="lightbox-media" id="certLightboxMedia">
+        <img src="assets/89-professional-foundations-certificate-clifford-opoku-sarkodie.webp"
+          alt="ALX Professional Foundations Certificate" class="cert-image" loading="lazy" />
+      </div>
+      <div class="ctrls">
+        <button class="icon-btn" id="closeCertLb" aria-label="Close">✕ Close</button>
+      </div>
     </div>
   </div>
-</div>
 
-<style>
-  /* Blur everything except the modal when a modal is open */
-  body.modal-open > *:not(.lightbox) {
-    filter: blur(8px) brightness(0.95);
-    pointer-events: none;
-    user-select: none;
-    transition: filter 0.3s;
-  }
-  .lightbox[style*="display: grid"] {
-    z-index: 9999 !important;
-    display: grid !important;
-    background: rgba(0,0,0,0.85);
-  }
-</style>
-<script>
-function setupModal(buttonId, lightboxId) {
-  const viewBtn = document.getElementById(buttonId);
-  const lightbox = document.getElementById(lightboxId);
-  const closeBtn = lightbox.querySelector('.icon-btn[aria-label="Close"]');
+  <div class="lightbox lightbox-hidden" id="lscAppreciationLightbox" aria-modal="true" role="dialog"
+    aria-label="LSC Appreciation preview">
+    <div class="lightbox-content">
+      <div class="lightbox-media" id="lscAppreciationMedia">
+        <img src="assets/lsc-appreciation-6945b2b2032d2.webp" alt="LSC Appreciation" class="cert-image"
+          loading="lazy" />
+      </div>
+      <div class="ctrls">
+        <button class="icon-btn" id="closeLscAppreciationLb" aria-label="Close">✕ Close</button>
+      </div>
+    </div>
+  </div>
 
-  if (viewBtn && lightbox && closeBtn) {
-    viewBtn.addEventListener('click', () => {
-      lightbox.style.display = 'grid';
-      document.body.classList.add('modal-open');
-    });
+  <div class="lightbox lightbox-hidden" id="lscRecommendationLightbox" aria-modal="true" role="dialog"
+    aria-label="LSC Recommendation Letter preview">
+    <div class="lightbox-content">
+      <div class="lightbox-media" id="lscRecommendationMedia">
+        <img src="assets/Clifford Opoku-Sarkodie _Recommendation_Letter_page-0001.webp" alt="LSC Recommendation Letter"
+          class="cert-image" loading="lazy" />
+      </div>
+      <div class="ctrls">
+        <button class="icon-btn" id="closeLscRecommendationLb" aria-label="Close">✕ Close</button>
+      </div>
+    </div>
+  </div>
 
-    function closeModal() {
-      lightbox.style.display = 'none';
-      document.body.classList.remove('modal-open');
+  <div class="lightbox lightbox-hidden" id="ikeMediaLightbox" aria-modal="true" role="dialog"
+    aria-label="IKE MEDIA work preview">
+    <div class="lightbox-content">
+      <div class="lightbox-media" id="ikeMediaMedia">
+        <!-- Gallery image will be injected here -->
+        <img src="" alt="Graphic Design Work" class="cert-image" id="ikeGalleryImage" loading="lazy" />
+      </div>
+      <div class="ctrls gallery-ctrls">
+        <button class="icon-btn" id="prevIkeBtn" aria-label="Previous Image">❮ Prev</button>
+        <button class="icon-btn" id="closeIkeMediaLb" aria-label="Close">✕ Close</button>
+        <button class="icon-btn" id="nextIkeBtn" aria-label="Next Image">Next ❯</button>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    body.modal-open>*:not(.lightbox) {
+      filter: blur(8px) brightness(0.95);
+      pointer-events: none;
+      user-select: none;
+      transition: filter 0.3s;
     }
 
-    closeBtn.addEventListener('click', closeModal);
-    lightbox.addEventListener('click', (e) => {
-      if (e.target === lightbox) closeModal();
-    });
-  }
-}
+    .lightbox[style*="display: grid"] {
+      z-index: 9999 !important;
+      display: grid !important;
+      background: rgba(0, 0, 0, 0.85);
+    }
+  </style>
 
-setupModal('viewCertBtn', 'certLightbox');
-setupModal('viewRecBtn', 'recLightbox');
-</script>
+  <script>
+    function setupModal(buttonId, lightboxId) {
+      const viewBtn = document.getElementById(buttonId);
+      const lightbox = document.getElementById(lightboxId);
+      const closeBtn = lightbox ? lightbox.querySelector('.icon-btn[aria-label="Close"]') : null;
+
+      if (viewBtn && lightbox && closeBtn) {
+        viewBtn.addEventListener('click', () => {
+          lightbox.style.display = 'grid';
+          document.body.classList.add('modal-open');
+        });
+
+        function closeModal() {
+          lightbox.style.display = 'none';
+          document.body.classList.remove('modal-open');
+        }
+
+        closeBtn.addEventListener('click', closeModal);
+        lightbox.addEventListener('click', (e) => {
+          if (e.target === lightbox) closeModal();
+        });
+      }
+    }
+
+    setupModal('viewCertBtn', 'certLightbox');
+    setupModal('viewLscAppreciationBtn', 'lscAppreciationLightbox');
+    setupModal('viewLscRecommendationBtn', 'lscRecommendationLightbox');
+    // setupModal('viewIkeMediaBtn', 'ikeMediaLightbox'); // Replaced by specific gallery logic below
+
+    /* ====== IKE MEDIA GALLERY LOGIC ====== */
+    (function initIkeGallery() {
+      const viewBtn = document.getElementById('viewIkeMediaBtn');
+      const lightbox = document.getElementById('ikeMediaLightbox');
+      const closeBtn = document.getElementById('closeIkeMediaLb');
+      const prevBtn = document.getElementById('prevIkeBtn');
+      const nextBtn = document.getElementById('nextIkeBtn');
+      const imgEl = document.getElementById('ikeGalleryImage');
+
+      // Gallery Images
+      const images = [
+        "assets/Graphic Design/moms-flyer-3.webp",
+        "assets/Graphic Design/Cliff_Burger_1.webp",
+        "assets/Graphic Design/Social Media Post design_1.webp",
+        "assets/Graphic Design/Vici Bday Flyer.webp"
+      ];
+      let currentIndex = 0;
+
+      function showImage(index) {
+        if (index < 0) index = images.length - 1;
+        if (index >= images.length) index = 0;
+        currentIndex = index;
+        if (imgEl) imgEl.src = images[currentIndex];
+      }
+
+      if (viewBtn && lightbox) {
+        viewBtn.addEventListener('click', () => {
+          lightbox.style.display = 'grid';
+          document.body.classList.add('modal-open');
+          showImage(0); // Reset to first image
+        });
+
+        function closeModal() {
+          lightbox.style.display = 'none';
+          document.body.classList.remove('modal-open');
+        }
+
+        if (closeBtn) closeBtn.addEventListener('click', closeModal);
+        lightbox.addEventListener('click', (e) => {
+          if (e.target === lightbox) closeModal();
+        });
+
+        if (prevBtn) prevBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          showImage(currentIndex - 1);
+        });
+
+        if (nextBtn) nextBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          showImage(currentIndex + 1);
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+          if (lightbox.style.display === 'grid') {
+            if (e.key === 'ArrowLeft') showImage(currentIndex - 1);
+            if (e.key === 'ArrowRight') showImage(currentIndex + 1);
+            if (e.key === 'Escape') closeModal();
+          }
+        });
+      }
+    })();
+  </script>
 </body>
+
 </html>

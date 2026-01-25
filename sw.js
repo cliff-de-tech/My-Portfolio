@@ -1,4 +1,4 @@
-const CACHE_NAME = 'cliff-de-tech-v2'; // Bumped cache name
+const CACHE_NAME = 'cliff-de-tech-v3'; // Updated for PWA enhancements
 const urlsToCache = [
   '/',
   '/index.html',
@@ -6,9 +6,16 @@ const urlsToCache = [
   '/portfolio.html',
   '/skills.html',
   '/contact.html',
-  '/CSS/style.css?v=1.3',
+  '/playground.html',
+  '/case-study.html',
+  '/404.html',
+  '/manifest.json',
+  '/CSS/style.css?v=1.6',
   '/CSS/web-category.css?v=1.1',
   '/JS/main.js?v=1.1',
+  '/JS/enhancements.js?v=1.0',
+  '/JS/playground.js?v=1.0',
+  '/JS/chatbot.js?v=1.0',
   '/JS/web-category.js?v=1.1',
   '/JS/web-scroll.js?v=1.1',
   '/assets/logo.webp',
@@ -22,7 +29,7 @@ self.addEventListener('install', event => {
         return cache.addAll(urlsToCache);
       })
   );
-  self.skipWaiting(); 
+  self.skipWaiting();
 });
 
 self.addEventListener('activate', event => {
@@ -38,7 +45,7 @@ self.addEventListener('activate', event => {
       );
     })
   );
-  return self.clients.claim(); 
+  return self.clients.claim();
 });
 
 self.addEventListener('fetch', event => {

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -9,260 +9,516 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdn.boxicons.com">
   <link rel="preconnect" href="https://unpkg.com">
-  <!-- CACHE BUSTING: Updated to v=1.1 -->
-  <link rel="stylesheet" href="CSS/style.css?v=1.3">
+  <!-- CACHE BUSTING: Updated to v=1.5 -->
+  <link rel="stylesheet" href="CSS/style.css?v=1.5">
   <!-- Social Sharing / Open Graph Tags -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://cliff-de-tech.github.io/skills.html">
-  <meta property="og:title" content="My Skills | Clifford Opoku-Sarkodie">
-  <meta property="og:description" content="Creative Technologist skilled in web development (HTML5, CSS3, JavaScript), UI/UX design, graphic design, and technical problem-solving.">
-  <meta property="og:image" content="https://cliff-de-tech.github.io/assets/me.webp"> 
+  <meta property="og:url" content="https://cliffdetech.dev/skills.html">
+  <meta property="og:title" content="Skills & Tech Stack | Clifford Opoku-Sarkodie - Backend Software Engineer">
+  <meta property="og:description"
+    content="Backend Engineer skilled in Python, Node.js, SQL, Docker, Kubernetes, AWS, and CI/CD pipelines. Building scalable APIs and secure distributed systems.">
+  <meta property="og:image" content="https://cliffdetech.dev/assets/me.webp">
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="My Skills | Clifford Opoku-Sarkodie">
-  <meta name="twitter:description" content="Creative Technologist skilled in web development (HTML5, CSS3, JavaScript), UI/UX design, graphic design, and technical problem-solving.">
-  <meta name="twitter:image" content="https://cliff-de-tech.github.io/assets/me.webp">
+  <meta name="twitter:title" content="Skills & Tech Stack | Clifford Opoku-Sarkodie - Backend Software Engineer">
+  <meta name="twitter:description"
+    content="Backend Engineer skilled in Python, Node.js, SQL, Docker, Kubernetes, AWS, and CI/CD pipelines.">
+  <meta name="twitter:image" content="https://cliffdetech.dev/assets/me.webp">
   <link href='https://cdn.boxicons.com/3.0.4/fonts/brands/boxicons-brands.min.css' rel='stylesheet'>
-  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet' media="print" onload="this.media='all'">
-  <noscript><link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"></noscript>
-  <link rel="icon" type="image/webp" href="assets/logo.webp">
-  <title>My Skills | Clifford Opoku-Sarkodie (Creative Technologist)</title>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet' media="print"
+    onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+  </noscript>
+  <link rel="icon" type="image/png" href="assets/icons/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
+  <link rel="shortcut icon" href="assets/icons/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png" />
+  <link rel="manifest" href="assets/icons/site.webmanifest" />
+  <meta name="theme-color" content="#00d4ff">
+  <title>Skills & Tech Stack | Clifford Opoku-Sarkodie - Backend Software Engineer</title>
   <meta name="google-site-verification" content="UxjWMFhIU8iz2KEHdoypfxotkE1lo-xSWkkKhqYYpBE" />
-  <meta name="description" content="Creative Technologist skilled in web development (HTML5, CSS3, JavaScript), UI/UX design, graphic design, and technical problem-solving." />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <meta name="description"
+    content="Backend Software Engineer skilled in Python, Node.js, SQL, Docker, Kubernetes, AWS, and CI/CD pipelines. Building scalable APIs and secure distributed systems." />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Space+Grotesk:wght@600;700&display=swap"
+    rel="stylesheet">
 </head>
+
 <body>
 
-<canvas id="bg-canvas" aria-hidden="true"></canvas>
-<div class="bg-overlay-gradient" aria-hidden="true"></div>
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+  <div class="bg-overlay-gradient" aria-hidden="true"></div>
+
   <nav class="nav">
     <a class="brand" href="index.html" aria-label="Home">
-
       <img src="assets/logo.webp" alt="Cliff-De-Tech Logo" width="32" height="32" />
       <span>Cliff-De-Tech</span>
     </a>
     <ul>
       <li><a href="index.html" class="nav-link">Home</a></li>
       <li><a href="about.html" class="nav-link">About</a></li>
-      <li><a href="skills.html" class="nav-link active">My Skills</a></li>
+      <li><a href="skills.html" class="nav-link active">Skills</a></li>
       <li><a href="portfolio.html" class="nav-link">Projects</a></li>
+      <li><a href="playground.html" class="nav-link">Playground</a></li>
       <li><a href="contact.html" class="nav-link">Contact</a></li>
     </ul>
     <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
-        <i class='bx bxs-moon'></i>
+      <i class='bx bxs-moon'></i>
     </button>
     <button class="menu-btn" aria-label="Open menu">&#9776;</button>
   </nav>
 
-  <section id="skills" class="reveal">
-    <h2 class="section-title reveal">My Skills & Toolkit</h2>
-    <p class="section-desc reveal">Bridging design and development with technical precision and creative problem-solving.</p>
+  <!-- Skills Hero Section -->
+  <section id="skills" class="skills-hero-section">
+    <h1 class="section-title reveal">Engineering Toolkit</h1>
+    <p class="section-desc reveal">From core programming languages to cloud infrastructure — here's the tech stack I use
+      to build production-grade systems.</p>
 
+    <!-- Professional Skills Card -->
     <div class="professional-skills-card reveal">
-        <h3 class="skill-category-title"><i class='bx bx-briefcase-alt-2'></i> Professional (Soft) Skills</h3>
-        <div class="professional-skills-list">
-            <div class="prof-skill">
-                <i class='bx bx-conversation'></i>
-                <span>Strong Communication</span>
-            </div>
-            <div class="prof-skill">
-                <i class='bx bx-time-five'></i>
-                <span>Time Management</span>
-            </div>
-            <div class="prof-skill">
-                <i class='bx bx-group'></i>
-                <span>Team Collaboration</span>
-            </div>
-             <div class="prof-skill">
-                <i class='bx bx-bulb'></i>
-                <span>Problem-Solving</span>
-            </div>
-            <div class="prof-skill">
-                <i class='bx bx-git-compare'></i>
-                <span>Adaptability</span>
-            </div>
-            <div class="prof-skill">
-                <i class='bx bx-target-lock'></i>
-                <span>Attention to Detail</span>
-            </div>
-            <div class="prof-skill">
-              <i class='bx bx-globe'></i>
-              <span>Remote Collaboration</span>
-          </div>
-          <div class="prof-skill">
-              <i class='bx bx-check-shield'></i>
-              <span>Agile Methodology</span>
-          </div>
-          <div class="prof-skill">
-              <i class='bx bx-time-five'></i>
-              <span>Asynchronous Comm.</span>
-          </div>
-           <div class="prof-skill">
-              <i class='bx bx-bulb'></i>
-              <span>Design Thinking</span>
-          </div>
-          <div class="prof-skill">
-              <i class='bx bx-user-voice'></i>
-              <span>Technical Writing</span>
-          </div>
-          <div class="prof-skill">
-              <i class='bx bx-rocket'></i>
-              <span>Self-Directed Learning</span>
-          </div>
-        </div>
+      <h3 class="skill-category-title"><i class='bx bx-briefcase-alt-2'></i> Professional (Soft) Skills</h3>
+      <div class="professional-skills-list">
+        <div class="prof-skill"><i class='bx bx-conversation'></i><span>Strong Communication</span></div>
+        <div class="prof-skill"><i class='bx bx-time-five'></i><span>Time Management</span></div>
+        <div class="prof-skill"><i class='bx bx-group'></i><span>Team Collaboration</span></div>
+        <div class="prof-skill"><i class='bx bx-bulb'></i><span>Problem-Solving</span></div>
+        <div class="prof-skill"><i class='bx bx-git-compare'></i><span>Adaptability</span></div>
+        <div class="prof-skill"><i class='bx bx-target-lock'></i><span>Attention to Detail</span></div>
+        <div class="prof-skill"><i class='bx bx-globe'></i><span>Remote Collaboration</span></div>
+        <div class="prof-skill"><i class='bx bx-check-shield'></i><span>Agile Methodology</span></div>
+        <div class="prof-skill"><i class='bx bx-timer'></i><span>Async Communication</span></div>
+        <div class="prof-skill"><i class='bx bx-bulb'></i><span>System Thinking</span></div>
+        <div class="prof-skill"><i class='bx bx-user-voice'></i><span>Technical Writing</span></div>
+        <div class="prof-skill"><i class='bx bx-rocket'></i><span>Self-Directed Learning</span></div>
+      </div>
     </div>
 
-    <div class="skills-grid">
-      <div class="skill-category-card reveal">
-        <h3 class="skill-category-title"><i class='bx bxs-paint'></i> Graphic Design</h3>
-        <p class="skill-category-desc">Creating compelling visual content, from brand identities to marketing materials, that communicates clearly and effectively.</p>
-        <h4 class="tools-title">Key Tools</h4>
-        <div class="tools-list">
-          <div class="tool-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/illustrator/illustrator-plain.svg" class="tool-icon" alt="Illustrator"><span>Illustrator</span></div>
-          <div class="tool-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-plain.svg" class="tool-icon" alt="Photoshop"><span>Photoshop</span></div>
-          <div class="tool-item"><img src="https://www.vectorlogo.zone/logos/canva/canva-icon.svg" class="tool-icon" alt="Canva"><span>Canva</span></div>
-        </div>
+    <!-- ===== GROUP 1: CORE ENGINEERING ===== -->
+    <div class="skill-group reveal">
+      <div class="skill-group-header">
+        <h2 class="skill-group-title"><i class='bx bx-code-block'></i> Core Engineering</h2>
+        <p class="skill-group-desc">The languages I use to build systems, APIs, and automation scripts.</p>
       </div>
 
-      <div class="skill-category-card reveal">
-        <h3 class="skill-category-title"><i class='bx bx-ruler'></i> UI/UX Design</h3>
-        <p class="skill-category-desc">Crafting intuitive, user-centered digital experiences through research, wireframing, and interactive prototyping.</p>
-        <h4 class="tools-title">Key Tools</h4>
-        <div class="tools-list">
-          <div class="tool-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" class="tool-icon" alt="Figma"><span>Figma</span></div>
-          <div class="tool-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/xd/xd-plain.svg" class="tool-icon" alt="Adobe XD"><span>Adobe XD</span></div>
-          <div class="tool-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sketch/sketch-original.svg" class="tool-icon" alt="Sketch"><span>Sketch</span></div>
+      <div class="circular-meters-grid">
+        <!-- Python -->
+        <div class="circular-meter">
+          <div class=" meter-ring" style="--percent: 90; --color: var(--accent);">
+            <svg viewBox="0 0 100 100">
+              <circle class=" meter-bg" cx="50" cy="50" r="45"></circle>
+              <circle class=" meter-fill" cx="50" cy="50" r="45"></circle>
+            </svg>
+            <div class="meter-icon">
+              <img src=" https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python"
+                loading="lazy">
+            </div>
+          </div>
+          <span class=" meter-label">Python</span>
+          <span class="meter-level">Advanced</span>
+        </div>
+
+        <!-- JavaScript/Node.js -->
+        <div class="circular-meter">
+          <div class="meter-ring" style="--percent: 85; --color: var(--accent-2);">
+            <svg viewBox="0 0 100 100">
+              <circle class="meter-bg" cx="50" cy="50" r="45"></circle>
+              <circle class="meter-fill" cx="50" cy="50" r="45"></circle>
+            </svg>
+            <div class="meter-icon">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+                alt="JavaScript" loading="lazy">
+            </div>
+          </div>
+          <span class="meter-label">JavaScript</span>
+          <span class="meter-level">Advanced</span>
+        </div>
+
+        <!-- TypeScript -->
+        <div class="circular-meter">
+          <div class="meter-ring" style="--percent: 80; --color: #3178c6;">
+            <svg viewBox="0 0 100 100">
+              <circle class="meter-bg" cx="50" cy="50" r="45"></circle>
+              <circle class="meter-fill" cx="50" cy="50" r="45"></circle>
+            </svg>
+            <div class="meter-icon">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"
+                alt="TypeScript" loading="lazy">
+            </div>
+          </div>
+          <span class="meter-label">TypeScript</span>
+          <span class="meter-level">Proficient</span>
+        </div>
+
+        <!-- SQL -->
+        <div class="circular-meter">
+          <div class="meter-ring" style="--percent: 85; --color: var(--accent-3);">
+            <svg viewBox="0 0 100 100">
+              <circle class="meter-bg" cx="50" cy="50" r="45"></circle>
+              <circle class="meter-fill" cx="50" cy="50" r="45"></circle>
+            </svg>
+            <div class="meter-icon">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="SQL"
+                loading="lazy">
+            </div>
+          </div>
+          <span class=" meter-label">SQL</span>
+          <span class="meter-level">Advanced</span>
+        </div>
+
+        <!-- C -->
+        <div class="circular-meter">
+          <div class="meter-ring" style="--percent: 70; --color: #a8b9cc;">
+            <svg viewBox="0 0 100 100">
+              <circle class="meter-bg" cx="50" cy="50" r="45"></circle>
+              <circle class="meter-fill" cx="50" cy="50" r="45"></circle>
+            </svg>
+            <div class="meter-icon">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="C" loading="lazy">
+            </div>
+          </div>
+          <span class="meter-label">C</span>
+          <span class="meter-level">Proficient</span>
+        </div>
+
+        <!-- Bash -->
+        <div class="circular-meter">
+          <div class="meter-ring" style="--percent: 75; --color: #89e051;">
+            <svg viewBox="0 0 100 100">
+              <circle class="meter-bg" cx="50" cy="50" r="45"></circle>
+              <circle class="meter-fill" cx="50" cy="50" r="45"></circle>
+            </svg>
+            <div class="meter-icon">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg" alt="Bash"
+                loading="lazy">
+            </div>
+          </div>
+          <span class=" meter-label">Bash</span>
+          <span class="meter-level">Proficient</span>
         </div>
       </div>
+    </div>
 
-      <div class="skill-category-card reveal">
-        <h3 class="skill-category-title"><i class='bx bx-code-alt'></i> Web Development</h3>
-        <p class="skill-category-desc">Building responsive, high-performance websites with a focus on clean code and seamless user interaction.</p>
-        <h4 class="tools-title">Key Tools</h4>
-        <div class="tools-list">
-          <div class="tool-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" class="tool-icon" alt="HTML5"><span>HTML5</span></div>
-          <div class="tool-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" class="tool-icon" alt="CSS3"><span>CSS3</span></div>
-          <div class="tool-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" class="tool-icon" alt="JavaScript"><span>JavaScript</span></div>
-          <div class="tool-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" class="tool-icon" alt="Git"><span>Git & GitHub</span></div>
-          <div class="tool-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" class="tool-icon" alt="VS Code"><span>VS Code</span></div>
-          <div class="tool-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" class="tool-icon" alt="React"><span>React</span></div>
-          <div class="tool-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" class="tool-icon" alt="Node.js"><span>Node.js</span></div>
-          <div class="tool-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" class="tool-icon" alt="MongoDB"><span>MongoDB</span></div>
-          <div class="tool-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" class="tool-icon" alt="Python"><span>Python</span></div>
+    <!-- ===== GROUP 2: INFRASTRUCTURE & OPS ===== -->
+    <div class="skill-group reveal">
+      <div class="skill-group-header">
+        <h2 class="skill-group-title"><i class='bx bx-server'></i> Infrastructure & Ops</h2>
+        <p class="skill-group-desc">Cloud platforms, containerization, and the DevSecOps toolchain.</p>
+      </div>
+
+      <div class="progress-bars-grid">
+        <!-- Docker -->
+        <div class="progress-skill">
+          <div class="progress-header">
+            <div class="progress-info">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker"
+                class="progress-icon">
+              <span class="progress-name">Docker</span>
+            </div>
+            <span class="progress-percent">90%</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill" style="--percent: 90; --color: #2496ed;"></div>
+          </div>
         </div>
+
+        <!-- Kubernetes -->
+        <div class="progress-skill">
+          <div class="progress-header">
+            <div class="progress-info">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-original.svg"
+                alt="Kubernetes" class="progress-icon">
+              <span class="progress-name">Kubernetes</span>
+            </div>
+            <span class="progress-percent">75%</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill" style="--percent: 75; --color: #326ce5;"></div>
+          </div>
+        </div>
+
+        <!-- AWS -->
+        <div class="progress-skill">
+          <div class="progress-header">
+            <div class="progress-info">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg"
+                alt="AWS" class="progress-icon">
+              <span class="progress-name">AWS</span>
+            </div>
+            <span class="progress-percent">80%</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill" style="--percent: 80; --color: #ff9900;"></div>
+          </div>
+        </div>
+
+        <!-- Linux -->
+        <div class="progress-skill">
+          <div class="progress-header">
+            <div class="progress-info">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux"
+                class="progress-icon">
+              <span class="progress-name">Linux</span>
+            </div>
+            <span class="progress-percent">85%</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill" style="--percent: 85; --color: #fcc624;"></div>
+          </div>
+        </div>
+
+        <!-- CI/CD (GitHub Actions) -->
+        <div class="progress-skill">
+          <div class="progress-header">
+            <div class="progress-info">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/githubactions/githubactions-original.svg"
+                alt="GitHub Actions" class="progress-icon">
+              <span class="progress-name">CI/CD Pipelines</span>
+            </div>
+            <span class="progress-percent">85%</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill" style="--percent: 85; --color: #2088ff;"></div>
+          </div>
+        </div>
+
+        <!-- Terraform -->
+        <div class="progress-skill">
+          <div class="progress-header">
+            <div class="progress-info">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/terraform/terraform-original.svg"
+                alt="Terraform" class="progress-icon">
+              <span class="progress-name">Terraform</span>
+            </div>
+            <span class="progress-percent">70%</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill" style="--percent: 70; --color: #7b42bc;"></div>
+          </div>
+        </div>
+
+        <!-- Redis -->
+        <div class="progress-skill">
+          <div class="progress-header">
+            <div class="progress-info">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg" alt="Redis"
+                class="progress-icon">
+              <span class="progress-name">Redis</span>
+            </div>
+            <span class="progress-percent">85%</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill" style="--percent: 85; --color: #dc382d;"></div>
+          </div>
+        </div>
+
+        <!-- Nginx -->
+        <div class="progress-skill">
+          <div class="progress-header">
+            <div class="progress-info">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nginx/nginx-original.svg" alt="Nginx"
+                class="progress-icon">
+              <span class="progress-name">Nginx</span>
+            </div>
+            <span class="progress-percent">80%</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill" style="--percent: 80; --color: #009639;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== TOOLS & UTILITIES (BADGES) ===== -->
+    <div class="skill-group reveal">
+      <div class="skill-group-header">
+        <h2 class="skill-group-title"><i class='bx bx-wrench'></i> Tools & Utilities</h2>
+        <p class="skill-group-desc">Daily drivers for development, testing, and project management.</p>
+      </div>
+
+      <div class="tools-badges-grid">
+        <div class="tool-badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg"
+            alt="VS Code" loading="lazy"><span>VS Code</span></div>
+        <div class=" tool-badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"
+            alt="Git" loading="lazy"><span>Git</span></div>
+        <div class=" tool-badge"><img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub"
+            loading="lazy"><span>GitHub</span></div>
+        <div class=" tool-badge"><img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gitlab/gitlab-original.svg" alt="GitLab"
+            loading="lazy"><span>GitLab</span></div>
+        <div class=" tool-badge"><img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg" alt="Postman"
+            loading="lazy"><span>Postman</span></div>
+        <div class=" tool-badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg"
+            alt="Jira" loading="lazy"><span>Jira</span></div>
+        <div class=" tool-badge"><img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/trello/trello-original.svg" alt="Trello"
+            loading="lazy"><span>Trello</span></div>
+        <div class=" tool-badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/slack/slack-original.svg"
+            alt="Slack" loading="lazy"><span>Slack</span></div>
+        <div class=" tool-badge"><img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/notion/notion-original.svg" alt="Notion"
+            loading="lazy"><span>Notion</span></div>
+        <div class=" tool-badge"><img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytest/pytest-original.svg" alt="Pytest"
+            loading="lazy"><span>Pytest</span></div>
+        <div class="tool-badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg"
+            alt="Django" loading="lazy"><span>Django</span></div>
+        <div class="tool-badge"><img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg" alt="FastAPI"
+            loading="lazy"><span>FastAPI</span></div>
+        <div class="tool-badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg"
+            alt="Flask" loading="lazy"><span>Flask</span></div>
+        <div class=" tool-badge"><i class='bx bxs-rocket'></i><span>Antigravity</span></div>
+      </div>
+    </div>
+
+    <!-- ===== GROUP 3: CREATIVE SUITE (BONUS/SECONDARY) ===== -->
+    <div class="skill-group bonus-skills reveal">
+      <div class="skill-group-header">
+        <h2 class="skill-group-title"><i class='bx bx-palette'></i> Creative Suite <span class="bonus-tag">Bonus
+            Skills</span></h2>
+        <p class="skill-group-desc">My design background — the secret weapon for building
+          developer-friendly UIs and
+          documentation.</p>
+      </div>
+
+      <div class="tools-badges-grid creative">
+        <div class="tool-badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg"
+            alt="Figma" loading="lazy"><span>Figma</span></div>
+        <div class="tool-badge"><img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-plain.svg" alt="Photoshop"
+            loading="lazy"><span>Photoshop</span></div>
+        <div class="tool-badge"><img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/illustrator/illustrator-plain.svg" alt="Illustrator"
+            loading="lazy"><span>Illustrator</span></div>
+        <div class="tool-badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/xd/xd-plain.svg"
+            alt="Adobe XD" loading="lazy">
+          <span>Adobe XD</span>
+        </div>
+        <div class="tool-badge"><img src="https://www.vectorlogo.zone/logos/canva/canva-icon.svg" alt="Canva"
+            loading="lazy"><span>Canva</span></div>
+        <div class="tool-badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sketch/sketch-original.svg"
+            alt="Sketch" loading="lazy"><span>Sketch</span></div>
       </div>
     </div>
   </section>
 
-  <section id="services" class="reveal">
-  <h2 class="section-title reveal">My Services</h2>
-  <p class="section-desc reveal">Pick a lane or mix & match — I tailor deliverables to your goals, timeline, and budget.</p>
+  <!-- Services Section -->
+  <section id="services" class="services-section reveal">
+    <h2 class="section-title reveal">What I Build</h2>
+    <p class="section-desc reveal">Enterprise-grade solutions with security and scalability baked in from day one.</p>
 
-  <div class="tabs" style="display:flex; gap:12px; margin-bottom:24px;">
-    <button class="tab-btn active" data-tab="all">All</button>
-    <button class="tab-btn" data-tab="graphic">Graphic Design</button>
-    <button class="tab-btn" data-tab="uiux">UI/UX Design</button>
-    <button class="tab-btn" data-tab="web">Web Design</button>
-  </div>
+    <div class="services-grid">
+      <article class="service-card reveal" data-tilt>
+        <div class="chip">Core</div>
+        <div class="icon">⚡</div>
+        <h3>RESTful APIs</h3>
+        <p>High-performance APIs with proper authentication, rate limiting, and OpenAPI documentation.</p>
+      </article>
 
-  <div class="services-grid">
-    <article class="service-card reveal" data-tilt data-category="graphic">
-      <div class="chip">Popular</div>
-      <div class="icon">🎨</div>
-      <h3>Brand Identity</h3>
-      <p>Logo, type, color, and robust brand systems with scalable guidelines.</p>
-    </article>
-    <article class="service-card reveal" data-tilt data-category="graphic">
-      <div class="icon">🛒</div>
-      <h3>Marketing & Advertising Materials</h3>
-      <p>Posters, flyers, brochures, social media creatives.</p>
-    </article>
-    <article class="service-card reveal" data-tilt data-category="graphic">
-      <div class="icon">📦</div>
-      <h3>Packaging & Print</h3>
-      <p>Premium unboxing experiences and editorial layouts with tactile flair.</p>
-    </article>
-    <article class="service-card reveal" data-tilt data-category="graphic">
-      <div class="icon">📚</div>
-      <h3>Editorial & Print Design</h3>
-      <p>Magazines, catalogs, business cards, and presentations.</p>
-    </article>
-    <article class="service-card reveal" data-tilt data-category="uiux">
-      <div class="chip">Popular</div>
-      <div class="icon">💻</div>
-      <h3>UI/UX Design</h3>
-      <p>Intuitive user interfaces, wireframes, and engaging digital experiences.</p>
-    </article>
-    <article class="service-card reveal" data-tilt data-category="uiux">
-      <div class="icon">📱</div>
-      <h3>Mobile App Design</h3>
-      <p>Modern mobile UI/UX for iOS and Android apps.</p>
-    </article>
-    <article class="service-card reveal" data-tilt data-category="uiux">
-      <div class="icon">👨🏻‍💻</div>
-      <h3>User Experience (UX) Research & Testing</h3>
-      <p>Improving usability through user research, testing, and feedback.</p>
-    </article>
-    <article class="service-card reveal" data-tilt data-category="web">
-      <div class="icon">🌐</div>
-      <h3>Web Design</h3>
-      <p>Responsive websites that combine functionality with engaging visuals.</p>
-    </article>
-    <article class="service-card reveal" data-tilt data-category="web">
-      <div class="icon">🖥️</div>
-      <h3>Landing Pages</h3>
-      <p>Conversion-focused landing pages for products and campaigns.</p>
-    </article>
-    <article class="service-card reveal" data-tilt data-category="web">
-      <div class="icon">🌏</div>
-      <h3>Website Maintenance & Updates</h3>
-      <p>Keeping sites updated, secure, and visually fresh.</p>
-    </article>
-  </div>
-</section>
-<footer>
-  <div class="footer-grid">
-    <div class="footer-col">
-      <h3>Cliff-De-Tech</h3>
-      <p>Bridging design and code to create functional, high-performance digital experiences.</p>
-      <div class="footer-socials">
-        <a href="https://github.com/cliff-de-tech" target="_blank" rel="noopener" aria-label="GitHub"><i class='bx bxl-github'></i></a>
-        <a href="https://www.linkedin.com/in/clifford-opoku-sarkodie-377505369/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class='bx bxl-linkedin'></i></a>
-        <a href="https://www.instagram.com/cliffdetech/" target="_blank" rel="noopener" aria-label="Instagram"><i class='bx bxl-instagram'></i></a>
-        <a href="https://x.com/cliffdetech" target="_blank" rel="noopener" aria-label="X"><i class='bxl  bx-twitter-x'></i></a>
+      <article class="service-card reveal" data-tilt>
+        <div class="chip">Core</div>
+        <div class="icon">🔐</div>
+        <h3>Authentication Systems</h3>
+        <p>JWT, OAuth2, RBAC — secure identity management with refresh tokens and audit logging.</p>
+      </article>
+
+      <article class="service-card reveal" data-tilt>
+        <div class="icon">🗄️</div>
+        <h3>Database Design</h3>
+        <p>Normalized schemas, migrations, indexing strategies, and query optimization for PostgreSQL/MongoDB.</p>
+      </article>
+
+      <article class="service-card reveal" data-tilt>
+        <div class="icon">📦</div>
+        <h3>Containerization</h3>
+        <p>Docker multi-stage builds, docker-compose orchestration, and Kubernetes deployments.</p>
+      </article>
+
+      <article class="service-card reveal" data-tilt>
+        <div class="icon">🔄</div>
+        <h3>CI/CD Pipelines</h3>
+        <p>Automated testing, security scanning, and zero-downtime deployments via GitHub Actions.</p>
+      </article>
+
+      <article class="service-card reveal" data-tilt>
+        <div class="icon">💳</div>
+        <h3>Fintech Systems</h3>
+        <p>Double-entry ledgers, payment processing, and PCI-compliant transaction handling.</p>
+      </article>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <img src="assets/logo.webp" alt="Cliff-De-Tech Logo" class="footer-logo" width="40" height="40">
+        <p>Bridging complex backend logic and intuitive frontend design to create secure, high-performance digital
+          systems.</p>
+        <div class="footer-socials">
+          <a href="https://github.com/cliff-de-tech" target="_blank" rel="noopener" aria-label="GitHub"><i
+              class='bx bxl-github'></i></a>
+          <a href="https://www.linkedin.com/in/clifford-opoku-sarkodie-377505369/" target="_blank" rel="noopener"
+            aria-label="LinkedIn"><i class='bx bxl-linkedin'></i></a>
+          <a href="https://www.instagram.com/cliffdetech/" target="_blank" rel="noopener" aria-label="Instagram"><i
+              class='bx bxl-instagram'></i></a>
+          <a href="https://x.com/cliffdetech" target="_blank" rel="noopener" aria-label="X"><i
+              class='bxl  bx-twitter-x'></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="about.html">About Me</a></li>
+          <li><a href="portfolio.html">Projects</a></li>
+          <li><a href="skills.html">Skills</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Expertise</h4>
+        <ul>
+          <li><a href="skills.html#services">Backend Architecture</a></li>
+          <li><a href="skills.html#services">DevSecOps</a></li>
+          <li><a href="skills.html#services">Fintech APIs</a></li>
+          <li><a href="skills.html#services">Cloud Solutions</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Get In Touch</h4>
+        <ul>
+          <li><i class='bx bx-envelope'></i> <a href="mailto:cliffdetech@gmail.com">cliffdetech@gmail.com</a></li>
+          <li><i class='bx bx-phone'></i> <a href="tel:+233547092289">+233 54 709 2289</a></li>
+          <li><i class='bx bx-map'></i> Accra, Ghana</li>
+        </ul>
       </div>
     </div>
-    <div class="footer-col">
-      <h4>Quick Links</h4>
-      <ul>
-        <li><a href="about.html">About Me</a></li>
-        <li><a href="portfolio.html">Projects</a></li>
-        <li><a href="skills.html">Skills</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
+    <div class="footer-bottom">
+      <p>&copy; <span id="year"></span> Cliff-De-Tech. All Rights Reserved.</p>
     </div>
-    <div class="footer-col">
-      <h4>Services</h4>
-      <ul>
-        <li><a href="skills.html#services">Graphic Design</a></li>
-        <li><a href="skills.html#services">UI/UX Design</a></li>
-        <li><a href="skills.html#services">Web Design</a></li>
-        <li><a href="skills.html#services">Brand Identity</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Get In Touch</h4>
-      <ul>
-        <li><i class='bx bx-envelope'></i> <a href="mailto:cliffdetech@gmail.com">cliffdetech@gmail.com</a></li>
-        <li><i class='bx bx-phone'></i> <a href="tel:+233547092289">+233 54 709 2289</a></li>
-        <li><i class='bx bx-map'></i> Accra, Ghana</li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <p>© <span id="year"></span> Cliff-De-Tech. All Rights Reserved.</p>
-  </div>
-</footer>
+  </footer>
+
   <script src="JS/main.js?v=1.1"></script>
-  </body>
+  <script src="JS/enhancements.js?v=1.0"></script>
+  <script src="JS/chatbot.js?v=1.0"></script>
+
+  <script>
+    // Animate circular meters on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate');
+        }
+      });
+    }, { threshold: 0.5 });
+
+    document.querySelectorAll('.circular-meter, .progress-skill').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
+</body>
+
 </html>

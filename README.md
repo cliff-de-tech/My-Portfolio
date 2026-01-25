@@ -2,7 +2,7 @@
 
 This repository contains the complete source code for my personal portfolio website, built to showcase my skills in web design, UI/UX, and graphic design.
 
-**View the live site:** [**https://cliff-de-tech.github.io/**](https://cliff-de-tech.github.io/)
+**View the live site:** [**https://cliffdetech.dev/**](https://cliffdetech.dev/)
 
 ![Screenshot of the portfolio homepage](https://github.com/cliff-de-tech/cliff-de-tech.github.io/blob/main/assets/homepage-screenshot.png)
 
@@ -28,11 +28,11 @@ This project was built without any external CSS or JS frameworks.
 * **HTML5:** For semantic structure.
 * **CSS3:** For all styling, including responsive design (media queries), layouts (Flexbox/Grid), and animations.
 * **JavaScript (ES6+):** For all interactivity, including:
-    * Theme toggle
-    * Mobile navigation menu
-    * Portfolio category filtering
-    * "Read More" toggles on the About page
-    * Animated background canvas
+  * Theme toggle
+  * Mobile navigation menu
+  * Portfolio category filtering
+  * "Read More" toggles on the About page
+  * Animated background canvas
 * **Git & GitHub:** For version control.
 * **GitHub Pages:** For deployment and hosting.
 
@@ -40,19 +40,24 @@ This project was built without any external CSS or JS frameworks.
 
 To run this project locally:
 
-1.  **Clone the repository:**
+1. **Clone the repository:**
+
     ```sh
     git clone [https://github.com/cliff-de-tech/cliff-de-tech.github.io.git](https://github.com/cliff-de-tech/cliff-de-tech.github.io.git)
     ```
-2.  **Navigate to the directory:**
+
+2. **Navigate to the directory:**
+
     ```sh
     cd cliff-de-tech.github.io
     ```
-3.  **Open `index.html`:**
+
+3. **Open `index.html`:**
     You can open the `index.html` file directly in your web browser to view the site.
 
 ## Contact
 
 Created by **Clifford Opoku-Sarkodie**
+
 * **LinkedIn:** [linkedin.com/in/clifford-opoku-sarkodie-377505369](https://www.linkedin.com/in/clifford-opoku-sarkodie-377505369/)
 * **GitHub:** [@cliff-de-tech](https://github.com/cliff-de-tech)

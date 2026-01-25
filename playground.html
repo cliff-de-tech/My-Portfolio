@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.boxicons.com">
+    <link rel="preconnect" href="https://unpkg.com">
+    <!-- CACHE BUSTING: Updated to v=1.6 -->
+    <link rel="stylesheet" href="CSS/style.css?v=1.6">
+    <!-- Social Sharing / Open Graph Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://cliffdetech.dev/playground.html">
+    <meta property="og:title" content="API Playground | Clifford Opoku-Sarkodie - Backend Engineer">
+    <meta property="og:description"
+        content="Interactive API playground to test my backend services. Experience real-time responses, authentication flows, and data retrieval.">
+    <meta property="og:image" content="https://cliffdetech.dev/assets/me.webp">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="API Playground | Clifford Opoku-Sarkodie - Backend Engineer">
+    <meta name="twitter:description"
+        content="Interactive API playground to test my backend services. Experience real-time responses, authentication flows, and data retrieval.">
+    <meta name="twitter:image" content="https://cliffdetech.dev/assets/me.webp">
+    <link href='https://cdn.boxicons.com/3.0.4/fonts/brands/boxicons-brands.min.css' rel='stylesheet'>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet' media="print"
+        onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+    </noscript>
+    <link rel="icon" type="image/png" href="assets/icons/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
+    <link rel="shortcut icon" href="assets/icons/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png" />
+    <link rel="manifest" href="assets/icons/site.webmanifest" />
+    <meta name="theme-color" content="#00d4ff">
+    <title>API Playground | Clifford Opoku-Sarkodie - Backend Engineer</title>
+    <meta name="google-site-verification" content="UxjWMFhIU8iz2KEHdoypfxotkE1lo-xSWkkKhqYYpBE" />
+    <meta name="description"
+        content="Interactive API testing playground by Clifford Opoku-Sarkodie. Explore mock RESTful endpoints and see backend engineering in action." />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Space+Grotesk:wght@600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <canvas id="bg-canvas" aria-hidden="true"></canvas>
+    <div class="bg-overlay-gradient" aria-hidden="true"></div>
+
+    <nav class="nav">
+        <a class="brand" href="index.html" aria-label="Home">
+            <img src="assets/logo.webp" alt="Cliff-De-Tech Logo" width="32" height="32" />
+            <span>Cliff-De-Tech</span>
+        </a>
+        <ul>
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="about.html" class="nav-link">About Me</a></li>
+            <li><a href="skills.html" class="nav-link">Skills</a></li>
+            <li><a href="portfolio.html" class="nav-link">Projects</a></li>
+            <li><a href="playground.html" class="nav-link active">Playground</a></li>
+            <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+            <i class='bx bxs-moon'></i>
+        </button>
+        <button class="menu-btn" aria-label="Open menu">&#9776;</button>
+    </nav>
+
+    <!-- Playground Hero -->
+    <section class="playground-hero">
+        <h1 class="section-title reveal">API Playground</h1>
+        <p class="section-desc reveal">Test my mock API endpoints in real-time. These simulate the kind of RESTful
+            services I build.</p>
+    </section>
+
+    <!-- API Playground Interface -->
+    <section class="playground-container reveal">
+        <div class="playground-grid">
+
+            <!-- Request Panel -->
+            <div class="request-panel">
+                <div class="panel-header">
+                    <i class='bx bx-send'></i>
+                    <h3>Request</h3>
+                </div>
+
+                <div class="panel-body">
+                    <!-- Method + Endpoint Selector -->
+                    <div class="endpoint-row">
+                        <select id="method-select" class="method-select">
+                            <option value="GET" selected>GET</option>
+                            <option value="POST">POST</option>
+                            <option value="PUT">PUT</option>
+                            <option value="DELETE">DELETE</option>
+                        </select>
+
+                        <select id="endpoint-select" class="endpoint-select">
+                            <option value="/api/users">GET /api/users</option>
+                            <option value="/api/users/1">GET /api/users/:id</option>
+                            <option value="/api/projects">GET /api/projects</option>
+                            <option value="/api/auth/login">POST /api/auth/login</option>
+                            <option value="/api/health">GET /api/health</option>
+                        </select>
+                    </div>
+
+                    <!-- Request Body -->
+                    <div class="request-body-section" id="request-body-section" style="display: none;">
+                        <label>Request Body (JSON)</label>
+                        <textarea id="request-body" class="code-textarea" placeholder='{
+  "email": "user@example.com",
+  "password": "securePassword123"
+}'></textarea>
+                    </div>
+
+                    <!-- Headers -->
+                    <div class="headers-section">
+                        <label>Headers</label>
+                        <div class="header-row">
+                            <span class="header-key">Content-Type:</span>
+                            <span class="header-value">application/json</span>
+                        </div>
+                        <div class="header-row">
+                            <span class="header-key">Accept:</span>
+                            <span class="header-value">application/json</span>
+                        </div>
+                    </div>
+
+                    <!-- Send Button -->
+                    <button id="send-request" class="button send-btn">
+                        <i class='bx bx-play'></i>
+                        Send Request
+                    </button>
+                </div>
+            </div>
+
+            <!-- Response Panel -->
+            <div class="response-panel">
+                <div class="panel-header">
+                    <i class='bx bx-code-curly'></i>
+                    <h3>Response</h3>
+                    <div class="response-meta" id="response-meta">
+                        <span class="status-badge" id="status-badge">—</span>
+                        <span class="response-time" id="response-time">—</span>
+                    </div>
+                </div>
+
+                <div class="panel-body">
+                    <pre class="response-output"
+                        id="response-output"><code class="json">// Click "Send Request" to see the response here</code></pre>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Available Endpoints -->
+        <div class="endpoints-reference reveal">
+            <h3><i class='bx bx-book-open'></i> Available Endpoints</h3>
+            <div class="endpoints-grid">
+                <div class="endpoint-item">
+                    <span class="method get">GET</span>
+                    <code>/api/users</code>
+                    <span class="desc">List all users</span>
+                </div>
+                <div class="endpoint-item">
+                    <span class="method get">GET</span>
+                    <code>/api/users/:id</code>
+                    <span class="desc">Get user by ID</span>
+                </div>
+                <div class="endpoint-item">
+                    <span class="method get">GET</span>
+                    <code>/api/projects</code>
+                    <span class="desc">List portfolio projects</span>
+                </div>
+                <div class="endpoint-item">
+                    <span class="method post">POST</span>
+                    <code>/api/auth/login</code>
+                    <span class="desc">Authenticate user</span>
+                </div>
+                <div class="endpoint-item">
+                    <span class="method get">GET</span>
+                    <code>/api/health</code>
+                    <span class="desc">Health check endpoint</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <img src="assets/logo.webp" alt="Cliff-De-Tech Logo" class="footer-logo" width="40" height="40">
+                <p>Bridging complex backend logic and intuitive frontend design to create secure, high-performance
+                    digital
+                    systems.</p>
+                <div class="footer-socials">
+                    <a href="https://github.com/cliff-de-tech" target="_blank" rel="noopener" aria-label="GitHub"><i
+                            class='bx bxl-github'></i></a>
+                    <a href="https://www.linkedin.com/in/clifford-opoku-sarkodie-377505369/" target="_blank"
+                        rel="noopener" aria-label="LinkedIn"><i class='bx bxl-linkedin'></i></a>
+                    <a href="https://www.instagram.com/cliffdetech/" target="_blank" rel="noopener"
+                        aria-label="Instagram"><i class='bx bxl-instagram'></i></a>
+                    <a href="https://x.com/cliffdetech" target="_blank" rel="noopener" aria-label="X"><i
+                            class='bxl  bx-twitter-x'></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="about.html">About Me</a></li>
+                    <li><a href="portfolio.html">Projects</a></li>
+                    <li><a href="skills.html">Skills</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Backend Services</h4>
+                <ul>
+                    <li>API Development</li>
+                    <li>Database Design</li>
+                    <li>Authentication Systems</li>
+                    <li>DevSecOps</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Clifford Opoku-Sarkodie. Crafted with backend precision, delivered with frontend finesse.</p>
+        </div>
+    </footer>
+
+    <script src="JS/main.js?v=1.1"></script>
+    <script src="JS/enhancements.js?v=1.0"></script>
+    <script src="JS/playground.js?v=1.0"></script>
+    <script src="JS/chatbot.js?v=1.0"></script>
+</body>
+
+</html>
