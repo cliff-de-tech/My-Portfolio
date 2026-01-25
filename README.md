@@ -34,25 +34,6 @@ This project was built without any external CSS or JS frameworks.
 * **Git & GitHub:** For version control.
 * **GitHub Pages:** For deployment and hosting.
 
-## How to Use
-
-To run this project locally:
-
-1. **Clone the repository:**
-
-    ```sh
-    git clone [https://github.com/cliff-de-tech/cliff-de-tech.github.io.git](https://github.com/cliff-de-tech/cliff-de-tech.github.io.git)
-    ```
-
-2. **Navigate to the directory:**
-
-    ```sh
-    cd cliff-de-tech.github.io
-    ```
-
-3. **Open `index.html`:**
-    You can open the `index.html` file directly in your web browser to view the site.
-
 ## Contact
 
 Created by **Clifford Opoku-Sarkodie**
