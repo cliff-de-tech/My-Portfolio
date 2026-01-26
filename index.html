@@ -4,16 +4,14 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <!-- PERFORMANCE: Preload critical resources -->
-  <link rel="preload" as="image" href="assets/me.webp" fetchpriority="high">
   <!-- Preconnect for performance -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdn.boxicons.com">
   <link rel="preconnect" href="https://unpkg.com">
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
-  <!-- CACHE BUSTING: Updated to v=1.7 -->
-  <link rel="stylesheet" href="CSS/style.css?v=1.7">
+  <!-- CACHE BUSTING: Updated to v=1.8 -->
+  <link rel="stylesheet" href="CSS/style.min.css?v=1.0">
   <!-- Social Sharing / Open Graph Tags -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://cliffdetech.dev/">
@@ -27,8 +25,7 @@
   <meta name="twitter:description"
     content="Portfolio of Clifford Opoku-Sarkodie, specializing in Secure Backend Systems, Fintech APIs, DevSecOps, and Cloud Architecture.">
   <meta name="twitter:image" content="https://cliffdetech.dev/assets/me.webp">
-  <!-- PERFORMANCE: Defer icon fonts loading -->
-  <link rel="preload" as="style" href="https://cdn.boxicons.com/3.0.4/fonts/brands/boxicons-brands.min.css">
+  <!-- Icon fonts - load async to not block render -->
   <link href='https://cdn.boxicons.com/3.0.4/fonts/brands/boxicons-brands.min.css' rel='stylesheet' media="print"
     onload="this.media='all'">
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet' media="print"
@@ -48,7 +45,7 @@
   <meta name="google-site-verification" content="UxjWMFhIU8iz2KEHdoypfxotkE1lo-xSWkkKhqYYpBE" />
   <meta name="description"
     content="Portfolio of Clifford Opoku-Sarkodie, specializing in Secure Backend Systems, Fintech APIs, DevSecOps, and Cloud Architecture." />
-  <!-- PERFORMANCE: Fonts with display=swap for faster text rendering -->
+  <!-- Google Fonts -->
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Space+Grotesk:wght@600;700&display=swap"
     rel="stylesheet">
@@ -412,7 +409,7 @@
           <a href="https://www.instagram.com/cliffdetech/" target="_blank" rel="noopener" aria-label="Instagram"><i
               class='bx bxl-instagram'></i></a>
           <a href="https://x.com/cliffdetech" target="_blank" rel="noopener" aria-label="X"><i
-              class='bxl  bx-twitter-x'></i></a>
+              class='bx bxl-twitter-x'></i></a>
         </div>
       </div>
       <div class="footer-col">
