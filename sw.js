@@ -10,7 +10,7 @@ const urlsToCache = [
   '/case-study.html',
   '/404.html',
   '/manifest.json',
-  '/CSS/style.min.css?v=1.8',
+  '/CSS/style.css?v=1.6',
   '/CSS/web-category.css?v=1.1',
   '/JS/main.js?v=1.1',
   '/JS/enhancements.js?v=1.0',
