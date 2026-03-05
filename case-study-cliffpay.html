@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.boxicons.com">
+    <link rel="preconnect" href="https://unpkg.com">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <!-- CACHE BUSTING: Updated to v=1.0 -->
+    <link rel="stylesheet" href="CSS/style.min.css?v=1.0">
+    <!-- Social Sharing / Open Graph Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://cliffdetech.dev/case-study-cliffpay.html">
+    <meta property="og:title" content="Cliff-Pay Case Study | Clifford Opoku-Sarkodie - Backend Engineer">
+    <meta property="og:description"
+        content="Deep dive into Cliff-Pay: A secure digital wallet and P2P fund transfer API built with Django, DRF, PostgreSQL, and JWT authentication.">
+    <meta property="og:image" content="https://cliffdetech.dev/assets/me.webp">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Cliff-Pay Case Study | Clifford Opoku-Sarkodie - Backend Engineer">
+    <meta name="twitter:description"
+        content="Deep dive into Cliff-Pay: A secure digital wallet and P2P fund transfer API built with Django, DRF, PostgreSQL, and JWT authentication.">
+    <meta name="twitter:image" content="https://cliffdetech.dev/assets/me.webp">
+    <!-- PERFORMANCE: Defer icon fonts loading -->
+    <link rel="preload" as="style" href="https://cdn.boxicons.com/3.0.4/fonts/brands/boxicons-brands.min.css">
+    <link href='https://cdn.boxicons.com/3.0.4/fonts/brands/boxicons-brands.min.css' rel='stylesheet' media="print"
+        onload="this.media='all'">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet' media="print"
+        onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+        <link rel="stylesheet" href="https://cdn.boxicons.com/3.0.4/fonts/brands/boxicons-brands.min.css">
+    </noscript>
+    <link rel="icon" type="image/png" href="assets/icons/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
+    <link rel="shortcut icon" href="assets/icons/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png" />
+    <link rel="manifest" href="assets/icons/site.webmanifest" />
+    <meta name="theme-color" content="#00d4ff">
+    <title>Cliff-Pay Case Study | Clifford Opoku-Sarkodie - Backend Engineer</title>
+    <meta name="google-site-verification" content="UxjWMFhIU8iz2KEHdoypfxotkE1lo-xSWkkKhqYYpBE" />
+    <meta name="description"
+        content="Technical case study of Cliff-Pay by Clifford Opoku-Sarkodie. Explore the atomic P2P transfer flow, signal-driven wallet provisioning, and security patterns behind this fintech API." />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Space+Grotesk:wght@600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <!-- Mermaid.js for diagrams -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <script>
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'dark',
+            themeVariables: {
+                primaryColor: '#00d4ff',
+                primaryTextColor: '#e2e8f0',
+                primaryBorderColor: '#334155',
+                lineColor: '#64748b',
+                secondaryColor: '#a855f7',
+                tertiaryColor: '#1e293b'
+            }
+        });
+    </script>
+</head>
+
+<body>
+
+    <canvas id="bg-canvas" aria-hidden="true"></canvas>
+    <div class="bg-overlay-gradient" aria-hidden="true"></div>
+
+    <nav class="nav">
+        <a class="brand" href="index.html" aria-label="Home">
+            <img src="assets/logo.webp" alt="Cliff-De-Tech Logo" width="32" height="32" />
+            <span>Cliff-De-Tech</span>
+        </a>
+        <ul>
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="about.html" class="nav-link">About Me</a></li>
+            <li><a href="skills.html" class="nav-link">Skills</a></li>
+            <li><a href="portfolio.html" class="nav-link">Projects</a></li>
+            <li><a href="playground.html" class="nav-link">Playground</a></li>
+            <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+            <i class='bx bxs-moon'></i>
+        </button>
+        <button class="menu-btn" aria-label="Open menu">&#9776;</button>
+    </nav>
+
+    <!-- Case Study Hero -->
+    <section class="case-study-hero">
+        <div class="case-hero-content reveal">
+            <span class="case-badge"><i class='bx bx-wallet'></i> Fintech</span>
+            <h1>Cliff-Pay</h1>
+            <p class="case-tagline">Secure Digital Wallet & Peer-to-Peer Transfer API</p>
+            <div class="case-meta">
+                <span><i class='bx bx-calendar'></i> 2025</span>
+                <span><i class='bx bx-code-alt'></i> Python, Django, PostgreSQL</span>
+                <span><i class='bx bx-check-circle'></i> Production Ready</span>
+            </div>
+            <div class="case-actions">
+                <a href="https://github.com/cliff-de-tech/Cliff-Pay" target="_blank" class="button">
+                    <i class='bx bxl-github'></i> View on GitHub
+                </a>
+                <a href="portfolio.html" class="button secondary">
+                    <i class='bx bx-arrow-back'></i> Back to Projects
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Overview Section -->
+    <section class="case-section reveal">
+        <div class="case-container">
+            <h2><i class='bx bx-info-circle'></i> Project Overview</h2>
+
+            <div class="overview-grid">
+                <div class="overview-card">
+                    <h3>The Problem</h3>
+                    <p>Every fintech team building P2P payments was reinventing the wheel—no standardized wallet logic,
+                        no atomic transfer guarantees, and balance inconsistencies under concurrent requests that could
+                        silently lose money.</p>
+                </div>
+                <div class="overview-card">
+                    <h3>The Solution</h3>
+                    <p>A production-grade digital wallet REST API with atomic peer-to-peer transfers, signal-driven
+                        wallet provisioning, JWT authentication, and full transaction history—built on Django, DRF, and
+                        PostgreSQL.</p>
+                </div>
+                <div class="overview-card">
+                    <h3>Key Metrics</h3>
+                    <ul>
+                        <li>💰 Zero balance inconsistencies via atomic transactions</li>
+                        <li>⚡ Auto wallet creation on user registration (0ms manual setup)</li>
+                        <li>🔐 JWT-secured endpoints with token refresh</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- System Architecture -->
+    <section class="case-section reveal">
+        <div class="case-container">
+            <h2><i class='bx bx-sitemap'></i> System Architecture</h2>
+            <p class="section-intro">High-level overview of the wallet and transfer flow.</p>
+
+            <div class="diagram-container">
+                <div class="mermaid">
+                    flowchart TB
+                    subgraph Client["Client Applications"]
+                    MOBILE[Mobile App]
+                    WEB[Web App]
+                    CLI[API Client / cURL]
+                    end
+
+                    subgraph Auth["Authentication Layer"]
+                    REGISTER["/api/accounts/register/"]
+                    LOGIN["/api/accounts/login/"]
+                    JWT[JWT Token Validation]
+                    end
+
+                    subgraph Core["Core API Views"]
+                    PROFILE["/api/accounts/profile/"]
+                    SEND["/api/transactions/send/"]
+                    HISTORY["/api/transactions/history/"]
+                    end
+
+                    subgraph Engine["Business Logic"]
+                    SIGNAL["post_save Signal"]
+                    ATOMIC["transaction.atomic()"]
+                    LOCK["select_for_update()"]
+                    VALIDATE[Balance Validation]
+                    end
+
+                    subgraph Data["Data Layer"]
+                    POSTGRES[(PostgreSQL)]
+                    USER_TBL[User Model]
+                    WALLET_TBL[Wallet Model]
+                    TXN_TBL[Transaction Model]
+                    end
+
+                    MOBILE --> REGISTER
+                    WEB --> LOGIN
+                    CLI --> JWT
+
+                    REGISTER --> SIGNAL
+                    SIGNAL --> WALLET_TBL
+
+                    JWT --> PROFILE
+                    JWT --> SEND
+                    JWT --> HISTORY
+
+                    SEND --> ATOMIC
+                    ATOMIC --> LOCK
+                    LOCK --> VALIDATE
+                    VALIDATE --> TXN_TBL
+
+                    USER_TBL --> POSTGRES
+                    WALLET_TBL --> POSTGRES
+                    TXN_TBL --> POSTGRES
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Database Schema -->
+    <section class="case-section reveal">
+        <div class="case-container">
+            <h2><i class='bx bx-data'></i> Database Schema</h2>
+            <p class="section-intro">Entity-Relationship diagram showing the wallet and transaction models.</p>
+
+            <div class="diagram-container">
+                <div class="mermaid">
+                    erDiagram
+                    USERS ||--|| WALLETS : has
+                    USERS ||--o{ TRANSACTIONS_SENT : sends
+                    USERS ||--o{ TRANSACTIONS_RECEIVED : receives
+
+                    USERS {
+                    int id PK
+                    string email UK
+                    string username UK
+                    string password_hash
+                    timestamp date_joined
+                    }
+
+                    WALLETS {
+                    int id PK
+                    int user_id FK
+                    decimal balance
+                    timestamp created_at
+                    timestamp updated_at
+                    }
+
+                    TRANSACTIONS_SENT {
+                    int id PK
+                    int sender_id FK
+                    int receiver_id FK
+                    decimal amount
+                    string status
+                    timestamp created_at
+                    }
+
+                    TRANSACTIONS_RECEIVED {
+                    int id PK
+                    int sender_id FK
+                    int receiver_id FK
+                    decimal amount
+                    string status
+                    timestamp created_at
+                    }
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Challenges -->
+    <section class="case-section reveal">
+        <div class="case-container">
+            <h2><i class='bx bx-bug'></i> Engineering Challenges</h2>
+
+            <div class="challenges-grid">
+                <div class="challenge-card">
+                    <div class="challenge-header">
+                        <span class="challenge-num">01</span>
+                        <h3>Atomic P2P Transfers</h3>
+                    </div>
+                    <div class="challenge-body">
+                        <h4>Problem</h4>
+                        <p>Concurrent transfer requests could debit the sender without crediting the receiver, or
+                            allow double-spending when two requests hit the same wallet simultaneously.</p>
+                        <h4>Solution</h4>
+                        <p>Wrapped the entire transfer flow in <code>transaction.atomic()</code> with
+                            <code>select_for_update()</code> row-level locking, ensuring both wallets are updated
+                            as a single indivisible operation.
+                        </p>
+                        <div class="code-snippet">
+                            <pre><code class="python"># Atomic P2P transfer with row-level locking
+from django.db import transaction
+
+def execute_transfer(sender, receiver_email, amount):
+    with transaction.atomic():
+        # Lock both wallets to prevent race conditions
+        sender_wallet = (
+            Wallet.objects
+            .select_for_update()
+            .get(user=sender)
+        )
+        receiver_wallet = (
+            Wallet.objects
+            .select_for_update()
+            .get(user__email=receiver_email)
+        )
+
+        if sender_wallet.balance < amount:
+            raise ValidationError("Insufficient funds")
+
+        sender_wallet.balance -= amount
+        receiver_wallet.balance += amount
+        sender_wallet.save()
+        receiver_wallet.save()
+
+        Transaction.objects.create(
+            sender=sender,
+            receiver=receiver_wallet.user,
+            amount=amount,
+            status="completed"
+        )</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="challenge-card">
+                    <div class="challenge-header">
+                        <span class="challenge-num">02</span>
+                        <h3>Auto Wallet Provisioning</h3>
+                    </div>
+                    <div class="challenge-body">
+                        <h4>Problem</h4>
+                        <p>Manually creating wallets after user registration was error-prone—forgotten steps left
+                            users without wallets, breaking downstream transfer logic.</p>
+                        <h4>Solution</h4>
+                        <p>Used Django's <code>post_save</code> signal on the User model to automatically create a
+                            wallet with a zero balance the instant a user registers—zero manual steps, zero
+                            orphaned accounts.</p>
+                        <div class="code-snippet">
+                            <pre><code class="python"># Signal-driven wallet creation
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+
+@receiver(post_save, sender=User)
+def create_wallet(sender, instance, created, **kwargs):
+    """Auto-provision a wallet for every new user."""
+    if created:
+        Wallet.objects.create(
+            user=instance,
+            balance=Decimal("0.00")
+        )</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="challenge-card">
+                    <div class="challenge-header">
+                        <span class="challenge-num">03</span>
+                        <h3>Secure Fund Validation</h3>
+                    </div>
+                    <div class="challenge-body">
+                        <h4>Problem</h4>
+                        <p>Without proper validation, users could transfer negative amounts (effectively stealing
+                            funds), send money to themselves, or overdraw their balance.</p>
+                        <h4>Solution</h4>
+                        <p>Implemented multi-layer validation at the serializer and model level: positive amount
+                            enforcement, self-transfer prevention, and balance sufficiency checks—all before the
+                            atomic transaction block executes.</p>
+                        <div class="code-snippet">
+                            <pre><code class="python"># Multi-layer transfer validation
+class TransferSerializer(serializers.Serializer):
+    recipient = serializers.EmailField()
+    amount = serializers.DecimalField(
+        max_digits=12, decimal_places=2,
+        min_value=Decimal("0.01")  # No zero/negative transfers
+    )
+
+    def validate(self, data):
+        request = self.context["request"]
+
+        # Prevent self-transfers
+        if data["recipient"] == request.user.email:
+            raise serializers.ValidationError(
+                "Cannot transfer to yourself"
+            )
+
+        # Verify recipient exists
+        if not User.objects.filter(
+            email=data["recipient"]
+        ).exists():
+            raise serializers.ValidationError(
+                "Recipient not found"
+            )
+
+        return data</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lessons Learned -->
+    <section class="case-section reveal">
+        <div class="case-container">
+            <h2><i class='bx bx-bulb'></i> Key Takeaways</h2>
+
+            <div class="takeaways-list">
+                <div class="takeaway-item">
+                    <span class="takeaway-icon">⚛️</span>
+                    <div>
+                        <h4>Atomicity is Non-Negotiable in Fintech</h4>
+                        <p>Financial operations must be all-or-nothing. Django's
+                            <code>transaction.atomic()</code> combined with <code>select_for_update()</code>
+                            eliminates race conditions at the database level.
+                        </p>
+                    </div>
+                </div>
+                <div class="takeaway-item">
+                    <span class="takeaway-icon">📡</span>
+                    <div>
+                        <h4>Signals Decouple Side Effects</h4>
+                        <p>Using <code>post_save</code> signals for wallet creation keeps the registration flow
+                            clean and guarantees every user gets a wallet—without touching the auth views.</p>
+                    </div>
+                </div>
+                <div class="takeaway-item">
+                    <span class="takeaway-icon">🛡️</span>
+                    <div>
+                        <h4>Validate at Every Layer</h4>
+                        <p>Serializer-level checks catch malformed requests early. Model-level constraints act as
+                            the last line of defense. Never trust a single validation layer with money.</p>
+                    </div>
+                </div>
+                <div class="takeaway-item">
+                    <span class="takeaway-icon">📐</span>
+                    <div>
+                        <h4>RESTful Design Matters</h4>
+                        <p>Clean endpoint design (<code>/send/</code>, <code>/history/</code>) with proper HTTP
+                            methods and status codes makes the API intuitive for consumers and easy to document.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="case-cta reveal">
+        <div class="case-container">
+            <h2>Interested in the Technical Details?</h2>
+            <p>Check out the full source code or reach out to discuss the architecture.</p>
+            <div class="cta-buttons">
+                <a href="https://github.com/cliff-de-tech/Cliff-Pay" target="_blank" class="button">
+                    <i class='bx bxl-github'></i> View Source Code
+                </a>
+                <a href="contact.html" class="button secondary">
+                    <i class='bx bx-envelope'></i> Get in Touch
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <img src="assets/logo.webp" alt="Cliff-De-Tech Logo" class="footer-logo" width="40" height="40"
+                    loading="lazy">
+                <p>Bridging complex backend logic and intuitive frontend design to create secure, high-performance
+                    digital systems.</p>
+                <div class="footer-socials">
+                    <a href="https://github.com/cliff-de-tech" target="_blank" rel="noopener" aria-label="GitHub"><i
+                            class='bx bxl-github'></i></a>
+                    <a href="https://www.linkedin.com/in/clifford-opoku-sarkodie-377505369/" target="_blank"
+                        rel="noopener" aria-label="LinkedIn"><i class='bx bxl-linkedin'></i></a>
+                    <a href="https://www.instagram.com/cliffdetech/" target="_blank" rel="noopener"
+                        aria-label="Instagram"><i class='bx bxl-instagram'></i></a>
+                    <a href="https://x.com/cliffdetech" target="_blank" rel="noopener" aria-label="X"><i
+                            class='bx bxl-twitter-x'></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="about.html">About Me</a></li>
+                    <li><a href="portfolio.html">Projects</a></li>
+                    <li><a href="skills.html">Skills</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Backend Services</h4>
+                <ul>
+                    <li>API Development</li>
+                    <li>Database Design</li>
+                    <li>Authentication Systems</li>
+                    <li>DevSecOps</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Clifford Opoku-Sarkodie. Crafted with backend precision, delivered with frontend finesse.</p>
+        </div>
+    </footer>
+
+    <script src="JS/main.js?v=1.2"></script>
+    <script src="JS/enhancements.js?v=1.0"></script>
+    <script src="JS/chatbot.js?v=1.0"></script>
+</body>
+
+</html>
