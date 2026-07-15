@@ -43,6 +43,74 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Space+Grotesk:wght@600;700&display=swap"
     rel="stylesheet">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Clifford Opoku-Sarkodie",
+  "alternateName": "Cliff-De-Tech",
+  "url": "https://cliffdetech.dev/about.html",
+  "image": "https://cliffdetech.dev/assets/me.webp",
+  "logo": "https://cliffdetech.dev/assets/icons/favicon.svg",
+  "jobTitle": "Backend Software Engineer, DevSecOps Specialist, Creative Technologist",
+  "description": "Backend Engineer specializing in secure systems, Fintech APIs, and DevSecOps. Based in Accra, Ghana.",
+  "nationality": "Ghanaian",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Accra",
+    "addressCountry": "GH"
+  },
+  "alumniOf": [
+    {
+      "@type": "CollegeOrUniversity",
+      "name": "University of the People"
+    },
+    {
+      "@type": "Organization",
+      "name": "ALX Africa"
+    }
+  ],
+  "hasCredential": [
+    {
+      "@type": "EducationalOccupationalCredential",
+      "name": "Back-End Web Development Certificate",
+      "credentialCategory": "Certificate",
+      "recognizedBy": {
+        "@type": "Organization",
+        "name": "ALX Africa"
+      }
+    },
+    {
+      "@type": "EducationalOccupationalCredential",
+      "name": "Data Engineer Associate",
+      "credentialCategory": "Professional Certification",
+      "recognizedBy": {
+        "@type": "Organization",
+        "name": "DataCamp"
+      }
+    },
+    {
+      "@type": "EducationalOccupationalCredential",
+      "name": "Professional Foundations Certificate",
+      "credentialCategory": "Certificate",
+      "recognizedBy": {
+        "@type": "Organization",
+        "name": "ALX Africa"
+      }
+    }
+  ],
+  "sameAs": [
+    "https://www.linkedin.com/in/clifford-opoku-sarkodie-377505369/",
+    "https://github.com/cliff-de-tech",
+    "https://x.com/cliffdetech",
+    "https://www.instagram.com/cliffdetech/",
+    "https://www.behance.net/cliffdetech",
+    "https://facebook.com/cliffdetech",
+    "https://youtube.com/@CliffordOpoku-Sarkodie-xr5oy",
+    "https://dribbble.com/cliffdetech"
+  ]
+}
+</script>
 </head>
 
 <body>
@@ -309,7 +377,7 @@
 
   <!-- Education Section -->
   <section class="education-section">
-    <h2 class="section-title reveal">Education</h2>
+    <h2 class="section-title reveal">Education & Certifications</h2>
 
     <div class="education-grid reveal">
       <!-- ALX Education -->
@@ -326,10 +394,13 @@
         <div class="edu-item">
           <div class="edu-item-header">
             <h4>Back-End Development</h4>
-            <span class="edu-status in-progress">In Progress</span>
+            <span class="edu-status completed">Completed</span>
           </div>
           <p>Intensive 4-month program focused on server-side programming, databases, RESTful APIs, and scalable web
             application architecture.</p>
+          <button class="button view-cert-btn" id="viewBackendCertBtn" type="button">
+            <i class='bx bx-show'></i> View Certificate
+          </button>
         </div>
 
         <div class="edu-item">
@@ -344,7 +415,7 @@
         </div>
       </div>
 
-      <!-- UoPeople Education -->
+      <!-- University of the People Education -->
       <div class="education-card">
         <div class="edu-header">
           <div class="edu-icon">
@@ -363,6 +434,32 @@
           </div>
           <p>Accredited online program covering programming, software engineering, databases, operating systems, and
             computer networks.</p>
+        </div>
+      </div>
+
+      <!-- DataCamp Certifications -->
+      <div class="education-card">
+        <div class="edu-header">
+          <img src="assets/datacamp-logo.webp" alt="DataCamp Logo" class="edu-logo" width="48" height="48"
+            loading="lazy">
+          <div class="edu-info">
+            <h3>DataCamp</h3>
+            <p class="edu-location">Online Certification</p>
+          </div>
+        </div>
+
+        <div class="edu-item">
+          <div class="edu-item-header">
+            <h4>Data Engineer Associate</h4>
+            <span class="edu-status completed">Certified</span>
+          </div>
+          <p>Professional certification validating skills in SQL, Python, data pipeline orchestration, data warehousing, and data ingestion processes.</p>
+          <div style="display: flex; align-items: center; gap: 16px; margin-top: 14px;">
+            <img src="assets/DE Associate - badge.webp" alt="Data Engineer Associate Badge" style="width: 54px; height: 54px; filter: drop-shadow(0 0 8px rgba(0, 212, 255, 0.35));" loading="lazy">
+            <button class="button view-cert-btn" id="viewDeCertBtn" type="button" style="margin-top: 0;">
+              <i class='bx bx-show'></i> View Certificate
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -461,6 +558,32 @@
     </div>
   </div>
 
+  <div class="lightbox lightbox-hidden" id="backendCertLightbox" aria-modal="true" role="dialog"
+    aria-label="Backend Web Development Certificate preview">
+    <div class="lightbox-content">
+      <div class="lightbox-media">
+        <img src="assets/70-back-end-web-development-certificate-clifford-opoku-sarkodie.webp"
+          alt="ALX Back-End Web Development Certificate" class="cert-image" loading="lazy" />
+      </div>
+      <div class="ctrls">
+        <button class="icon-btn" aria-label="Close">✕ Close</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="lightbox lightbox-hidden" id="deCertLightbox" aria-modal="true" role="dialog"
+    aria-label="Data Engineer Associate Certificate preview">
+    <div class="lightbox-content">
+      <div class="lightbox-media">
+        <img src="assets/DEA0019400538633_page-0001.webp"
+          alt="DataCamp Data Engineer Associate Certificate" class="cert-image" loading="lazy" />
+      </div>
+      <div class="ctrls">
+        <button class="icon-btn" aria-label="Close">✕ Close</button>
+      </div>
+    </div>
+  </div>
+
   <div class="lightbox lightbox-hidden" id="ikeMediaLightbox" aria-modal="true" role="dialog"
     aria-label="IKE MEDIA work preview">
     <div class="lightbox-content">
@@ -516,6 +639,8 @@
     }
 
     setupModal('viewCertBtn', 'certLightbox');
+    setupModal('viewBackendCertBtn', 'backendCertLightbox');
+    setupModal('viewDeCertBtn', 'deCertLightbox');
     setupModal('viewLscAppreciationBtn', 'lscAppreciationLightbox');
     setupModal('viewLscRecommendationBtn', 'lscRecommendationLightbox');
     // setupModal('viewIkeMediaBtn', 'ikeMediaLightbox'); // Replaced by specific gallery logic below

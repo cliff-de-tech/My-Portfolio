@@ -1,4 +1,4 @@
-const CACHE_NAME = 'cliff-de-tech-v3'; // Updated for PWA enhancements
+const CACHE_NAME = 'cliff-de-tech-v5'; // Incremented cache version
 const urlsToCache = [
   '/',
   '/index.html',
@@ -8,18 +8,29 @@ const urlsToCache = [
   '/contact.html',
   '/playground.html',
   '/case-study.html',
+  '/case-study-authforge.html',
+  '/case-study-cliffpay.html',
+  '/case-study-ledgerx.html',
+  '/case-study-eventflow.html',
+  '/case-study-cedismart.html',
   '/404.html',
   '/manifest.json',
-  '/CSS/style.css?v=1.6',
-  '/CSS/web-category.css?v=1.1',
+  '/CSS/style.css?v=1.7',
+  '/CSS/style.min.css?v=1.0',
   '/JS/main.js?v=1.1',
   '/JS/enhancements.js?v=1.0',
   '/JS/playground.js?v=1.0',
   '/JS/chatbot.js?v=1.0',
-  '/JS/web-category.js?v=1.1',
-  '/JS/web-scroll.js?v=1.1',
   '/assets/logo.webp',
-  '/assets/me.webp'
+  '/assets/me.webp',
+  '/assets/icons/favicon-96x96.png',
+  '/assets/icons/apple-touch-icon.png',
+  '/assets/icons/web-app-manifest-192x192.png',
+  '/assets/icons/web-app-manifest-512x512.png',
+  '/assets/70-back-end-web-development-certificate-clifford-opoku-sarkodie.webp',
+  '/assets/DE Associate - badge.webp',
+  '/assets/DEA0019400538633_page-0001.webp',
+  '/assets/datacamp-logo.webp'
 ];
 
 self.addEventListener('install', event => {

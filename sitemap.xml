@@ -76,5 +76,17 @@
   <changefreq>monthly</changefreq>
   <priority>0.7</priority>
 </url>
+<url>
+  <loc>https://cliffdetech.dev/case-study-cliffpay.html</loc>
+  <lastmod>2026-07-15</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.7</priority>
+</url>
+<url>
+  <loc>https://cliffdetech.dev/case-study-cedismart.html</loc>
+  <lastmod>2026-07-15</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.7</priority>
+</url>
 
 </urlset>

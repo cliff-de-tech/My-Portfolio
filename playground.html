@@ -102,6 +102,8 @@
                             <option value="/api/users/1">GET /api/users/:id</option>
                             <option value="/api/projects">GET /api/projects</option>
                             <option value="/api/auth/login">POST /api/auth/login</option>
+                            <option value="/api/cedismart/transactions">GET /api/cedismart/transactions</option>
+                            <option value="/api/cedismart/parse-sms">POST /api/cedismart/parse-sms</option>
                             <option value="/api/health">GET /api/health</option>
                         </select>
                     </div>
@@ -178,6 +180,16 @@
                     <span class="method post">POST</span>
                     <code>/api/auth/login</code>
                     <span class="desc">Authenticate user</span>
+                </div>
+                <div class="endpoint-item">
+                    <span class="method get">GET</span>
+                    <code>/api/cedismart/transactions</code>
+                    <span class="desc">List mock CediSmart transactions</span>
+                </div>
+                <div class="endpoint-item">
+                    <span class="method post">POST</span>
+                    <code>/api/cedismart/parse-sms</code>
+                    <span class="desc">Parse MoMo SMS with Gemini 2.5 Flash</span>
                 </div>
                 <div class="endpoint-item">
                     <span class="method get">GET</span>

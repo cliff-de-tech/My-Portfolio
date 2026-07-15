@@ -83,7 +83,22 @@ body.light-theme {
 
 /* Base */
 html {
-  scroll-behavior: smooth
+  scroll-behavior: smooth;
+  scrollbar-color: var(--accent) var(--bg);
+  scrollbar-width: thin;
+}
+
+/* Custom Webkit scrollbar for premium theme consistency */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--accent), var(--accent-2));
+  border-radius: 4px;
 }
 
 body {
@@ -2158,6 +2173,27 @@ textarea {
 .reveal.visible {
   opacity: 1;
   transform: none
+}
+
+/* Progressive Enhancement: Compositor-threaded Scroll Reveals using CSS View Timelines */
+@supports (animation-timeline: view()) {
+  .reveal {
+    animation: reveal-in both;
+    animation-timeline: view();
+    animation-range: entry 5% cover 25%;
+    transition: none !important;
+  }
+  
+  @keyframes reveal-in {
+    from {
+      opacity: 0;
+      transform: translateY(18px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 }
 
 /* Mobile */
@@ -5455,16 +5491,23 @@ body.light-theme .code-textarea {
   top: 0;
   left: 0;
   height: 3px;
-  width: 0%;
+  width: 100%;
   background: linear-gradient(90deg, var(--accent) 0%, var(--accent-secondary, #a855f7) 100%);
   z-index: 9999;
-  transition: width 0.1s ease-out;
   box-shadow: 0 0 10px var(--accent);
+  transform-origin: left;
+  animation: grow-progress auto linear;
+  animation-timeline: scroll();
 }
 
 body.light-theme #scroll-progress {
   background: linear-gradient(90deg, #0066cc 0%, #6600cc 100%);
   box-shadow: 0 0 10px rgba(0, 102, 204, 0.5);
+}
+
+@keyframes grow-progress {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
 }
 
 /* ====== BACK TO TOP BUTTON ====== */
@@ -6173,11 +6216,25 @@ body.light-theme .log-level.info {
   cursor: pointer;
 }
 
+/* Force clean white background and dark text for options to guarantee visibility across all OS/browser themes */
+.method-select option,
+.endpoint-select option {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+}
+
 .method-select {
   width: 100px;
   color: #22c55e;
   font-weight: 600;
+  transition: color 0.2s ease;
 }
+
+/* Dynamic method selector text colors */
+.method-select.method-get { color: #22c55e !important; }
+.method-select.method-post { color: #3b82f6 !important; }
+.method-select.method-put { color: #f59e0b !important; }
+.method-select.method-delete { color: #ef4444 !important; }
 
 .endpoint-select {
   flex: 1;

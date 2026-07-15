@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.boxicons.com">
+    <link rel="preconnect" href="https://unpkg.com">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <!-- CACHE BUSTING: Updated to v=1.0 -->
+    <link rel="stylesheet" href="CSS/style.min.css?v=1.0">
+    <!-- Social Sharing / Open Graph Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://cliffdetech.dev/case-study-cedismart.html">
+    <meta property="og:title" content="CediSmart Case Study | Clifford Opoku-Sarkodie - Backend Engineer">
+    <meta property="og:description"
+        content="Deep dive into CediSmart: An offline-first, mobile-money centric budgeting platform featuring an automated SMS parser powered by Gemini 2.5 Flash.">
+    <meta property="og:image" content="https://cliffdetech.dev/assets/me.webp">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="CediSmart Case Study | Clifford Opoku-Sarkodie - Backend Engineer">
+    <meta name="twitter:description"
+        content="Deep dive into CediSmart: An offline-first, mobile-money centric budgeting platform featuring an automated SMS parser powered by Gemini 2.5 Flash.">
+    <meta name="twitter:image" content="https://cliffdetech.dev/assets/me.webp">
+    <!-- PERFORMANCE: Defer icon fonts loading -->
+    <link rel="preload" as="style" href="https://cdn.boxicons.com/3.0.4/fonts/brands/boxicons-brands.min.css">
+    <link href='https://cdn.boxicons.com/3.0.4/fonts/brands/boxicons-brands.min.css' rel='stylesheet' media="print"
+        onload="this.media='all'">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet' media="print"
+        onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+        <link rel="stylesheet" href="https://cdn.boxicons.com/3.0.4/fonts/brands/boxicons-brands.min.css">
+    </noscript>
+    <link rel="icon" type="image/png" href="assets/icons/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
+    <link rel="shortcut icon" href="assets/icons/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png" />
+    <link rel="manifest" href="assets/icons/site.webmanifest" />
+    <meta name="theme-color" content="#00d4ff">
+    <title>CediSmart Case Study | Clifford Opoku-Sarkodie - Backend Engineer</title>
+    <meta name="google-site-verification" content="UxjWMFhIU8iz2KEHdoypfxotkE1lo-xSWkkKhqYYpBE" />
+    <meta name="description"
+        content="Technical case study of CediSmart by Clifford Opoku-Sarkodie. Explore the Gemini 2.5 Flash SMS parsing architecture, offline sync strategy, and MoMo budgeting patterns." />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Space+Grotesk:wght@600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <!-- Mermaid.js for diagrams -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <script>
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'dark',
+            themeVariables: {
+                primaryColor: '#00d4ff',
+                primaryTextColor: '#e2e8f0',
+                primaryBorderColor: '#334155',
+                lineColor: '#64748b',
+                secondaryColor: '#a855f7',
+                tertiaryColor: '#1e293b'
+            }
+        });
+    </script>
+</head>
+
+<body>
+
+    <canvas id="bg-canvas" aria-hidden="true"></canvas>
+    <div class="bg-overlay-gradient" aria-hidden="true"></div>
+
+    <nav class="nav">
+        <a class="brand" href="index.html" aria-label="Home">
+            <img src="assets/logo.webp" alt="Cliff-De-Tech Logo" width="32" height="32" />
+            <span>Cliff-De-Tech</span>
+        </a>
+        <ul>
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="about.html" class="nav-link">About Me</a></li>
+            <li><a href="skills.html" class="nav-link">Skills</a></li>
+            <li><a href="portfolio.html" class="nav-link">Projects</a></li>
+            <li><a href="playground.html" class="nav-link">Playground</a></li>
+            <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+            <i class='bx bxs-moon'></i>
+        </button>
+        <button class="menu-btn" aria-label="Open menu">&#9776;</button>
+    </nav>
+
+    <!-- Case Study Hero -->
+    <section class="case-study-hero">
+        <div class="case-hero-content reveal">
+            <span class="case-badge"><i class='bx bx-brain'></i> Fintech & AI</span>
+            <h1>CediSmart</h1>
+            <p class="case-tagline">Offline-First, MoMo-Centric Budgeting Platform with Gemini SMS Parsing</p>
+            <div class="case-meta">
+                <span><i class='bx bx-calendar'></i> 2026</span>
+                <span><i class='bx bx-code-alt'></i> FastAPI, React Native, PostgreSQL, Gemini AI</span>
+                <span><i class='bx bx-check-circle'></i> Completed</span>
+            </div>
+            <div class="case-actions">
+                <a href="https://github.com/cliff-de-tech/CediSmart" target="_blank" class="button">
+                    <i class='bx bxl-github'></i> View on GitHub
+                </a>
+                <a href="portfolio.html" class="button secondary">
+                    <i class='bx bx-arrow-back'></i> Back to Projects
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Overview Section -->
+    <section class="case-section reveal">
+        <div class="case-container">
+            <h2><i class='bx bx-info-circle'></i> Project Overview</h2>
+
+            <div class="overview-grid">
+                <div class="overview-card">
+                    <h3>The Problem</h3>
+                    <p>Most personal finance applications assume a Western economic reality: bank-account-first transactions, constant high-speed mobile data, email addresses for identity, and free bank feeds. In Ghana, MTN MoMo and Vodafone/Telecel Cash dominate financial activity; users are on prepaid data where every kilobyte counts; network coverage is unstable; and identity is tied directly to phone numbers.</p>
+                </div>
+                <div class="overview-card">
+                    <h3>The Solution</h3>
+                    <p>CediSmart is a monorepo platform built from first principles for emerging markets. It pairs a high-performance FastAPI backend with a React Native (Expo) app, featuring native phone-number SMS auth, an offline SQLite caching layer with batch sync, and a Gemini 2.5 Flash-powered SMS transaction parser that turns plain-text Mobile Money notifications into structured ledger entries.</p>
+                </div>
+                <div class="overview-card">
+                    <h3>Key Metrics</h3>
+                    <ul>
+                        <li>✨ SMS parsing to structured JSON in &lt; 1s using Gemini 2.5 Flash</li>
+                        <li>📶 100% offline usability with SQLite and client-side sync tokens</li>
+                        <li>🛡️ Zero credentials exposure by routing all AI calls through secure proxy</li>
+                        <li>🚀 High deliverability SMS OTPs using Termii API</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- System Architecture -->
+    <section class="case-section reveal">
+        <div class="case-container">
+            <h2><i class='bx bx-sitemap'></i> SMS Parsing Flow</h2>
+            <p class="section-intro">How raw SMS notifications are parsed into structured ledger entries using Gemini 2.5 Flash, with a regex fallback engine.</p>
+
+            <div class="diagram-container">
+                <div class="mermaid">
+                    sequenceDiagram
+                        participant User as User / SMS Inbox
+                        participant App as React Native Expo App
+                        participant API as CediSmart FastAPI Backend
+                        participant Gemini as Google Gemini API
+
+                        User->>App: Paste SMS message or Trigger auto-read
+                        App->>API: POST /api/v1/transactions/parse-sms (jwt auth)
+                        Note over API: Check if GEMINI_API_KEY is configured
+                        alt Gemini API Key present
+                            API->>Gemini: POST /v1beta/models/gemini-2.5-flash:generateContent
+                            Gemini-->>API: Return Structured JSON response
+                        else Key absent (Local Fallback)
+                            API->>API: Execute Rule-Based Regex Parser
+                        end
+                        API->>API: Match suggested category to DB category
+                        API-->>App: Return parsed transaction details
+                        App->>User: Pre-populate Transaction Form for validation
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Database Schema -->
+    <section class="case-section reveal">
+        <div class="case-container">
+            <h2><i class='bx bx-data'></i> Database Schema</h2>
+            <p class="section-intro">Entity-Relationship diagram showing the budgeting and transaction models.</p>
+
+            <div class="diagram-container">
+                <div class="mermaid">
+                    erDiagram
+                        USERS ||--o{ FINANCIAL_ACCOUNTS : owns
+                        USERS ||--o{ TRANSACTIONS : owns
+                        USERS ||--o{ BUDGETS : sets
+                        FINANCIAL_ACCOUNTS ||--o{ TRANSACTIONS : records
+                        CATEGORIES ||--o{ TRANSACTIONS : classifies
+                        CATEGORIES ||--o{ BUDGETS : defines
+
+                        USERS {
+                            uuid id PK
+                            string phone UK
+                            string password_hash
+                            boolean has_premium_access
+                            timestamp created_at
+                        }
+
+                        FINANCIAL_ACCOUNTS {
+                            uuid id PK
+                            uuid user_id FK
+                            string name
+                            decimal balance
+                            boolean is_active
+                            timestamp created_at
+                        }
+
+                        TRANSACTIONS {
+                            uuid id PK
+                            uuid user_id FK
+                            uuid account_id FK
+                            uuid category_id FK
+                            decimal amount
+                            string transaction_type
+                            string description
+                            date transaction_date
+                            uuid client_id UK
+                            boolean is_deleted
+                        }
+
+                        CATEGORIES {
+                            uuid id PK
+                            string name
+                            string category_type
+                            boolean is_system
+                            uuid user_id FK
+                        }
+
+                        BUDGETS {
+                            uuid id PK
+                            uuid user_id FK
+                            uuid category_id FK
+                            decimal amount_limit
+                            int year
+                            int month
+                        }
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Challenges -->
+    <section class="case-section reveal">
+        <div class="case-container">
+            <h2><i class='bx bx-bug'></i> Engineering Challenges</h2>
+
+            <div class="challenges-grid">
+                <div class="challenge-card">
+                    <div class="challenge-header">
+                        <span class="challenge-num">01</span>
+                        <h3>Gemini LLM Structured Parsing & Fallback</h3>
+                    </div>
+                    <div class="challenge-body">
+                        <h4>Problem</h4>
+                        <p>Raw transactional SMS alerts from Mobile Money are highly unstructured. Attempting to parse these with general LLM prompts can result in malformed JSON or slow response times. Furthermore, the system must remain functional even when offline or when rate limits are exceeded.</p>
+                        <h4>Solution</h4>
+                        <p>We leverage Gemini 2.5 Flash's native <strong>Structured Outputs</strong> via the FastAPI backend. By providing a strict JSON schema via <code>responseSchema</code>, we guarantee parseable results. If the API is offline or rate-limited, the system seamlessly falls back to a rule-based regex compiler.</p>
+                        <div class="code-snippet">
+                            <pre><code class="python"># Enforcing structured schema with Gemini 2.5 Flash
+generation_config = {
+    "responseMimeType": "application/json",
+    "responseSchema": {
+        "type": "OBJECT",
+        "properties": {
+            "amount": {"type": "NUMBER"},
+            "transaction_type": {
+                "type": "STRING", 
+                "enum": ["income", "expense"]
+            },
+            "description": {"type": "STRING"},
+            "category_suggestion": {"type": "STRING"},
+            "notes": {"type": "STRING"}
+        },
+        "required": ["amount", "transaction_type", "description"]
+    }
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="challenge-card">
+                    <div class="challenge-header">
+                        <span class="challenge-num">02</span>
+                        <h3>Idempotent Bulk Synchronization</h3>
+                    </div>
+                    <div class="challenge-body">
+                        <h4>Problem</h4>
+                        <p>To survive low-connectivity areas, the client writes data locally to SQLite and queues it. During network recovery, sending a batch of local updates could cause double-write race conditions or duplicate transactions if the client retries a failed HTTP request.</p>
+                        <h4>Solution</h4>
+                        <p>Implemented client-side UUID generation (`client_id`) on the mobile app. The backend processes batches using a `BulkCreateRequest` schema. It preloads known `client_id`s in a single database query, processes only the non-duplicate entries, and returns a granular summary of created vs skipped items.</p>
+                        <div class="code-snippet">
+                            <pre><code class="python"># Idempotent bulk check in service.py
+async def bulk_create_transactions(user_id, payload, db, redis):
+    incoming_ids = {
+        item.client_id for item in payload.transactions 
+        if item.client_id is not None
+    }
+    # Fetch existing client_ids in one query
+    existing_result = await db.execute(
+        select(Transaction.client_id).where(
+            Transaction.user_id == user_id,
+            Transaction.client_id.in_(incoming_ids)
+        )
+    )
+    existing_ids = {row[0] for row in existing_result.all()}
+    
+    # Process batch...
+    for item in payload.transactions:
+        if item.client_id in existing_ids:
+            skipped += 1
+            continue
+        # ... add transaction to database
+        created += 1</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="challenge-card">
+                    <div class="challenge-header">
+                        <span class="challenge-num">03</span>
+                        <h3>Ghana-Native Auth & SMS Security</h3>
+                    </div>
+                    <div class="challenge-body">
+                        <h4>Problem</h4>
+                        <p>Email registration is uncommon in the mass Ghanaian market, and hardcoded API keys in mobile apps can be reverse-engineered from APK decompilations.</p>
+                        <h4>Solution</h4>
+                        <p>Configured passwordless mobile login using <strong>Termii SMS Gateway</strong>. All communications are securely routed through the FastAPI backend. Verification codes are validated using Redis-backed TTL caches (5 min), and successful verification generates an RS256-signed JWT token, keeping the keys safe on the server.</p>
+                        <div class="code-snippet">
+                            <pre><code class="python"># SMS OTP creation route using Redis cache
+async def generate_otp(phone_number: str, redis: RedisConn):
+    otp_code = generate_secure_otp() # 4-digit code
+    cache_key = f"otp:{phone_number}"
+    
+    # Set verification code with 5-minute TTL
+    await redis.set(cache_key, otp_code, ex=300)
+    
+    # Trigger Termii API call (server-side ONLY)
+    await send_termii_sms(phone_number, f"Your CediSmart code: {otp_code}")</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lessons Learned -->
+    <section class="case-section reveal">
+        <div class="case-container">
+            <h2><i class='bx bx-bulb'></i> Key Takeaways</h2>
+
+            <div class="takeaways-list">
+                <div class="takeaway-item">
+                    <span class="takeaway-icon">🤖</span>
+                    <div>
+                        <h4>LLM API Security is Paramount</h4>
+                        <p>Never place AI studio keys in front-end client environments. Proxying all requests through your own API guarantees rate-limiting, credential protection, and allows for clean fallback rules.</p>
+                    </div>
+                </div>
+                <div class="takeaway-item">
+                    <span class="takeaway-icon">💾</span>
+                    <div>
+                        <h4>Offline-First Demands Idempotency</h4>
+                        <p>Synchronization loops will inevitably retry requests under unstable connections. Without matching unique client-side UUIDs to database keys, you risk duplicating ledger transactions.</p>
+                    </div>
+                </div>
+                <div class="takeaway-item">
+                    <span class="takeaway-icon">💸</span>
+                    <div>
+                        <h4>Design for Local Contexts</h4>
+                        <p>Building applications for emerging markets means understanding user behaviors. Relying on phone numbers and mobile money is much more valuable to a local audience than a generic banking API.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="case-cta reveal">
+        <div class="case-container">
+            <h2>Interested in the Technical Details?</h2>
+            <p>Check out the full source code or reach out to discuss the architecture.</p>
+            <div class="cta-buttons">
+                <a href="https://github.com/cliff-de-tech/CediSmart" target="_blank" class="button">
+                    <i class='bx bxl-github'></i> View Source Code
+                </a>
+                <a href="contact.html" class="button secondary">
+                    <i class='bx bx-envelope'></i> Get in Touch
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <img src="assets/logo.webp" alt="Cliff-De-Tech Logo" class="footer-logo" width="40" height="40"
+                    loading="lazy">
+                <p>Bridging complex backend logic and intuitive frontend design to create secure, high-performance
+                    digital systems.</p>
+                <div class="footer-socials">
+                    <a href="https://github.com/cliff-de-tech" target="_blank" rel="noopener" aria-label="GitHub"><i
+                            class='bx bxl-github'></i></a>
+                    <a href="https://www.linkedin.com/in/clifford-opoku-sarkodie-377505369/" target="_blank"
+                        rel="noopener" aria-label="LinkedIn"><i class='bx bxl-linkedin'></i></a>
+                    <a href="https://www.instagram.com/cliffdetech/" target="_blank" rel="noopener"
+                        aria-label="Instagram"><i class='bx bxl-instagram'></i></a>
+                    <a href="https://x.com/cliffdetech" target="_blank" rel="noopener" aria-label="X"><i
+                            class='bx bxl-twitter-x'></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="about.html">About Me</a></li>
+                    <li><a href="portfolio.html">Projects</a></li>
+                    <li><a href="skills.html">Skills</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Backend Services</h4>
+                <ul>
+                    <li>API Development</li>
+                    <li>Database Design</li>
+                    <li>Authentication Systems</li>
+                    <li>DevSecOps</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Clifford Opoku-Sarkodie. Crafted with backend precision, delivered with frontend finesse.</p>
+        </div>
+    </footer>
+
+    <script src="JS/main.js?v=1.2"></script>
+    <script src="JS/enhancements.js?v=1.0"></script>
+    <script src="JS/chatbot.js?v=1.0"></script>
+</body>
+
+</html>

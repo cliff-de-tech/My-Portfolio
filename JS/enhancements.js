@@ -12,12 +12,7 @@
         return progressBar;
     }
 
-    function updateProgressBar(progressBar) {
-        const scrollTop = window.scrollY;
-        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-        const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-        progressBar.style.width = `${progress}%`;
-    }
+
 
     // ===== BACK TO TOP BUTTON =====
     function createBackToTop() {
@@ -209,21 +204,19 @@
         const progressBar = createProgressBar();
         const backToTopBtn = createBackToTop();
 
-        // Scroll event handler (debounced)
+        // Scroll event handler (debounced) for back to top button
         let ticking = false;
         window.addEventListener('scroll', () => {
             if (!ticking) {
                 window.requestAnimationFrame(() => {
-                    updateProgressBar(progressBar);
                     handleBackToTopVisibility(backToTopBtn);
                     ticking = false;
                 });
                 ticking = true;
             }
-        });
+        }, { passive: true });
 
         // Initial update
-        updateProgressBar(progressBar);
         handleBackToTopVisibility(backToTopBtn);
 
         // Back to top click handler

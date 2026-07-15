@@ -37,6 +37,7 @@ This portfolio is a **production-grade PWA** built from scratch — no framework
 | [**SupportIQ**](https://github.com/cliff-de-tech/SupportIQ) | AI-powered customer support ticketing system with SLA tracking |
 | [**Gatekeeper**](https://github.com/cliff-de-tech/Gatekeeper) | API gateway with rate limiting, IP whitelisting, and request validation |
 | [**Cliff-Pay**](https://github.com/cliff-de-tech/Cliff-Pay) | Payment processing integration supporting Stripe and mobile money APIs |
+| [**CediSmart**](https://github.com/cliff-de-tech/CediSmart) | Mobile money-centric budgeting app with Gemini AI SMS parser and offline sync |
 | [**LinkedIn Bot**](https://github.com/cliff-de-tech/LinkedIn-Bot) | Automated content scheduler for LinkedIn with analytics dashboard |
 
 ---
